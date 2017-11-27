@@ -13,11 +13,10 @@
 		<a href="" class="linkSingle"> <img class="data-img">
 			<p class="data-description"></p>
 	</template>
+	<!--		************************************* OPLEVELSE-TEMPLATE-->
 	<template id="oplevelseTemplate">
 		<h2 class="oplevelseHeadline"></h2>
-		<p class="oplevelseBody"></p>
-		<img class="oplevelseImg">
-	</template>
+		<p class="oplevelseBody"></p> <img class="oplevelseImg"> </template>
 	<!--		************************************* FILTER-TEMPLATE-->
 	<!--		LOAD CATEGORIES FROM ENDPOINT -->
 	<a href="">
@@ -60,6 +59,27 @@
 				<h2>Kunst &amp; Malerier</h2> </div>
 		</div>
 	</div>
+	<!--		************************************* OPLEVELSE-JS-->
+	<script>
+		async function loadOplevelser() {
+			let template = document.querySelector("#oplevelseTemplate");
+			let parent = document.querySelector("#bgVideo");
+			let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
+			let oplevelser = await oplevelserObj.json();
+			console.log(oplevelser);
+			oplevelser.forEach(function (oplevelse) {
+				let clone = template.cloneNode(true).content;
+				clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
+				clone.querySelector(".oplevelseHeadline").textContent = oplevelse.acf.overskrift;
+				clone.querySelector(".oplevelseBody").textContent = oplevelse.acf.broedtekst;
+				parent.appendChild(clone);
+			});
+		}
+		loadOplevelser();
+	</script>
+	<style>
+
+	</style>
 </body>
 <!--	IS ALIVEEEEE-->
 
