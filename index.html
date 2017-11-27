@@ -20,16 +20,15 @@
 	<template id="oplevelseTemplate">
 		<h2 class="oplevelseHeadline"></h2>
 		<p class="oplevelseBody"></p> <img class="oplevelseImg"> </template>
-	<!--		************************************* FILTER-TEMPLATE-->
-	<!--		LOAD CATEGORIES FROM ENDPOINT -->
-	<a href="">
-		<h4 class="filterOptions" id="">filter-kategori</h4> </a>
-	<!--		*************************************-->
+
+
 </head>
 
 <body>
 	<!--		************************************* NAVIGATION-->
-	<nav>
+
+<!--
+    <nav>
 		<div id="logo"></div>
 		<ul id="menuContainer">
 			<a href="gallery.html">
@@ -50,10 +49,49 @@
 		</ul>
 		<div id="instagram"></div>
 	</nav>
+-->
 
+    <!--		************************************* BURGER MENU -->
 
-	<!--		*************************************-->
+     <header>
+        <button class="burger">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </button>
+        <nav>
+            <ul>
+                <a href=".html">
+                    <li>Galleri</li>
+                </a>
+                <a href=".html">
+                    <li>Oplevelser</li>
+                </a>
+                <a href=".html">
+                    <li>Produktudvikling</li>
+                </a>
+                <a href=".html">
+                    <li>Om</li>
+                </a>
+                <a href=".html">
+                    <li>Kontakt</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+	<!--		************************************* BG VIDEO-->
 	<div id="bgVideo">
+
+
+           <!--		************************************* FILTER-TEMPLATE-->
+	<!--		LOAD CATEGORIES FROM ENDPOINT -->
+	<a href="">
+		<h4 class="filterOptions" id="">filter-kategori</h4> </a>
+	<!--		*************************************-->
+
+
+
 		<!--		************************************* GALLERI-->
 		<div id="galleryContainer">
 			<div id="galleryInterior" class="galleries">
@@ -64,6 +102,11 @@
 				<h2>Kunst &amp; Malerier</h2> </div>
 		</div>
 	</div>
+
+
+
+
+
 	<!--		************************************* OPLEVELSE-JS-->
 	<script>
 		async function loadOplevelser() {
@@ -82,7 +125,33 @@
 		}
 		loadOplevelser();
 	</script>
-	<style>
+
+    <script>
+    // TOGGLE BURGER MENU
+
+        function onLoad() {
+
+//    if (window.innerWidth <= 768) {
+
+    function toggleMenu() {
+    document.querySelector(".burger").classList.toggle("change");
+    document.querySelector("nav").classList.toggle("show");
+    }
+    document.querySelector(".burger").addEventListener("click", toggleMenu);
+    document.querySelector("ul").addEventListener("click", toggleMenu);
+
+    // }
+}
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+    onLoad();
+});
+
+
+    </script>
+
+
+    <style>
 
 	</style>
 </body>
