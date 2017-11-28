@@ -12,6 +12,7 @@ img {
 
 /* MENU TIL WEB */
 
+
 /*
 nav a {
     text-decoration: none;
@@ -39,16 +40,21 @@ nav a {
 
 
 /* BURGER MENU */
+
 header {
-   height: 13vw;
-   width: 100vw;
-   position: fixed;
-   z-index: 98;
-   margin: 0;
-   color: white;
+    height: 13vw;
+    width: 100vw;
+    position: fixed;
+    z-index: 98;
+    margin: 0;
+    color: white;
 }
 
-a {
+a#gallery,
+a#oplevelser,
+a#produktudvikling,
+a#om,
+a#kontakt {
     text-decoration: none;
     color: white;
 }
@@ -63,14 +69,14 @@ a {
     z-index: 99;
 }
 
-ul {
+ul#menuContainer {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-li {
-/*    padding: 5px;*/
+li.menuItems {
+    /*    padding: 5px;*/
     cursor: pointer;
     padding-left: 15px;
     padding-top: 15px;
@@ -98,22 +104,24 @@ nav.show {
     background-color: rgb(0, 0, 0);
     z-index: 1;
 }
+
+
 /* Rotate first bar */
+
 .change .bar1 {
     transform: rotate(-45deg) translate(-9px, 6px);
 }
+
+
 /* Fade out the second bar */
+
 .change .bar2 {
     opacity: 0;
 }
+
+
 /* Rotate last bar */
+
 .change .bar3 {
     transform: rotate(45deg) translate(-8px, -8px);
 }
-
-
-
-
-
-
-
