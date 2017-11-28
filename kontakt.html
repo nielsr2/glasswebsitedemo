@@ -13,9 +13,10 @@
 		<meta name="author" content="">
 		<title>KONTAKT</title>
 		<!--		************************************* OPLEVELSE-TEMPLATE-->
-		<template id="oplevelseTemplate">
-			<h2 class="oplevelseHeadline"></h2>
-			<p class="oplevelseBody"></p> <img class="oplevelseImg"> </template>
+		<template id="someTemplate">
+			<h2 class="someHeadline"></h2>
+			<a class="someLink" href="events_page.html?category=33"> <img class="someImg"> </a>
+		</template>
 	</head>
 
 	<body>
@@ -49,32 +50,36 @@
 		<!--		************************************* BG VIDEO-->
 		<div id="bgVideo"></div>
 		<article id="kontaktOplysninger">
-		<h2 id="kontaktHeadline"></h2>
+			<h2 id="kontaktHeadline"></h2>
 			<p id="kontaktBody"></p>
 		</article>
+		<div id="someContainer"></div>
 		<!--		************************************* OPLEVELSE-JS-->
 		<script>
-			async function loadOplevelser() {
-//				let template = document.querySelector("#oplevelseTemplate");
-//				let parent = document.querySelector("#bgVideo");
+			async function loadKontakt() {
 				let kontaktObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt");
 				let kontakt = await kontaktObj.json();
 				console.log(kontakt);
 				console.log(kontakt[3].content.rendered);
 				document.querySelector("#kontaktBody").textContent = kontakt[3].content.rendered.replace(/<(?:.|\n)*?>/gm, '');
 				document.querySelector("#kontaktHeadline").textContent = kontakt[3].title.rendered.replace(/<(?:.|\n)*?>/gm, '');
-				http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt?
-//				oplevelser.forEach(function (oplevelse) {
-//					let clone = template.cloneNode(true).content;
-//					clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
-//					clone.querySelector(".oplevelseHeadline").textContent = oplevelse.acf.overskrift;
-//					clone.querySelector(".oplevelseBody").textContent = oplevelse.acf.broedtekst;
-//					parent.appendChild(clone);
-//				});
 			}
-
-
-			loadOplevelser();
+			async function loadSoMe() {
+				let template = document.querySelector("#someTemplate");
+				let parent = document.querySelector("#someContainer");
+				let someObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt?categories=3");
+				let some = await someObj.json();
+				console.log(some);
+				some.forEach(function (so) {
+					let clone = template.cloneNode(true).content;
+					clone.querySelector(".someImg").setAttribute("src", so.acf.ikon);
+					clone.querySelector(".someHeadline").textContent = so.acf.overskrift;
+					clone.querySelector(".someLink").setAttribute("href", so.acf.link);
+					parent.appendChild(clone);
+				});
+			}
+			loadKontakt();
+			loadSoMe();
 		</script>
 		<script src="burger.js"></script>
 		<style>
