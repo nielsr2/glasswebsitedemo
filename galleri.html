@@ -52,8 +52,8 @@
 		<div id="bgVideo"></div>
 		<!--		************************************* FILTER-TEMPLATE-->
 		<!--		LOAD CATEGORIES FROM ENDPOINT -->
-		<a href="">
-			<h4 class="filterOptions" id="">filter-kategori</h4> </a>
+<!--		<a href="">-->
+<!--			<h4 class="filterOptions" id="">filter-kategori</h4> </a>-->
 		<!--		*************************************-->
 		<!--		************************************* GALLERI-->
 		<div id="galleryContainer">
@@ -69,7 +69,7 @@
 			async function loadOplevelser() {
 				let template = document.querySelector("#oplevelseTemplate");
 				let parent = document.querySelector("#bgVideo");
-				let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
+				let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/galleri");
 				let oplevelser = await oplevelserObj.json();
 				console.log(oplevelser);
 				oplevelser.forEach(function (oplevelse) {
@@ -84,7 +84,21 @@
 		</script>
 		<script src="burger.js"></script>
 		<style>
+			#galleryContainer {
+				background-color: red;
+				border: blue 4px solid;
+			}
+/*
 
+			#galleryContainer:nth-child(2n) {
+				background: blue;
+				border: pink 4px solid;
+			}
+*/
+
+			.galleries{
+				height: 10vh;
+			}
 		</style>
 	</body>
 	<!--	IS ALIVEEEEE-->

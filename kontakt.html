@@ -14,8 +14,9 @@
 		<title>KONTAKT</title>
 		<!--		************************************* OPLEVELSE-TEMPLATE-->
 		<template id="someTemplate">
-			<h2 class="someHeadline"></h2>
-			<a class="someLink" href="events_page.html?category=33"> <img class="someImg"> </a>
+
+			<a class="someLink"> <img class="someImg"> </a>
+			<a class="someLink2"><h2 class="someHeadline"></h2></a>
 		</template>
 	</head>
 
@@ -73,8 +74,10 @@
 				some.forEach(function (so) {
 					let clone = template.cloneNode(true).content;
 					clone.querySelector(".someImg").setAttribute("src", so.acf.ikon);
-					clone.querySelector(".someHeadline").textContent = so.acf.overskrift;
+					console.log(so.acf.tekst);
+					clone.querySelector(".someHeadline").textContent = so.acf.tekst;
 					clone.querySelector(".someLink").setAttribute("href", so.acf.link);
+					clone.querySelector(".someLink2").setAttribute("href", so.acf.link);
 					parent.appendChild(clone);
 				});
 			}
