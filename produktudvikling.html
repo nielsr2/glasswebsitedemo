@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="burger.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>produktudvikling</title>
+	<!--		************************************* OPLEVELSE-TEMPLATE-->
+	<template id="produktTemplate">
+		<article id="articleContainer">
+			<h2 class="produktHeadline"></h2>
+			<p class="produktBody"></p> <img class="produktImg"> </article>
+	</template>
+</head>
+
+<body>
+	<!--		************************************* NAVIGATION TIL WEB-->
+	<nav>
+		<button class="burger">
+			<div class="bar1"></div>
+			<div class="bar2"></div>
+			<div class="bar3"></div>
+		</button>
+		<div id="logo"></div>
+		<ul id="menuContainer">
+			<a href="gallery.html">
+				<li class="menuItems">Galleri</li>
+			</a>
+			<a href="oplevelser.html">
+				<li class="menuItems">Oplevelser</li>
+			</a>
+			<a href="produktudvikling.html">
+				<li class="menuItems">Produktudvikling</li>
+			</a>
+			<a href="om.html">
+				<li class="menuItems">Om</li>
+			</a>
+			<a href="kontakt.html">
+				<li class="menuItems">Kontakt</li>
+			</a>
+		</ul>
+		<div id="instagram"></div>
+	</nav>
+	<!--		************************************* BG VIDEO-->
+	<div id="bgVideo"></div>
+	<!--		************************************* ARTICLES-->
+	<div id="articleContainer"></div>
+	<!--		************************************* OPLEVELSE-JS-->
+	<script>
+		async function loadOplevelser() {
+			let template = document.querySelector("#produktTemplate");
+			let parent = document.querySelector("#articleContainer");
+			let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
+			let oplevelser = await oplevelserObj.json();
+			console.log(oplevelser);
+			oplevelser.forEach(function (oplevelse) {
+				let clone = template.cloneNode(true).content;
+				clone.querySelector(".produktImg").setAttribute("src", oplevelse.acf.billede);
+				clone.querySelector(".produktHeadline").textContent = oplevelse.acf.titel;
+				clone.querySelector(".produktBody").textContent = oplevelse.acf.indhold;
+				parent.appendChild(clone);
+			});
+		}
+		loadOplevelser();
+	</script>
+	<script src="burger.js"></script>
+	<style>
+
+	</style>
+</body>
+<!--	IS ALIVEEEEE-->
+
+</html>

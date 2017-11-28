@@ -11,20 +11,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>FORSIDE</title>
-		<!--		************************************* GALLERI-TEMPLATE-->
-		<template id="galleryTemplate">
-			<a href="" class="linkSingle"> <img class="data-img">
-				<p class="data-description"></p>
-		</template>
-		<!--		************************************* OPLEVELSE-TEMPLATE-->
+		<title>OPLEVELSER</title>
 		<template id="oplevelseTemplate">
-			<h2 class="oplevelseHeadline"></h2>
-			<p class="oplevelseBody"></p> <img class="oplevelseImg"> </template>
+			<article class="oplevelseArticle">
+				<h2 class="oplevelseHeadline"></h2>
+				<p class="oplevelseBody"></p> <img class="oplevelseImg"> </article>
+		</template>
 	</head>
-
 	<body>
-		<!--		************************************* NAVIGATION TIL WEB-->
+
 		<nav>
 			<button class="burger">
 				<div class="bar1"></div>
@@ -53,25 +48,13 @@
 		</nav>
 		<!--		************************************* BG VIDEO-->
 		<div id="bgVideo"></div>
-		<!--		************************************* FILTER-TEMPLATE-->
-		<!--		LOAD CATEGORIES FROM ENDPOINT -->
-		<a href="">
-			<h4 class="filterOptions" id="">filter-kategori</h4> </a>
-		<!--		*************************************-->
-		<!--		************************************* GALLERI-->
-		<div id="galleryContainer">
-			<div id="galleryInterior" class="galleries">
-				<h2>Indretning &amp; Lys</h2> </div>
-			<div id="galleryAwards" class="galleries">
-				<h2>Awards &amp; Gaver</h2> </div>
-			<div id="galleryArt" class="galleries">
-				<h2>Kunst &amp; Malerier</h2> </div>
-		</div>
+		<!--		************************************* ARTICLES-->
+		<div id="articleContainer"></div>
 		<!--		************************************* OPLEVELSE-JS-->
 		<script>
 			async function loadOplevelser() {
 				let template = document.querySelector("#oplevelseTemplate");
-				let parent = document.querySelector("#bgVideo");
+				let parent = document.querySelector("#articleContainer");
 				let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
 				let oplevelser = await oplevelserObj.json();
 				console.log(oplevelser);
@@ -86,10 +69,7 @@
 			loadOplevelser();
 		</script>
 		<script src="burger.js"></script>
-		<style>
 
-		</style>
 	</body>
-	<!--	IS ALIVEEEEE-->
 
 </html>
