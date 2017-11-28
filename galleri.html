@@ -13,9 +13,13 @@
 		<meta name="author" content="">
 		<title>FORSIDE</title>
 		<!--		************************************* GALLERI-TEMPLATE-->
-		<template id="galleryTemplate">
-			<a href="" class="linkSingle"> <img class="data-img">
-				<p class="data-description"></p>
+		<template id="galleriTemplate">
+			<div class="itemContainer">
+				<a href="" class="linkSingle">
+					<div class="itemWrapper"><img class="itemImg lazyload"></div>
+				</a>
+				<p class="itemDescription"></p>
+			</div>
 		</template>
 		<!--		************************************* OPLEVELSE-TEMPLATE-->
 	</head>
@@ -52,43 +56,54 @@
 		<div id="bgVideo"></div>
 		<!--		************************************* FILTER-TEMPLATE-->
 		<!--		LOAD CATEGORIES FROM ENDPOINT -->
-<!--		<a href="">-->
-<!--			<h4 class="filterOptions" id="">filter-kategori</h4> </a>-->
+		<!--		<a href="">-->
+		<!--			<h4 class="filterOptions" id="">filter-kategori</h4> </a>-->
 		<!--		*************************************-->
 		<!--		************************************* GALLERI-->
 		<div id="galleryContainer">
-			<div id="galleryInterior" class="galleries">
-				<h2>Indretning &amp; Lys</h2> </div>
-			<div id="galleryAwards" class="galleries">
-				<h2>Awards &amp; Gaver</h2> </div>
-			<div id="galleryArt" class="galleries">
-				<h2>Kunst &amp; Malerier</h2> </div>
+			<a href="galleri.html?gallery=interior">
+				<div id="galleryInterior" class="galleries">
+					<h2>Indretning &amp; Lys</h2> </div>
+			</a>
+			<a href="galleri.html?gallery=awards">
+				<div id="galleryAwards" class="galleries">
+					<h2>Awards &amp; Gaver</h2> </div>
+			</a>
+			<a href="galleri.html?gallery=art">
+				<div id="galleryArt" class="galleries">
+					<h2>Kunst &amp; Malerier</h2> </div>
+			</a>
 		</div>
+		<section id="itemContainer"></section>
 		<!--		************************************* OPLEVELSE-JS-->
+		<script src="lazyload.js"></script>
 		<script>
 			async function loadOplevelser() {
-				let template = document.querySelector("#oplevelseTemplate");
-				let parent = document.querySelector("#bgVideo");
-				let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/galleri");
-				let oplevelser = await oplevelserObj.json();
-				console.log(oplevelser);
-				oplevelser.forEach(function (oplevelse) {
+				let template = document.querySelector("#galleriTemplate");
+				let parent = document.querySelector("#itemContainer");
+				let galleriObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/galleri");
+				let galleri = await galleriObj.json();
+				console.log(galleri);
+				galleri.forEach(function (billede) {
 					let clone = template.cloneNode(true).content;
-					clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
-					clone.querySelector(".oplevelseHeadline").textContent = oplevelse.acf.overskrift;
-					clone.querySelector(".oplevelseBody").textContent = oplevelse.acf.broedtekst;
+					clone.querySelector(".itemImg").setAttribute("src", billede.acf.billede);
+					//					clone.querySelector(".oplevelseHeadline").textContent = billede.acf.overskrift;
+					clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
 					parent.appendChild(clone);
 				});
 			}
+			lazyload();
 			loadOplevelser();
+
 		</script>
 		<script src="burger.js"></script>
+
 		<style>
 			#galleryContainer {
 				background-color: red;
 				border: blue 4px solid;
 			}
-/*
+			/*
 
 			#galleryContainer:nth-child(2n) {
 				background: blue;
@@ -96,9 +111,17 @@
 			}
 */
 
-			.galleries{
+			.galleries {
 				height: 10vh;
 			}
+
+			.itemWrapper{
+				height: 40vw;
+				width: 40vw;
+				overflow: hidden;
+			}
+
+			 itemImg itemWrapper itemContainer
 		</style>
 	</body>
 	<!--	IS ALIVEEEEE-->
