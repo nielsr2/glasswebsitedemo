@@ -3,93 +3,111 @@
 
 <head>
 
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="stylesheet.css">
-        <link rel="stylesheet" href="burger.css">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>FORSIDE</title>
-        <!--		************************************* GALLERI-TEMPLATE-->
-        <template id="galleryTemplate">
-            <a href="" class="linkSingle"> <img class="data-img">
-                <p class="data-description"></p>
-        </template>
-        <!--		************************************* OPLEVELSE-TEMPLATE-->
-        <template id="oplevelseTemplate">
-            <h2 class="oplevelseHeadline"></h2>
-            <p class="oplevelseBody"></p> <img class="oplevelseImg"> </template>
-    </head>
+	<head>
+		<meta charset="utf-8">
+		<!--        <link rel="stylesheet" href="stylesheet.css">-->
+		<link rel="stylesheet" href="burger.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>FORSIDE</title>
+		<!--		************************************* GALLERI-TEMPLATE-->
+		<template id="galleryTemplate">
+			<a href="" class="linkSingle"> <img class="data-img">
+				<p class="data-description"></p>
+		</template>
+		<!--		************************************* OPLEVELSE-TEMPLATE-->
+		<template id="oplevelseTemplate">
+			<h2 class="oplevelseHeadline"></h2>
+			<p class="oplevelseBody"></p> <img class="oplevelseImg"> </template>
+	</head>
 
-    <body>
-        <!--		************************************* NAVIGATION TIL WEB-->
-        <nav>
-            <button class="burger">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </button>
-            <div id="logo"></div>
-            <ul id="menuContainer">
-                <a id="gallery" href="gallery.html">
-                    <li class="menuItems">Galleri</li>
-                </a>
-                <a id="oplevelser" href="oplevelser.html">
-                    <li class="menuItems">Oplevelser</li>
-                </a>
-                <a id="produktudvikling" href="produktudvikling.html">
-                    <li class="menuItems">Produktudvikling</li>
-                </a>
-                <a id="om" href="om.html">
-                    <li class="menuItems">Om</li>
-                </a>
-                <a id="kontakt" href="kontakt.html">
-                    <li class="menuItems">Kontakt</li>
-                </a>
-            </ul>
-            <div id="instagram"></div>
-        </nav>
-        <!--		************************************* BG VIDEO-->
-        <div id="bgVideo"></div>
-        <!--		************************************* FILTER-TEMPLATE-->
-        <!--		LOAD CATEGORIES FROM ENDPOINT -->
-        <a href="">
-            <h4 class="filterOptions" id="">filter-kategori</h4> </a>
-        <!--		*************************************-->
-        <!--		************************************* GALLERI-->
-        <div id="galleryContainer">
-            <div id="galleryInterior" class="galleries">
-                <h2>Indretning &amp; Lys</h2> </div>
-            <div id="galleryAwards" class="galleries">
-                <h2>Awards &amp; Gaver</h2> </div>
-            <div id="galleryArt" class="galleries">
-                <h2>Kunst &amp; Malerier</h2> </div>
-        </div>
-        <!--		************************************* OPLEVELSE-JS-->
-        <script>
-            async function loadOplevelser() {
-                let template = document.querySelector("#oplevelseTemplate");
-                let parent = document.querySelector("#bgVideo");
-                let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
-                let oplevelser = await oplevelserObj.json();
-                console.log(oplevelser);
-                oplevelser.forEach(function (oplevelse) {
-                    let clone = template.cloneNode(true).content;
-                    clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
-                    clone.querySelector(".oplevelseHeadline").textContent = oplevelse.acf.overskrift;
-                    clone.querySelector(".oplevelseBody").textContent = oplevelse.acf.broedtekst;
-                    parent.appendChild(clone);
-                });
-            }
-            loadOplevelser();
-        </script>
-        <script src="burger.js"></script>
-        <style>
+	<body>
+		<!--		************************************* NAVIGATION TIL WEB-->
+		<nav>
+			<button class="burger">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</button>
+			<div id="logo"></div>
+			<ul id="menuContainer">
+				<!--				!NOTE! ORDER?-->
+				<a id="gallery" href="galleri.html">
+					<li class="menuItems">Galleri</li>
+				</a>
+				<a id="oplevelser" href="oplevelser.html">
+					<li class="menuItems">Oplevelser</li>
+				</a>
+				<a id="produktudvikling" href="produktudvikling.html">
+					<li class="menuItems">Produktudvikling</li>
+				</a>
+				<a id="om" href="om.html">
+					<li class="menuItems">Om</li>
+				</a>
+				<a id="kontakt" href="kontakt.html">
+					<li class="menuItems">Kontakt</li>
+				</a>
+			</ul>
+			<div id="instagram"></div>
+		</nav>
+		<!--		************************************* BG VIDEO-->
+		<div id="bgVideo"></div>
+		<!--        <script src="burger.js"></script>-->
+		<style>
+			body {
+				margin: 0;
+				background-color: dimgray;
+				/*This disables the browsers auto-margin*/
+			}
 
-        </style>
-    </body>
-    <!--	IS ALIVEEEEE-->
+			#logo {
+				background-image: url(imgs/andersRaadGlasLogo.png);
+				width: 45vw;
+				height: 45vw;
+				margin-left: 28vw;
+				margin-top: 0vw;
+				background-size: contain;
+			}
+
+			nav {
+				max-height: 500px;
+				/*    background-color: rgb(0, 0, 0);*/
+				z-index: 1;
+			}
+
+			li.menuItems {
+				/*    padding: 5px;*/
+				cursor: pointer;
+				background-color: rgba(50, 50, 50, 0.5);
+				padding-left: 10vw;
+				margin-left: 10vw;
+				padding-right: 10vw;
+				margin-right: 10vw;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				margin-top: 10vw;
+				font-family: helvetica;
+				text-align: center;
+			}
+
+			ul#menuContainer {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			a#gallery,
+			a#oplevelser,
+			a#produktudvikling,
+			a#om,
+			a#kontakt {
+				text-decoration: none;
+				color: white;
+			}
+		</style>
+	</body>
+	<!--	IS ALIVEEEEE-->
 
 </html>

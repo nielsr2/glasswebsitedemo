@@ -14,12 +14,13 @@
 		<title>FORSIDE</title>
 		<!--		************************************* GALLERI-TEMPLATE-->
 		<template id="galleriTemplate">
+			<div class="borderWrapper">
 			<div class="itemContainer">
 				<a href="" class="linkSingle">
 					<div class="itemWrapper"><img class="itemImg lazyload"></div>
 				</a>
 				<p class="itemDescription"></p>
-			</div>
+			</div></div>
 		</template>
 		<!--		************************************* OPLEVELSE-TEMPLATE-->
 	</head>
@@ -34,7 +35,7 @@
 			</button>
 			<div id="logo"></div>
 			<ul id="menuContainer">
-				<a href="gallery.html">
+				<a href="galleri.html">
 					<li class="menuItems">Galleri</li>
 				</a>
 				<a href="oplevelser.html">
@@ -94,11 +95,13 @@
 			}
 			lazyload();
 			loadOplevelser();
-
 		</script>
 		<script src="burger.js"></script>
-
 		<style>
+			body {
+				margin: 0vw;
+			}
+
 			#galleryContainer {
 				background-color: red;
 				border: blue 4px solid;
@@ -115,13 +118,22 @@
 				height: 10vh;
 			}
 
-			.itemWrapper{
-				height: 40vw;
-				width: 40vw;
+			.itemWrapper {
+				height: 90vw;
+				width: 90vw;
 				overflow: hidden;
+				/*				border: 20px red solid;*/
+				outline: 5vw rgba(0, 0, 0, .5) solid;
+				outline-offset: -5vw;
+				padding: 5vw;
 			}
 
-			 itemImg itemWrapper itemContainer
+			.itemImg {
+				max-height: 90vw;
+/*				max-width: 90vw;*/
+/*				padding: 10px;*/
+			}
+			/*			itemWrapper itemContainer*/
 		</style>
 	</body>
 	<!--	IS ALIVEEEEE-->

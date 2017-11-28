@@ -5,8 +5,10 @@ body {
     margin: 0;
 }
 
+
+/* !!!!!!!FIXME: this needs to be more specific. remove if not used for anything */
 img {
-    max-width: 80vw;
+/*    max-width: 80vw;*/
 }
 
 
