@@ -15,13 +15,16 @@
 		<!--		************************************* GALLERI-TEMPLATE-->
 		<template id="galleriTemplate">
 			<div class="borderWrapper">
-			<div class="itemContainer">
-				<a href="" class="linkSingle">
-					<div class="itemWrapper"><img class="itemImg lazyload"></div>
-				</a>
-				<p class="itemDescription"></p>
-			</div></div>
+				<div class="itemContainer">
+					<a href="" class="linkSingle">
+						<div class="itemWrapper"><img class="itemImg lazyload"></div>
+					</a>
+					<p class="itemDescription"></p>
+				</div>
+			</div>
 		</template>
+		<template id="filterTemplate">
+			<h3 class="filterItem"></h3> </template>
 		<!--		************************************* OPLEVELSE-TEMPLATE-->
 	</head>
 
@@ -75,10 +78,11 @@
 					<h2>Kunst &amp; Malerier</h2> </div>
 			</a>
 		</div>
+		<section id="filterContainer"></section>
 		<section id="itemContainer"></section>
 		<!--		************************************* OPLEVELSE-JS-->
-
 		<script>
+			let filterList = new Array();
 			async function loadOplevelser() {
 				let template = document.querySelector("#galleriTemplate");
 				let parent = document.querySelector("#itemContainer");
@@ -90,11 +94,27 @@
 					clone.querySelector(".itemImg").setAttribute("src", billede.acf.billede);
 					//					clone.querySelector(".oplevelseHeadline").textContent = billede.acf.overskrift;
 					clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
-					clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+					//					clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+					let kat = billede.acf.kategori;
+					if (filterList.includes(kat) == !true) {
+						filterList.push(billede.acf.kategori);
+					}
+					parent.appendChild(clone);
+				});
+				loadFilter(filterList);
+			}
+
+			function loadFilter() {
+				let template = document.querySelector("#filterTemplate");
+				let parent = document.querySelector("#filterContainer");
+				console.log(filterList);
+				filterList.forEach(function (filter) {
+					let clone = template.cloneNode(true).content;
+					clone.querySelector(".filterItem").textContent = filter;
 					parent.appendChild(clone);
 				});
 			}
-
+			loadOplevelser();
 		</script>
 		<script src="burger.js"></script>
 		<style>
@@ -130,8 +150,8 @@
 
 			.itemImg {
 				max-height: 90vw;
-/*				max-width: 90vw;*/
-/*				padding: 10px;*/
+				/*				max-width: 90vw;*/
+				/*				padding: 10px;*/
 			}
 			/*			itemWrapper itemContainer*/
 		</style>
