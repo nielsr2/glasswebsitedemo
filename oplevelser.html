@@ -61,7 +61,7 @@
 				oplevelser.forEach(function (oplevelse) {
 					let clone = template.cloneNode(true).content;
 					clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
-					clone.querySelector(".oplevelseHeadline").textContent = oplevelse.acf.overskrift;
+					clone.querySelector(".oplevelseHeadline").textContent = oplevelse.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
 					clone.querySelector(".oplevelseBody").textContent = oplevelse.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
 					parent.appendChild(clone);
 				});
