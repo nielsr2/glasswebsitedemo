@@ -11,7 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>FORSIDE</title>
+		<title>GALLERi</title>
+		<!--		!NOTE: vi skal tænke over -->
 		<!--		************************************* GALLERI-TEMPLATE-->
 		<template id="galleriTemplate">
 			<div class="borderWrapper">
@@ -96,6 +97,7 @@
 					clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
 					//					clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
 					let kat = billede.acf.kategori;
+					clone.querySelector(".borderWrapper").classList.add(kat);
 					if (filterList.includes(kat) == !true) {
 						filterList.push(billede.acf.kategori);
 					}
@@ -109,8 +111,16 @@
 				let parent = document.querySelector("#filterContainer");
 				console.log(filterList);
 				filterList.forEach(function (filter) {
+
 					let clone = template.cloneNode(true).content;
 					clone.querySelector(".filterItem").textContent = filter;
+					clone.querySelector(".filterItem").onclick = function something() {
+
+						console.log(filter);
+						for (let e of document.getElementsByClassName(filter)) e.style.display = "none";
+//							.style.visibility = 'hidden';
+//						document.getElementsByClassName(filter).style.visibility = 'hidden';
+					};
 					parent.appendChild(clone);
 				});
 			}
