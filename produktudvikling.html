@@ -10,7 +10,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>produktudvikling</title>
-	<!--		************************************* OPLEVELSE-TEMPLATE-->
+	<!--		*************************************************************************************************************** produkt-TEMPLATE-->
 	<template id="produktTemplate">
 		<article id="articleContainer">
 			<h2 class="produktHeadline"></h2>
@@ -19,7 +19,7 @@
 </head>
 
 <body>
-	<!--		************************************* NAVIGATION TIL WEB-->
+	<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
 	<nav>
 		<button class="burger">
 			<div class="bar1"></div>
@@ -46,27 +46,27 @@
 		</ul>
 		<div id="instagram"></div>
 	</nav>
-	<!--		************************************* BG VIDEO-->
+	<!--		*************************************************************************************************************** BG VIDEO-->
 	<div id="bgVideo"></div>
-	<!--		************************************* ARTICLES-->
+	<!--		*************************************************************************************************************** ARTICLES-->
 	<div id="articleContainer"></div>
-	<!--		************************************* OPLEVELSE-JS-->
+	<!--		*************************************************************************************************************** produkt-JS-->
 	<script>
-		async function loadOplevelser() {
+		async function loadProdukt() {
 			let template = document.querySelector("#produktTemplate");
 			let parent = document.querySelector("#articleContainer");
-			let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
-			let oplevelser = await oplevelserObj.json();
-			console.log(oplevelser);
-			oplevelser.forEach(function (oplevelse) {
+			let produkterObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
+			let produkter = await produkterObj.json();
+			console.log(produkter);
+			produkter.forEach(function (produkt) {
 				let clone = template.cloneNode(true).content;
-				clone.querySelector(".produktImg").setAttribute("src", oplevelse.acf.billede);
-				clone.querySelector(".produktHeadline").textContent = oplevelse.acf.titel;
-				clone.querySelector(".produktBody").textContent = oplevelse.acf.indhold;
+				clone.querySelector(".produktImg").setAttribute("src", produkt.acf.billede);
+				clone.querySelector(".produktHeadline").textContent = produkt.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
+				clone.querySelector(".produktBody").textContent = produkt.content.rendered.replace(/<(?:.|\n)*?>/gm, '');;
 				parent.appendChild(clone);
 			});
 		}
-		loadOplevelser();
+		loadProdukt();
 	</script>
 	<script src="burger.js"></script>
 	<style>
