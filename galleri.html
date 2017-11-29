@@ -90,6 +90,7 @@
 					clone.querySelector(".itemImg").setAttribute("src", billede.acf.billede);
 					//					clone.querySelector(".oplevelseHeadline").textContent = billede.acf.overskrift;
 					clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+					clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
 					parent.appendChild(clone);
 				});
 			}
