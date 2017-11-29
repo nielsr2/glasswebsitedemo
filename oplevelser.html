@@ -49,7 +49,7 @@
         <!--		************************************* BG VIDEO-->
         <div id="bgVideo"></div>
         <!--		************************************* ARTICLES-->
-        <div id="articleContainer"></div>
+        <div id="articleContainer"> </div>
         <!--		************************************* OPLEVELSE-JS-->
         <script>
             async function loadOplevelser() {
@@ -70,7 +70,39 @@
         </script>
         <script src="burger.js"></script>
         <Style>
-            trallala
+            .oplevelseArticle {
+                width: 80%;
+                margin: 10% 10%;
+                display: grid;
+                grid-template-areas: "overskrift" "billede" "indhold" "linje";
+            }
+
+            img.oplevelseImg {
+                width: 80%;
+                height: auto;
+                grid-area: billede;
+                border: solid 5px rgba(255, 255, 255, 0.25);
+                margin: 0 8%;
+            }
+
+            h2.oplevelseHeadline {
+                text-align: center;
+                grid-area: overskrift;
+                font-family: special elite;
+            }
+
+            p.oplevelseBody {
+                font-size: 10pt;
+                line-height: 1.5;
+                grid-area: indhold;
+                font-family: helvetica neue;
+            }
+
+            #teambuildingBorder {
+                border: solid 2px orange;
+                width: 100%;
+                grid-area: linje;
+            }
         </Style>
     </body>
 
