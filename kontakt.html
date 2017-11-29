@@ -14,9 +14,14 @@
 		<title>KONTAKT</title>
 		<!--		************************************* OPLEVELSE-TEMPLATE-->
 		<template id="someTemplate">
+                <div id="someLinkContainer">
+                <a class="someLink"> <img class="someImg"> </a>
+            </div>
 
-			<a class="someLink"> <img class="someImg"> </a>
-			<a class="someLink2"><h2 class="someHeadline"></h2></a>
+            <div id="someHeadlineContainer">
+                <a class="someLink2"><h2 class="someHeadline"></h2></a>
+            </div>
+
 		</template>
 	</head>
 
@@ -48,14 +53,31 @@
 			</ul>
 			<div id="instagram"></div>
 		</nav>
+
+
+
 		<!--		************************************* BG VIDEO-->
 		<div id="bgVideo"></div>
+
+
 		<article id="kontaktOplysninger">
 			<h2 id="kontaktHeadline"></h2>
 			<p id="kontaktBody"></p>
 		</article>
-		<div id="someContainer"></div>
-		<!--		************************************* OPLEVELSE-JS-->
+
+
+
+        <div id="maps">
+            <h2 id="mapsHeadline">Find vej</h2>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.2877929397214!2d12.583092015930532!3d55.7535026805536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46524d9c2c98955b%3A0x5ba059842eb0b6e1!2sGlas+%2F+Anders+Raad!5e0!3m2!1sda!2sdk!4v1511966810524" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+            <p id="adress">Traverbanevej 12,  2920 Charlottenlund</p>
+        </div>
+
+          <div id="someContainer"></div>
+
+        <!--		************************************* OPLEVELSE-JS-->
 		<script>
 			async function loadKontakt() {
 				let kontaktObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt");
@@ -65,15 +87,22 @@
 				document.querySelector("#kontaktBody").textContent = kontakt[3].content.rendered.replace(/<(?:.|\n)*?>/gm, '');
 				document.querySelector("#kontaktHeadline").textContent = kontakt[3].title.rendered.replace(/<(?:.|\n)*?>/gm, '');
 			}
+
+
 			async function loadSoMe() {
 				let template = document.querySelector("#someTemplate");
 				let parent = document.querySelector("#someContainer");
+
 				let someObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt?categories=3");
 				let some = await someObj.json();
 				console.log(some);
 				some.forEach(function (so) {
 					let clone = template.cloneNode(true).content;
+
 					clone.querySelector(".someImg").setAttribute("src", so.acf.ikon);
+
+//                    the_clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);
+
 					console.log(so.acf.tekst);
 					clone.querySelector(".someHeadline").textContent = so.acf.tekst;
 					clone.querySelector(".someLink").setAttribute("href", so.acf.link);
@@ -85,10 +114,68 @@
 			loadSoMe();
 		</script>
 		<script src="burger.js"></script>
+
+
 		<style>
-			.someImg{
-				max-width: 40vw;
+
+            .someImg{
+				max-width: 7vw;
+                filter: invert();
 			}
+
+            .someLink, .someLink2 {
+                text-decoration: none;
+                color: white;
+                font-size: 7pt;
+            }
+
+
+            #someContainer {
+                display: flex;
+                margin-left: 7vw;
+                margin-top: 15vw;
+                width: 80vw;
+
+            }
+
+
+
+            #someHeadlineContainer{
+                display: flex;
+/*                display: flex;*/
+
+            }
+
+            #someLinkContainer{
+                display: flex;
+/*                display: flex;*/
+
+            }
+
+
+
+            #mapsHeadline, #adress {
+                margin-left: 7vw;
+            }
+
+            iframe {
+                max-width: 80vw;
+                max-height: 60vw;
+                margin-left: 7vw;
+            }
+
+            #kontaktOplysninger {
+                width: 30vw;
+                height: auto;
+                margin-top: 20vw;
+                margin-left: 7vw;
+                margin-bottom: 10vw;
+            }
+
+
+
+
+
 		</style>
 	</body>
 	<!--	IS ALIVEEEEE-->
