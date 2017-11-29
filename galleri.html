@@ -115,7 +115,7 @@
 					let clone = template.cloneNode(true).content;
 					clone.querySelector(".filterItem").textContent = filter;
 					clone.querySelector(".filterItem").onclick = function something() {
-
+// !!!!! NOTE!!!!!: reverse thinking
 						console.log(filter);
 						for (let e of document.getElementsByClassName(filter)) e.style.display = "none";
 //							.style.visibility = 'hidden';
