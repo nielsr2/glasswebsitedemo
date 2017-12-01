@@ -6,20 +6,19 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="stylesheet.css">
-		<link rel="stylesheet" href="burger.css">
+
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<title>OM</title>
-		<!--		************************************* OPLEVELSE-TEMPLATE-->
-		<template id="oplevelseTemplate">
-			<h2 class="oplevelseHeadline"></h2>
-			<p class="oplevelseBody"></p> <img class="oplevelseImg"> </template>
+		<!--		*************************************************************************************************************** SAMARBEJDE-TEMPLATE-->
+		<template id="samarbejdeTemplate">
+			<a class="samarbejdeLink"> <img class="samarbejdeImg"> </a> <a class="samarbejdeLink2"><h2 class="samarbejdeHeadline"></h2></a> </template>
 	</head>
 
 	<body>
-		<!--		************************************* NAVIGATION TIL WEB-->
+		<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
 		<nav>
 			<button class="burger">
 				<div class="bar1"></div>
@@ -46,10 +45,9 @@
 			</ul>
 			<div id="instagram"></div>
 		</nav>
-		<!--		************************************* BG VIDEO-->
+		<!--		*************************************************************************************************************** BG VIDEO-->
 		<div id="bgVideo"></div>
-
-				<!--		************************************* GALLERI-->
+		<!--		*************************************************************************************************************** GALLERI-->
 		<div id="omContainer">
 			<a href="om.html?om=glaspusteren">
 				<div id="galleryInterior" class="oms">
@@ -60,29 +58,49 @@
 					<h2>Om Værkstedet</h2> </div>
 			</a>
 		</div>
-		<!--		************************************* OPLEVELSE-JS-->
+		<section id="glaspusterenContainer">
+			<article id="omGlaspusteren">
+				<h2 id="Gheadline"></h2> <img id="Gportrait">
+				<p id="Gquote"></p>
+			</article>
+			<section id=samarbejdeContainer></section>
+			<section id=awardsContainer></section>
+		</section>
+		<!--		*************************************************************************************************************** OM-JS-->
 		<script>
-			async function loadOplevelser() {
-				let template = document.querySelector("#oplevelseTemplate");
-				let parent = document.querySelector("#bgVideo");
-				let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
-				let oplevelser = await oplevelserObj.json();
-				console.log(oplevelser);
-				oplevelser.forEach(function (oplevelse) {
+			async function loadGlaspusteren() {
+				let glaspusterenObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om/42");
+				let glaspusteren = await glaspusterenObj.json();
+				console.log(glaspusteren);
+				document.querySelector("#Gheadline").textContent = glaspusteren.title.rendered;
+				document.querySelector("#Gportrait").setAttribute("src", glaspusteren.acf.omBillede);
+				document.querySelector("#Gquote").textContent = glaspusteren.acf.citat;
+			}
+			async function loadSamarbejde() {
+				let template = document.querySelector("#samarbejdeTemplate");
+				let parent = document.querySelector("#samarbejdeContainer");
+				let samarbejdeObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om?categories=6");
+				let samarbejde = await samarbejdeObj.json();
+				console.log('sam');
+				console.log(samarbejde);
+				samarbejde.forEach(function (sam) {
 					let clone = template.cloneNode(true).content;
-					clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
-					clone.querySelector(".oplevelseHeadline").textContent = oplevelse.acf.overskrift;
-					clone.querySelector(".oplevelseBody").textContent = oplevelse.acf.broedtekst;
+					clone.querySelector(".samarbejdeImg").setAttribute("src", sam.acf.logo);
+					console.log(sam.acf.tekst);
+					clone.querySelector(".samarbejdeHeadline").textContent = sam.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
+					clone.querySelector(".samarbejdeLink").setAttribute("href", sam.acf.pageLink);
+					clone.querySelector(".samarbejdeLink2").setAttribute("href", sam.acf.pageLink);
 					parent.appendChild(clone);
 				});
 			}
-			loadOplevelser();
+			loadGlaspusteren();
+			loadSamarbejde();
 		</script>
 		<script src="burger.js"></script>
 		<style>
 
 		</style>
 	</body>
-	<!--	IS ALIVEEEEE-->
+
 
 </html>
