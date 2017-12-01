@@ -96,12 +96,14 @@
 				let someObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt?categories=3");
 				let some = await someObj.json();
 				console.log(some);
+
+
 				some.forEach(function (so) {
 					let clone = template.cloneNode(true).content;
 
 					clone.querySelector(".someImg").setAttribute("src", so.acf.ikon);
 
-//                    the_clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);
+//                   clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);
 
 					console.log(so.acf.tekst);
 					clone.querySelector(".someHeadline").textContent = so.acf.tekst;
@@ -129,30 +131,25 @@
                 font-size: 7pt;
             }
 
-
             #someContainer {
                 display: flex;
-                margin-left: 7vw;
+                flex-direction: column;
+                margin-right: 7vw;
                 margin-top: 15vw;
-                width: 80vw;
-
+                margin-bottom: 10vw;
+                justify-content: flex-end;
+                align-items: flex-end;
             }
 
-
-
             #someHeadlineContainer{
-                display: flex;
 /*                display: flex;*/
 
             }
 
             #someLinkContainer{
-                display: flex;
 /*                display: flex;*/
 
             }
-
-
 
             #mapsHeadline, #adress {
                 margin-left: 7vw;
@@ -171,8 +168,6 @@
                 margin-left: 7vw;
                 margin-bottom: 10vw;
             }
-
-
 
 
 
