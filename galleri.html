@@ -78,9 +78,11 @@
 	<!--		*************************************************************************************************************** VIEWVINDOW-->
 	<section id="viewWindow"> </section>
 	<!--		*************************************************************************************************************** OPLEVELSE-JS-->
+	<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
 	<script>
+		document.addEventListener("DOMContentLoaded", lazyload());
 		let filterList = new Array();
-		<!--		*************************************************************************************************************** LOAD GALLERY-->
+		// *************************************************************************************************************** LOAD GALLERY-->
 		async function loadGallery() {
 			let template = document.querySelector("#galleriTemplate");
 			let parent = document.querySelector("#itemContainer");
@@ -100,18 +102,24 @@
 			});
 			loadFilter(filterList);
 		}
-<!--		*************************************************************************************************************** LOAD FILTER-->
+		//       *************************************************************************************************************** LOAD FILTER
 		function loadFilter() {
 			let template = document.querySelector("#filterTemplate");
 			let parent = document.querySelector("#filterContainer");
-			console.log(filterList);
+						console.log(filterList);
 			filterList.forEach(function (filter) {
 				let clone = template.cloneNode(true).content;
 				clone.querySelector(".filterItem").textContent = filter;
 				clone.querySelector(".filterItem").onclick = function something() {
 					// !!!!! NOTE!!!!!: reverse thinking
 					console.log(filter);
-					for (let e of document.getElementsByClassName(filter)) e.style.display = "none";
+					let fe = filterList.indexOf(filter);
+					console.log(fe);
+					const fall = filterList;
+					fall.splice(fe, 1);
+					console.log(fall);
+
+//					for (let e of document.getElementsByClassName(filter)) e.style.display = "none";
 				};
 				parent.appendChild(clone);
 			});

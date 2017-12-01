@@ -6,11 +6,11 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="stylesheet.css">
-
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="">
+		<link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css">
 		<title>OM</title>
 		<!--		*************************************************************************************************************** SAMARBEJDE-TEMPLATE-->
 		<template id="samarbejdeTemplate">
@@ -18,7 +18,7 @@
 	</head>
 
 	<body>
-		<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+		<!--		*************************************************************************************************************** NAVIGATION -->
 		<nav>
 			<button class="burger">
 				<div class="bar1"></div>
@@ -65,8 +65,11 @@
 			</article>
 			<section id=samarbejdeContainer></section>
 			<section id=awardsContainer></section>
+			<iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe>
 		</section>
 		<!--		*************************************************************************************************************** OM-JS-->
+
+		<script src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
 		<script>
 			async function loadGlaspusteren() {
 				let glaspusterenObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om/42");
@@ -101,6 +104,5 @@
 
 		</style>
 	</body>
-
 
 </html>
