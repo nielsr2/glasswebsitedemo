@@ -7,35 +7,10 @@ body {
 
 
 /* !!!!!!!FIXME!: this needs to be more specific. remove if not used for anything */
+
 img {
-/*    max-width: 80vw;*/
+    /*    max-width: 80vw;*/
 }
-
-
-/* MENU TIL WEB */
-
-
-/*
-nav a {
-    text-decoration: none;
-    list-style-type: none;
-}
-#menuContainer {
-    display: flex;
-    justify-content: space-between;
-    width: 80vw;
-    height: 15vw;
-    background-color: black;
-    margin: 0;
-    position: fixed;
-}
-.menuItems {
-    margin-right: 2vw;
-    text-decoration: none;
-    color: white;
-}
-*/
-
 
 /* BURGER MENU */
 
@@ -122,4 +97,68 @@ nav.show {
 
 .change .bar3 {
     transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/* IPAD POTRAIT */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {}
+
+/* IPAD LANDSCAPE */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px)and (orientation: landscape) {}
+
+/* DESKTOP */
+
+@media (min-width: 1025px) {
+
+    /* MENU TIL WEB */
+    .burger {
+        display: none;
+    }
+    #contentContainer {
+        margin-top: 7vw;
+    }
+    #menuContainer {
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        width: 100vw;
+        height: 7vw;
+        margin: 0;
+        position: fixed;
+        font-weight: bold;
+    }
+
+    nav a {
+        text-decoration: none;
+        list-style-type: none;
+        font-size: 15pt;
+        position: relative;
+        left: 42vw;
+        margin-top: 3.2vh;
+        margin-right: 2vw;
+        color: white;
+    }
+    .menuItems:hover {
+        color: red;
+    }
+    #logo {
+        background-image: url(imgs/andersRaadGlasLogo.png);
+        margin-left: 1vw;
+        margin-top: 1vw;
+        width: 7vw;
+        height: 5vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+    #instagram {
+        background-image: url(instagramLogo.png);
+        margin-left: 43vw;
+        margin-top: 5vh;
+        width: 2vw;
+        height: 2vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
 }
