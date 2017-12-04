@@ -26,8 +26,9 @@
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </button>
-            <div id="logo"></div>
+
             <ul id="menuContainer">
+                <div id="logo"></div>
                 <a href="galleri.html">
                     <li class="menuItems">Galleri</li>
                 </a>
@@ -43,13 +44,21 @@
                 <a href="kontakt.html">
                     <li class="menuItems">Kontakt</li>
                 </a>
+                <div id="instagram"></div>
             </ul>
-            <div id="instagram"></div>
+
         </nav>
         <!--		*************************************************************************************************************** BG VIDEO-->
-        <div id="bgVideo"></div>
+<div id="bgVideo">
+    <video id="video_stor" width="100%" height="" autoplay loop muted>
+        <source src="video/glassskaal.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
+    </div>
+
         <!--		*************************************************************************************************************** ARTICLES-->
-        <div id="articleContainer"> </div>
+        <!--        <div id="articleContainer"> </div>-->
+        <div id="contentContainer">
+            <div id="articleContainer"></div>
+        </div>
         <!--		*************************************************************************************************************** OPLEVELSE-JS-->
         <script>
             async function loadOplevelser() {
@@ -58,7 +67,7 @@
                 let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
                 let oplevelser = await oplevelserObj.json();
                 console.log(oplevelser);
-                oplevelser.forEach(function (oplevelse) {
+                oplevelser.forEach(function(oplevelse) {
                     let clone = template.cloneNode(true).content;
                     clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
                     clone.querySelector(".oplevelseHeadline").textContent = oplevelse.title.rendered.replace(/<(?:.|\n)*?>/gm, '');

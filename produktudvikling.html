@@ -2,16 +2,16 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="stylesheet.css">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css">
 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>produktudvikling</title>
-	<!--		*************************************************************************************************************** produkt-TEMPLATE-->
-	<template id="produktTemplate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>produktudvikling</title>
+    <!--		*************************************************************************************************************** produkt-TEMPLATE-->
+    <template id="produktTemplate">
 		<article id="articleContainer">
 			<h2 class="produktHeadline"></h2>
 			<p class="produktBody"></p> <img class="produktImg"> </article>
@@ -19,59 +19,63 @@
 </head>
 
 <body>
-	<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
-	<nav>
-		<button class="burger">
+    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+    <nav>
+        <button class="burger">
 			<div class="bar1"></div>
 			<div class="bar2"></div>
 			<div class="bar3"></div>
 		</button>
-		<div id="logo"></div>
-		<ul id="menuContainer">
-			<a href="galleri.html">
-				<li class="menuItems">Galleri</li>
-			</a>
-			<a href="oplevelser.html">
-				<li class="menuItems">Oplevelser</li>
-			</a>
-			<a href="produktudvikling.html">
-				<li class="menuItems">Produktudvikling</li>
-			</a>
-			<a href="om.html">
-				<li class="menuItems">Om</li>
-			</a>
-			<a href="kontakt.html">
-				<li class="menuItems">Kontakt</li>
-			</a>
-		</ul>
-		<div id="instagram"></div>
-	</nav>
-	<!--		*************************************************************************************************************** BG VIDEO-->
-	<div id="bgVideo"></div>
-	<!--		*************************************************************************************************************** ARTICLES-->
-	<div id="articleContainer"></div>
-	<!--		*************************************************************************************************************** produkt-JS-->
-	<script>
-		async function loadProdukt() {
-			let template = document.querySelector("#produktTemplate");
-			let parent = document.querySelector("#articleContainer");
-			let produkterObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
-			let produkter = await produkterObj.json();
-			console.log(produkter);
-			produkter.forEach(function (produkt) {
-				let clone = template.cloneNode(true).content;
-				clone.querySelector(".produktImg").setAttribute("src", produkt.acf.billede);
-				clone.querySelector(".produktHeadline").textContent = produkt.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
-				clone.querySelector(".produktBody").textContent = produkt.content.rendered.replace(/<(?:.|\n)*?>/gm, '');;
-				parent.appendChild(clone);
-			});
-		}
-		loadProdukt();
-	</script>
-	<script src="burger.js"></script>
-	<style>
 
-	</style>
+        <ul id="menuContainer">
+            <div id="logo"></div>
+            <a href="galleri.html">
+                <li class="menuItems">Galleri</li>
+            </a>
+            <a href="oplevelser.html">
+                <li class="menuItems">Oplevelser</li>
+            </a>
+            <a href="produktudvikling.html">
+                <li class="menuItems">Produktudvikling</li>
+            </a>
+            <a href="om.html">
+                <li class="menuItems">Om</li>
+            </a>
+            <a href="kontakt.html">
+                <li class="menuItems">Kontakt</li>
+            </a>
+
+            <div id="instagram"></div>
+        </ul>
+
+    </nav>
+    <!--		*************************************************************************************************************** BG VIDEO-->
+    <div id="bgVideo"></div>
+    <div id="contentContainer">
+        <div id="articleContainer"></div>
+    </div>
+    <!--		*************************************************************************************************************** ARTICLES-->
+    <!--		*************************************************************************************************************** produkt-JS-->
+    <script>
+        async function loadProdukt() {
+            let template = document.querySelector("#produktTemplate");
+            let parent = document.querySelector("#articleContainer");
+            let produkterObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
+            let produkter = await produkterObj.json();
+            console.log(produkter);
+            produkter.forEach(function(produkt) {
+                let clone = template.cloneNode(true).content;
+                clone.querySelector(".produktImg").setAttribute("src", produkt.acf.billede);
+                clone.querySelector(".produktHeadline").textContent = produkt.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
+                clone.querySelector(".produktBody").textContent = produkt.content.rendered.replace(/<(?:.|\n)*?>/gm, '');;
+                parent.appendChild(clone);
+            });
+        }
+        loadProdukt();
+    </script>
+    <script src="burger.js"></script>
+    <style>
+    </style>
 </body>
 <!--	IS ALIVEEEEE-->
 
