@@ -3,7 +3,21 @@
 
 
 
+<<<<<<< HEAD
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="stylesheet.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css">
+		<title>OM</title>
+		<!--		*************************************************************************************************************** SAMARBEJDE-TEMPLATE-->
+		<template id="samarbejdeTemplate">
+=======
     <head>
+<<<<<<< HEAD
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylesheet.css">
 
@@ -58,6 +72,145 @@
     <!--		*************************************************************************************************************** GALLERI-->
     <div id="omContainer">
         <div class="omGlaspusterenLink">
+=======
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="stylesheet.css">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>OM</title>
+        <!--		*************************************************************************************************************** SAMARBEJDE-TEMPLATE-->
+        <template id="samarbejdeTemplate">
+>>>>>>> origin/master
+			<a class="samarbejdeLink"> <img class="samarbejdeImg"> </a> <a class="samarbejdeLink2"><h2 class="samarbejdeHeadline"></h2></a> </template>
+    </head>
+
+<<<<<<< HEAD
+	<body>
+		<!--		*************************************************************************************************************** NAVIGATION -->
+		<nav>
+			<button class="burger">
+=======
+    <body>
+        <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+        <nav>
+            <button class="burger">
+>>>>>>> origin/master
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</button>
+<<<<<<< HEAD
+			<div id="logo"></div>
+			<ul id="menuContainer">
+				<a href="galleri.html">
+					<li class="menuItems">Galleri</li>
+				</a>
+				<a href="oplevelser.html">
+					<li class="menuItems">Oplevelser</li>
+				</a>
+				<a href="produktudvikling.html">
+					<li class="menuItems">Produktudvikling</li>
+				</a>
+				<a href="om.html">
+					<li class="menuItems">Om</li>
+				</a>
+				<a href="kontakt.html">
+					<li class="menuItems">Kontakt</li>
+				</a>
+			</ul>
+			<div id="instagram"></div>
+		</nav>
+		<!--		*************************************************************************************************************** BG VIDEO-->
+		<div id="bgVideo"></div>
+		<!--		*************************************************************************************************************** GALLERI-->
+		<div id="omContainer">
+			<a href="om.html?om=glaspusteren">
+				<div id="galleryInterior" class="oms">
+					<h2>Om Glaspusteren </h2> </div>
+			</a>
+			<a href="om.html?om=vaerkstedet">
+				<div id="galleryAwards" class="galleries">
+					<h2>Om Værkstedet</h2> </div>
+			</a>
+		</div>
+		<section id="glaspusterenContainer">
+			<article id="omGlaspusteren">
+				<h2 id="Gheadline"></h2> <img id="Gportrait">
+				<p id="Gquote"></p>
+			</article>
+			<section id=samarbejdeContainer></section>
+			<section id=awardsContainer></section>
+			<iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe>
+		</section>
+		<!--		*************************************************************************************************************** OM-JS-->
+<!--!TODO: asdfasdf
+-->
+		<script src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
+		<script>
+			async function loadGlaspusteren() {
+				let glaspusterenObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om/42");
+				let glaspusteren = await glaspusterenObj.json();
+				console.log(glaspusteren);
+				document.querySelector("#Gheadline").textContent = glaspusteren.title.rendered;
+				document.querySelector("#Gportrait").setAttribute("src", glaspusteren.acf.omBillede);
+				document.querySelector("#Gquote").textContent = glaspusteren.acf.citat;
+			}
+			async function loadSamarbejde() {
+				let template = document.querySelector("#samarbejdeTemplate");
+				let parent = document.querySelector("#samarbejdeContainer");
+				let samarbejdeObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om?categories=6");
+				let samarbejde = await samarbejdeObj.json();
+				console.log('sam');
+				console.log(samarbejde);
+				samarbejde.forEach(function (sam) {
+					let clone = template.cloneNode(true).content;
+					clone.querySelector(".samarbejdeImg").setAttribute("src", sam.acf.logo);
+					console.log(sam.acf.tekst);
+					clone.querySelector(".samarbejdeHeadline").textContent = sam.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
+					clone.querySelector(".samarbejdeLink").setAttribute("href", sam.acf.pageLink);
+					clone.querySelector(".samarbejdeLink2").setAttribute("href", sam.acf.pageLink);
+					parent.appendChild(clone);
+				});
+			}
+			loadGlaspusteren();
+			loadSamarbejde();
+		</script>
+		<script src="burger.js"></script>
+		<style>
+=======
+>>>>>>> origin/master
+
+            <ul id="menuContainer">
+                <div id="logo"></div>
+                <a href="galleri.html">
+                    <li class="menuItems">Galleri</li>
+                </a>
+                <a href="oplevelser.html">
+                    <li class="menuItems">Oplevelser</li>
+                </a>
+                <a href="produktudvikling.html">
+                    <li class="menuItems">Produktudvikling</li>
+                </a>
+                <a href="om.html">
+                    <li class="menuItems">Om</li>
+                </a>
+                <a href="kontakt.html">
+                    <li class="menuItems">Kontakt</li>
+                </a>
+                <div id="instagram"></div>
+            </ul>
+
+        </nav>
+        <!--		*************************************************************************************************************** BG VIDEO-->
+        <div id="bgVideo"></div>
+        <div id="contentContainer"></div>
+
+        <!--		*************************************************************************************************************** GALLERI-->
+        <div id="omContainer">
+>>>>>>> origin/master
             <a href="om.html?om=glaspusteren">
                 <div id="galleryInterior" class="oms">
                     <h2>Om Glaspusteren</h2>
@@ -208,6 +361,5 @@
         }
     </style>
 </body>
-
 
 </html>
