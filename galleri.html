@@ -106,25 +106,64 @@
 		function loadFilter() {
 			let template = document.querySelector("#filterTemplate");
 			let parent = document.querySelector("#filterContainer");
-						console.log(filterList);
+			console.log(filterList);
 			filterList.forEach(function (filter) {
 				let clone = template.cloneNode(true).content;
 				clone.querySelector(".filterItem").textContent = filter;
 				clone.querySelector(".filterItem").onclick = function something() {
 					// !!!!! NOTE!!!!!: reverse thinking
-					console.log(filter);
-					let fe = filterList.indexOf(filter);
-					console.log(fe);
-					const fall = filterList;
-					fall.splice(fe, 1);
-					console.log(fall);
-
-//					for (let e of document.getElementsByClassName(filter)) e.style.display = "none";
+					//					console.log(filter);
+					//					let fe = filterList.indexOf(filter);
+					//					console.log(fe);
+					//					const fall = filterList;
+					//					fall.splice(fe, 1);
+					//					console.log(fall);
+//					window.show = filter;
+					console.log("tralalala" + filter);
+					//					insertParam(show, filter);
+					//					addParameterToURL("trala");
+					let url = new URL(window.location.href);
+					console.log(url);
+					let params3 = new URLSearchParams(url.search);
+					url.params3.set('show', 42);
+//					addUrlParam(filter, "show", filter);
+					//					for (let e of document.getElementsByClassName(filter)) e.style.display = "none";
 				};
 				parent.appendChild(clone);
 			});
 		}
 		loadGallery();
+		//		console.log(getVar());
+		function addParameterToURL(param) {
+			_url = location.href;
+			_url += (_url.split('?')[1] ? '&' : '?') + param;
+			return _url;
+		}
+		var addUrlParam = function (search, key, val) {
+			var newParam = key + '=' + val
+				, params = '?' + newParam;
+			// If the "search" string exists, then build params from it
+			if (search) {
+				// Try to replace an existance instance
+				params = search.replace(new RegExp('([?&])' + key + '[^&]*'), '$1' + newParam);
+				// If nothing was replaced, then add the new param to the end
+				if (params === search) {
+					params += '&' + newParam;
+				}
+			}
+			return params;
+		};
+
+		function getVar() {
+			//			let url = new URL(window.location.href);
+			let vars = new URLSearchParams(url.search);
+			let show = vars.get("show");
+			if (show == "all" ||  show == null) {
+				console.log("woooo!!!!!");
+				return "all";
+			}
+			else return show;
+		}
 	</script>
 	<script src="burger.js"></script>
 	<style>
@@ -143,6 +182,10 @@
 				border: pink 4px solid;
 			}
 */
+
+		.borderWrapper {
+			display: none;
+		}
 
 		.galleries {
 			height: 10vh;
@@ -166,6 +209,5 @@
 		/*			itemWrapper itemContainer*/
 	</style>
 </body>
-<!--	IS ALIVEEEEE-->
 
 </html>

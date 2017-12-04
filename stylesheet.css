@@ -14,8 +14,6 @@ img {
 
 /* MENU TIL WEB */
 
-
-/*
 nav a {
     text-decoration: none;
     list-style-type: none;
@@ -34,92 +32,92 @@ nav a {
     text-decoration: none;
     color: white;
 }
-*/
 
-
+/****NOTE****:  */
 /* BURGER MENU */
-
-header {
-    height: 13vw;
-    width: 100vw;
-    position: fixed;
-    z-index: 98;
-    margin: 0;
-    color: white;
-}
-
-a#gallery,
-a#oplevelser,
-a#produktudvikling,
-a#om,
-a#kontakt {
-    text-decoration: none;
-    color: white;
-}
-
-.burger {
-    display: inline-block;
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: fixed;
-    right: 2vw;
-    z-index: 99;
-}
-
-ul#menuContainer {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-li.menuItems {
-    /*    padding: 5px;*/
-    cursor: pointer;
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.bar1,
-.bar2,
-.bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #fff;
-    margin: 6px 0;
-    transition: 0.4s;
-}
-
-nav {
-    max-height: 0px;
-    overflow: hidden;
-    transition: 0.6s;
-}
-
-nav.show {
-    max-height: 500px;
-    background-color: rgb(0, 0, 0);
-    z-index: 1;
-}
-
-
-/* Rotate first bar */
-
-.change .bar1 {
-    transform: rotate(-45deg) translate(-9px, 6px);
-}
-
-
-/* Fade out the second bar */
-
-.change .bar2 {
-    opacity: 0;
-}
-
-
-/* Rotate last bar */
-
-.change .bar3 {
-    transform: rotate(45deg) translate(-8px, -8px);
-}
+/**/
+/*header {*/
+/*    height: 13vw;*/
+/*    width: 100vw;*/
+/*    position: fixed;*/
+/*    z-index: 98;*/
+/*    margin: 0;*/
+/*    color: white;*/
+/*}*/
+/**/
+/*a#gallery,*/
+/*a#oplevelser,*/
+/*a#produktudvikling,*/
+/*a#om,*/
+/*a#kontakt {*/
+/*    text-decoration: none;*/
+/*    color: white;*/
+/*}*/
+/**/
+/*.burger {*/
+/*    display: inline-block;*/
+/*    cursor: pointer;*/
+/*    background: none;*/
+/*    border: none;*/
+/*    position: fixed;*/
+/*    right: 2vw;*/
+/*    z-index: 99;*/
+/*}*/
+/**/
+/*ul#menuContainer {*/
+/*    list-style: none;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+/**/
+/*li.menuItems {*/
+        padding: 5px;
+/*    cursor: pointer;*/
+/*    padding-left: 15px;*/
+/*    padding-top: 15px;*/
+/*    padding-bottom: 15px;*/
+/*}*/
+/**/
+/*.bar1,*/
+/*.bar2,*/
+/*.bar3 {*/
+/*    width: 35px;*/
+/*    height: 5px;*/
+/*    background-color: #fff;*/
+/*    margin: 6px 0;*/
+/*    transition: 0.4s;*/
+/*}*/
+/**/
+/*nav {*/
+/*    max-height: 0px;*/
+/*    overflow: hidden;*/
+/*    transition: 0.6s;*/
+/*}*/
+/**/
+/*nav.show {*/
+/*    max-height: 500px;*/
+/*    background-color: rgb(0, 0, 0);*/
+/*    z-index: 1;*/
+/*}*/
+/**/
+/**/
+ Rotate first bar
+/**/
+/*.change .bar1 {*/
+/*    transform: rotate(-45deg) translate(-9px, 6px);*/
+/*}*/
+/**/
+/**/
+ Fade out the second bar
+/**/
+/*.change .bar2 {*/
+/*    opacity: 0;*/
+/*}*/
+/**/
+/**/
+ Rotate last bar
+/**/
+/*.change .bar3 {*/
+/*    transform: rotate(45deg) translate(-8px, -8px);*/
+/*}*/
+/**/
