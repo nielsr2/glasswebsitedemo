@@ -144,13 +144,24 @@ a#kontakt {
 }
 
 .burger {
-    display: inline-block;
+    /*        display: inline-block;*/
     cursor: pointer;
     background: none;
     border: none;
     position: fixed;
-    right: 2vw;
-    z-index: 99;
+    width: 100vw;
+    background-color: green;
+    z-index: 99999;
+    display: flex;
+}
+
+#menuContainer {
+    /*    position: fixed;*/
+}
+
+.navn {
+    color: white;
+    text-align: left;
 }
 
 ul#menuContainer {
@@ -160,7 +171,7 @@ ul#menuContainer {
 }
 
 li.menuItems {
-    /*    padding: 5px;*/
+    /*            padding: 5px;*/
     cursor: pointer;
     padding-left: 15px;
     padding-top: 15px;
@@ -170,6 +181,8 @@ li.menuItems {
 .bar1,
 .bar2,
 .bar3 {
+    position: relative;
+    left: 85vw;
     width: 35px;
     height: 5px;
     background-color: #fff;
@@ -186,7 +199,7 @@ nav {
 nav.show {
     max-height: 500px;
     background-color: rgb(0, 0, 0);
-    z-index: 1;
+    z-index: 1999;
 }
 
 
@@ -237,6 +250,7 @@ nav.show {
         margin: 0;
         position: fixed;
         font-weight: bold;
+        z-index: 10000;
     }
 
     nav a {
@@ -263,7 +277,7 @@ nav.show {
         cursor: pointer;
     }
     #instagram {
-        background-image: url(instagramLogo.png);
+        background-image: url(imgs/instagramLogo.png);
         margin-left: 43vw;
         margin-top: 5vh;
         width: 2vw;

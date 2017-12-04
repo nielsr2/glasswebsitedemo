@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 
+
+<<<<<<< HEAD
+
 <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css">
 
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="stylesheet.css">
-
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>KONTAKT</title>
-        <!--		*************************************************************************************************************** OPLEVELSE-TEMPLATE-->
-        <template id="someTemplate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>KONTAKT</title>
+    <!--		*************************************************************************************************************** OPLEVELSE-TEMPLATE-->
+    <template id="someTemplate">
 <<<<<<< HEAD
 			<a class="someLink"> <img class="someImg"> </a>
 			<a class="someLink2"><h2 class="someHeadline"></h2></a>
@@ -28,17 +29,164 @@
 
 >>>>>>> origin/master
 		</template>
+</head>
+
+<body>
+    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+    <nav>
+        <button class="burger">
+               <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                </div>
+                <div class="navn"><h2>anders raad glas</h2></div>
+            </button>
+
+        <ul id="menuContainer">
+            <div id="logo"></div>
+            <a href="galleri.html">
+                <li class="menuItems">Galleri</li>
+            </a>
+            <a href="oplevelser.html">
+                <li class="menuItems">Oplevelser</li>
+            </a>
+            <a href="produktudvikling.html">
+                <li class="menuItems">Produktudvikling</li>
+            </a>
+            <a href="om.html">
+                <li class="menuItems">Om</li>
+            </a>
+            <a href="kontakt.html">
+                <li class="menuItems">Kontakt</li>
+            </a>
+            <div id="instagram"></div>
+        </ul>
+
+    </nav>
+
+
+
+    <!--		*************************************************************************************************************** BG VIDEO-->
+
+    <div id="bgVideo"></div>
+    <div id="contentContainer"></div>
+
+    <article id="kontaktOplysninger">
+        <h2 id="kontaktHeadline"></h2>
+        <p id="kontaktBody"></p>
+    </article>
+
+
+
+    <div id="maps">
+        <h2 id="mapsHeadline">Find vej</h2>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.2877929397214!2d12.583092015930532!3d55.7535026805536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46524d9c2c98955b%3A0x5ba059842eb0b6e1!2sGlas+%2F+Anders+Raad!5e0!3m2!1sda!2sdk!4v1511966810524" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+        <p id="adress">Traverbanevej 12, 2920 Charlottenlund</p>
+    </div>
+
+    <div id="someContainer"></div>
+
+    <!--		*************************************************************************************************************** OPLEVELSE-JS-->
+    <script>
+        async function loadKontakt() {
+            let kontaktObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt");
+            let kontakt = await kontaktObj.json();
+            console.log(kontakt);
+            console.log(kontakt[3].content.rendered);
+            document.querySelector("#kontaktBody").textContent = kontakt[3].content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+            document.querySelector("#kontaktHeadline").textContent = kontakt[3].title.rendered.replace(/<(?:.|\n)*?>/gm, '');
+        }
+
+
+        async function loadSoMe() {
+            let template = document.querySelector("#someTemplate");
+            let parent = document.querySelector("#someContainer");
+
+            let someObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt?categories=3");
+            let some = await someObj.json();
+            console.log(some);
+            some.forEach(function(so) {
+                let clone = template.cloneNode(true).content;
+
+                clone.querySelector(".someImg").setAttribute("src", so.acf.ikon);
+
+                //                    the_clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);
+
+                console.log(so.acf.tekst);
+                clone.querySelector(".someHeadline").textContent = so.acf.tekst;
+                clone.querySelector(".someLink").setAttribute("href", so.acf.link);
+                clone.querySelector(".someLink2").setAttribute("href", so.acf.link);
+                parent.appendChild(clone);
+            });
+        }
+        loadKontakt();
+        loadSoMe();
+    </script>
+    <script src="burger.js"></script>
+
+
+    <style>
+        .someImg {
+            max-width: 7vw;
+            filter: invert();
+        }
+
+        .someLink,
+        .someLink2 {
+            text-decoration: none;
+            color: white;
+            font-size: 7pt;
+        }
+
+
+        #someContainer {
+            display: flex;
+            margin-left: 7vw;
+            margin-top: 15vw;
+            width: 80vw;
+
+        }
+
+        #someHeadlineContainer {
+            display: flex;
+            /*                display: flex;*/
+        }
+
+        #someLinkContainer {
+            display: flex;
+            /*                display: flex;*/
+        }
+=======
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="stylesheet.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>KONTAKT</title>
+        <!--		*************************************************************************************************************** OPLEVELSE-TEMPLATE-->
+        <!--
+        <template id="someTemplate">
+            <<<<<<< HEAD <a class="someLink"> <img class="someImg"> </a> <a class="someLink2"><h2 class="someHeadline"></h2></a> =======
+                <div id="someLinkContainer">
+                    <a class="someLink"> <img class="someImg"> </a>
+                </div>
+                <div id="someHeadlineContainer"> <a class="someLink2"><h2 class="someHeadline"></h2></a> </div> >>>>>>> origin/master </template>
+-->
     </head>
 
     <body>
         <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
         <nav>
             <button class="burger">
-				<div class="bar1"></div>
-				<div class="bar2"></div>
-				<div class="bar3"></div>
-			</button>
-
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </button>
             <ul id="menuContainer">
                 <div id="logo"></div>
                 <a href="galleri.html">
@@ -58,33 +206,34 @@
                 </a>
                 <div id="instagram"></div>
             </ul>
-
         </nav>
-
-
-
         <!--		*************************************************************************************************************** BG VIDEO-->
-
         <div id="bgVideo"></div>
         <div id="contentContainer"></div>
-
         <article id="kontaktOplysninger">
             <h2 id="kontaktHeadline"></h2>
             <p id="kontaktBody"></p>
         </article>
-
-
-
         <div id="maps">
-            <h2 id="mapsHeadline">Find vej</h2>
-
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.2877929397214!2d12.583092015930532!3d55.7535026805536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46524d9c2c98955b%3A0x5ba059842eb0b6e1!2sGlas+%2F+Anders+Raad!5e0!3m2!1sda!2sdk!4v1511966810524" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-            <p id="adress">Traverbanevej 12, 2920 Charlottenlund</p>
+            <!--            <p id="adress">Traverbanevej 12, 2920 Charlottenlund</p>-->
         </div>
+        <div class="line"></div>
+        <h2 id="kontaktOverskrift"> Kontakt mig på.....</h2>
+        <div id="kontaktLogo">
+            <div class="logoerne">
+                <div class="logo1"> <img src="imgs/phone_pic.png" alt="phone">Telefon </div>
+                <div class="logo2"><img src="imgs/instagram_pic.png" alt="instagram"> Instagram </div>
+                <div class="logo3"> <img src="imgs/mail_pic.png" alt="mail">Mail </div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div id="kontaktFormular">
+            <h2 class="kontaktformularOverskrift">Nyhedsbrev
 
-        <div id="someContainer"></div>
-
+           </h2>
+            <label for="fname"></label>
+            <input type="text" id="fname" name="firstname" placeholder="email-adresse"> </div>
         <!--		*************************************************************************************************************** OPLEVELSE-JS-->
         <script>
             async function loadKontakt() {
@@ -95,22 +244,16 @@
                 document.querySelector("#kontaktBody").textContent = kontakt[3].content.rendered.replace(/<(?:.|\n)*?>/gm, '');
                 document.querySelector("#kontaktHeadline").textContent = kontakt[3].title.rendered.replace(/<(?:.|\n)*?>/gm, '');
             }
-
-
             async function loadSoMe() {
                 let template = document.querySelector("#someTemplate");
                 let parent = document.querySelector("#someContainer");
-
                 let someObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt?categories=3");
                 let some = await someObj.json();
                 console.log(some);
-                some.forEach(function(so) {
+                some.forEach(function (so) {
                     let clone = template.cloneNode(true).content;
-
                     clone.querySelector(".someImg").setAttribute("src", so.acf.ikon);
-
                     //                    the_clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);
-
                     console.log(so.acf.tekst);
                     clone.querySelector(".someHeadline").textContent = so.acf.tekst;
                     clone.querySelector(".someLink").setAttribute("href", so.acf.link);
@@ -122,13 +265,46 @@
             loadSoMe();
         </script>
         <script src="burger.js"></script>
-
-
         <style>
             .someImg {
                 max-width: 7vw;
                 filter: invert();
             }
+
+            h2 {
+                font-size: 25px;
+            }
+
+            #kontaktLogo {
+                margin-left: 30vw;
+            }
+
+            h2 #kontaktoverskrift {
+                margin-left: 100vw;
+            }
+
+            .kontaktformularOverskrift {
+                margin-left: 30vw;
+            }
+
+            #kontaktLogo {}
+
+            .logoerne {
+                width: 30px;
+            }
+
+            input[type=text],
+            select,
+            textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .logo1,
+            .logo2,
+            .logo3 {}
 
             .someLink,
             .someLink2 {
@@ -137,49 +313,73 @@
                 font-size: 7pt;
             }
 
-
             #someContainer {
                 display: flex;
                 margin-left: 7vw;
                 margin-top: 15vw;
-                width: 80vw;
-
+                width: 90vw;
             }
 
-
+            .line {
+                border: 1px solid #FF7621;
+            }
 
             #someHeadlineContainer {
                 display: flex;
-                /*                display: flex;*/
             }
 
             #someLinkContainer {
                 display: flex;
-                /*                display: flex;*/
             }
 
+            #mapsHeadline {
+                margin-left: 30vw;
+            }
 
-
-            #mapsHeadline,
             #adress {
-                margin-left: 7vw;
+                margin-left: 30vw;
             }
+>>>>>>> origin/master
 
-            iframe {
-                max-width: 80vw;
-                max-height: 60vw;
-                margin-left: 7vw;
+        #mapsHeadline,
+        #adress {
+            margin-left: 7vw;
+        }
+
+<<<<<<< HEAD
+        iframe {
+            max-width: 80vw;
+            max-height: 60vw;
+            margin-left: 7vw;
+        }
+
+        #kontaktOplysninger {
+            width: 30vw;
+            height: auto;
+            margin-top: 20vw;
+            margin-left: 7vw;
+            margin-bottom: 10vw;
+        }
+    </style>
+</body>
+<!--	IS ALIVEEEEE-->
+=======
+            #kontaktOverskrift {
+                margin-left: 30vw;
             }
 
             #kontaktOplysninger {
                 width: 30vw;
                 height: auto;
                 margin-top: 20vw;
-                margin-left: 7vw;
+                margin-left: 30vw;
                 margin-bottom: 10vw;
+                display: flex;
+                flex-wrap: wrap;
             }
         </style>
     </body>
     <!--	IS ALIVEEEEE-->
+>>>>>>> origin/master
 
 </html>

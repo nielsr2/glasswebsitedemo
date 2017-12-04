@@ -2,120 +2,126 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css">
 
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="stylesheet.css">
-
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>OPLEVELSER</title>
-        <template id="oplevelseTemplate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>OPLEVELSER</title>
+    <template id="oplevelseTemplate">
             <article class="oplevelseArticle">
                 <h2 class="oplevelseHeadline"></h2>
                 <p class="oplevelseBody"></p> <img class="oplevelseImg"> </article>
         </template>
-    </head>
+</head>
 
-    <body>
-        <nav>
-            <button class="burger">
+<body>
+    <nav>
+        <button class="burger">
+               <div class="menu">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
+                </div>
+                <div class="navn"><h2>anders raad glas</h2></div>
             </button>
 
-            <ul id="menuContainer">
-                <div id="logo"></div>
-                <a href="galleri.html">
-                    <li class="menuItems">Galleri</li>
-                </a>
-                <a href="oplevelser.html">
-                    <li class="menuItems">Oplevelser</li>
-                </a>
-                <a href="produktudvikling.html">
-                    <li class="menuItems">Produktudvikling</li>
-                </a>
-                <a href="om.html">
-                    <li class="menuItems">Om</li>
-                </a>
-                <a href="kontakt.html">
-                    <li class="menuItems">Kontakt</li>
-                </a>
-                <div id="instagram"></div>
-            </ul>
+        <ul id="menuContainer">
+            <div id="logo"></div>
+            <a href="galleri.html">
+                <li class="menuItems">Galleri</li>
+            </a>
+            <a href="oplevelser.html">
+                <li class="menuItems">Oplevelser</li>
+            </a>
+            <a href="produktudvikling.html">
+                <li class="menuItems">Produktudvikling</li>
+            </a>
+            <a href="om.html">
+                <li class="menuItems">Om</li>
+            </a>
+            <a href="kontakt.html">
+                <li class="menuItems">Kontakt</li>
+            </a>
+            <div id="instagram"></div>
+        </ul>
 
-        </nav>
-        <!--		*************************************************************************************************************** BG VIDEO-->
-<div id="bgVideo">
-    <video id="video_stor" width="100%" height="" autoplay loop muted>
+    </nav>
+    <!--		*************************************************************************************************************** BG VIDEO-->
+    <div id="bgVideo">
+        <video id="video_stor" autoplay loop muted>
         <source src="video/glassskaal.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
     </div>
 
-        <!--		*************************************************************************************************************** ARTICLES-->
-        <!--        <div id="articleContainer"> </div>-->
-        <div id="contentContainer">
-            <div id="articleContainer"></div>
-        </div>
-        <!--		*************************************************************************************************************** OPLEVELSE-JS-->
-        <script>
-            async function loadOplevelser() {
-                let template = document.querySelector("#oplevelseTemplate");
-                let parent = document.querySelector("#articleContainer");
-                let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
-                let oplevelser = await oplevelserObj.json();
-                console.log(oplevelser);
-                oplevelser.forEach(function(oplevelse) {
-                    let clone = template.cloneNode(true).content;
-                    clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
-                    clone.querySelector(".oplevelseHeadline").textContent = oplevelse.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
-                    clone.querySelector(".oplevelseBody").textContent = oplevelse.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
-                    parent.appendChild(clone);
-                });
-            }
-            loadOplevelser();
-        </script>
+    <!--		*************************************************************************************************************** ARTICLES-->
+    <!--        <div id="articleContainer"> </div>-->
+    <div id="contentContainer">
+        <div id="articleContainer"></div>
+    </div>
+    <!--		*************************************************************************************************************** OPLEVELSE-JS-->
+    <script>
+        async function loadOplevelser() {
+            let template = document.querySelector("#oplevelseTemplate");
+            let parent = document.querySelector("#articleContainer");
+            let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
+            let oplevelser = await oplevelserObj.json();
+            console.log(oplevelser);
+            oplevelser.forEach(function(oplevelse) {
+                let clone = template.cloneNode(true).content;
+                clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
+                clone.querySelector(".oplevelseHeadline").textContent = oplevelse.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
+                clone.querySelector(".oplevelseBody").textContent = oplevelse.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+                parent.appendChild(clone);
+            });
+        }
+        loadOplevelser();
+    </script>
 
-        <script src="burger.js"></script>
+    <script src="burger.js"></script>
 
 
-        <Style>
-            .oplevelseArticle {
-                width: 80%;
-                margin: 10% 10%;
-                display: grid;
-                grid-template-areas: "overskrift" "billede" "indhold" "linje";
-            }
+    <Style>
+        #video_stor {
+            width: 100%;
+            z-index: 1;
+        }
 
-            img.oplevelseImg {
-                width: 80%;
-                height: auto;
-                grid-area: billede;
-                border: solid 5px rgba(255, 255, 255, 0.25);
-                margin: 0 8%;
-            }
+        .oplevelseArticle {
+            width: 80%;
+            margin: 10% 10%;
+            display: grid;
+            grid-template-areas: "overskrift" "billede" "indhold" "linje";
+        }
 
-            h2.oplevelseHeadline {
-                text-align: center;
-                grid-area: overskrift;
-                font-family: special elite;
-            }
+        img.oplevelseImg {
+            width: 80%;
+            height: auto;
+            grid-area: billede;
+            border: solid 5px rgba(255, 255, 255, 0.25);
+            margin: 0 8%;
+        }
 
-            p.oplevelseBody {
-                font-size: 10pt;
-                line-height: 1.5;
-                grid-area: indhold;
-                font-family: helvetica neue;
-            }
+        h2.oplevelseHeadline {
+            text-align: center;
+            grid-area: overskrift;
+            font-family: special elite;
+        }
 
-            #teambuildingBorder {
-                border: solid 2px orange;
-                width: 100%;
-                grid-area: linje;
-            }
-        </Style>
-    </body>
+        p.oplevelseBody {
+            font-size: 10pt;
+            line-height: 1.5;
+            grid-area: indhold;
+            font-family: helvetica neue;
+        }
+
+        #teambuildingBorder {
+            border: solid 2px orange;
+            width: 100%;
+            grid-area: linje;
+        }
+    </Style>
+</body>
 
 </html>
