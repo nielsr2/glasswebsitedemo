@@ -127,7 +127,7 @@
 
             });
             loadFilter(filterList);
-            scroller();
+//            scroller();
         }
         //    *************************************************************************************************************** LOAD FILTER
         function loadFilter() {
@@ -149,8 +149,9 @@
     </script>
     <script src="burger.js"></script>
 
-
     <script src="jquery.scrollify.min.js"></script>
+
+    <!--
     <script>
         async function scroller() {
             $(function() {
@@ -181,8 +182,7 @@
             });
         }
     </script>
-
-
+-->
 
     <style>
         body {
@@ -198,8 +198,8 @@
             background-color: red;
             border: blue 4px solid;
         }
-        /*
 
+        /*
 			#galleryContainer:nth-child(2n) {
 				background: blue;
 				border: pink 4px solid;
@@ -235,6 +235,8 @@
             font-size: 10pt;
             text-align: center;
         }
+
+
         /*******************SWIPE EFFECT**********************/
 
         #itemContainer {
@@ -261,6 +263,13 @@
 
         .cardC {
             background-color: olivedrab;
+            display: inline-block;
+            height: 100%;
+            width: 30vw;
+        }
+
+          .cardD {
+            background-color: hotpink;
             display: inline-block;
             height: 100%;
             width: 30vw;
