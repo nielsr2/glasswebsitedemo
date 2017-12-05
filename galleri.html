@@ -14,9 +14,9 @@
 	<template id="galleriTemplate">
 		<div class="borderWrapper">
 			<div class="itemContainer">
-				<a href="" class="linkSingle">
-					<div class="itemWrapper"><img class="itemImg "></div>
-				</a>
+				<!--				<a href="" class="linkSingle">-->
+				<div class="itemWrapper"><img class="itemImg "></div>
+				<!--				</a>-->
 				<p class="itemDescription"></p>
 			</div>
 		</div>
@@ -29,20 +29,18 @@
 </head>
 
 <body>
-
-    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
-    <nav>
-        <button class="burger">
-               <div class="menu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-                </div>
-                <div class="navn"><h2>anders raad glas</h2></div>
-            </button>
-
 	<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
 	<nav>
+		<button class="burger">
+			<div class="menu">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+			<div class="navn">
+				<h2>anders raad glas</h2></div>
+		</button>
+		<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
 		<button class="burger">
 			<div class="bar1"></div>
 			<div class="bar2"></div>
@@ -54,7 +52,7 @@
 				<li class="menuItems">Galleri</li>
 			</a>
 			<a href="oplevelser.html">
-				ß<li class="menuItems">Oplevelser</li>
+				<li class="menuItems">Oplevelser</li>
 			</a>
 			<a href="produktudvikling.html">
 				<li class="menuItems">Produktudvikling</li>
@@ -71,7 +69,7 @@
 	<!--		*************************************************************************************************************** BG VIDEO-->
 	<div id="bgVideo"></div>
 	<!--		*************************************************************************************************************** GALLERI-->
-<!--
+	<!--
 	<div id="galleryContainer">
 		<a href="galleri.html?gallery=interior">
 			<div id="galleryInterior" class="galleries">
@@ -92,13 +90,14 @@
 	<!--		*************************************************************************************************************** ITEM-CONTAINER-->
 	<section id="itemContainer"></section>
 	<!--		*************************************************************************************************************** VIEWVINDOW-->
-	<section id="viewWindow"> </section>
+	<section id="modalWindow">
+		<div id="modalClose"></div> <img id="modalImage">
+		<h3 id="modalDescription"></h3></section>
 	<!--		*************************************************************************************************************** OPLEVELSE-JS-->
 	<style>
 		body {
 			margin: 0vw;
 		}
-
 
 		#galleryContainer {
 			background-color: red;
@@ -142,6 +141,13 @@
 			padding: 10px;
 		}
 		/*			itemWrapper itemContainer*/
+		/*MODAL 			****************************************************************************************************************/
+
+		#modalWindow {
+			width: 50vw;
+			height: 50vh;
+			border: red 20px dotted;
+		}
 	</style>
 	<!--		*************************************************************************************************************** VIEWVINDOW-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
@@ -149,19 +155,24 @@
 		//		document.addEventListener("DOMContentLoaded", lazyload());
 		let filterList = new Array();
 		// *************************************************************************************************************** LOAD GALLERY-->
+		var galleri;
 		async function loadGallery() {
 			let template = document.querySelector("#galleriTemplate");
 			let parent = document.querySelector("#itemContainer");
 			let galleriObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/galleri");
-			let galleri = await galleriObj.json();
+			galleri = await galleriObj.json();
 			console.log(galleri);
-			galleri.forEach(function (billede) {
+			galleri.forEach(function (billede, index) {
 				let clone = template.cloneNode(true).content;
+				//					modalLoad(index);
+				clone.querySelector(".itemImg").dataset.item_id = billede.id;
 				clone.querySelector(".itemImg").setAttribute("data-src", billede.acf.billede);
+				clone.querySelector(".itemImg").onclick = modalLoad;
 				clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
 				let kat = billede.acf.kategori;
 				clone.querySelector(".borderWrapper").classList.add(kat);
 				if (filterList.includes(kat) == !true) {
+					filterList.push(billede.acf.kategori);
 					filterList.push(billede.acf.kategori);
 				}
 				let url = new URL(window.location.href);
@@ -169,7 +180,6 @@
 				let show = vars.get("sort");
 				if (show == "all" || show == null) {
 					console.log(" all or null");
-
 					parent.appendChild(clone);
 				}
 				else if (kat == show) {
@@ -180,6 +190,24 @@
 			loadFilter(filterList);
 			var myLazyLoad = new LazyLoad;
 		}
+		//       *************************************************************************************************************** LOAD MODAL
+		function modalLoad(index) {
+			let item_id = index.currentTarget.dataset.item_id;
+			let obj = galleri.find(function (element) {
+				return element.id == item_id
+			});
+			console.log(obj);
+			document.querySelector("#modalDescription").textContent = obj.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+			document.querySelector("#modalImage").setAttribute("src", obj.acf.billede);
+			document.querySelector("#modalWindow").style.visibility = "visible";
+			let template = document.querySelector("#galleriTemplate");
+			let parent = document.querySelector("#itemContainer");
+			console.log(index);
+		}
+		document.querySelector("#modalClose").addEventListener("click", function closeModal() {
+			console.log("closed modal..");
+			document.querySelector("#modalWindow").style.visibility = "hidden";
+		});
 		//       *************************************************************************************************************** LOAD FILTER
 		function loadFilter() {
 			let template = document.querySelector("#filterTemplate");
@@ -189,13 +217,21 @@
 				let clone = template.cloneNode(true).content;
 				clone.querySelector(".filterItem").textContent = filter;
 				clone.querySelector(".filterLink").setAttribute("href", "galleri.html" + "?sort=" + filter);
-				clone.querySelector(".filterItem").onclick = function something() {};
+//				clone.querySelector(".filterItem").onclick = function something() {};
 				parent.appendChild(clone);
 			});
 		}
 		loadGallery();
 		//		console.log(getVar());
 	</script>
+	<style>
+		#modalClose{
+			background-color: aqua;
+			width: 10vw;
+			width: 10vw;
+			border: yellow 20px solid;
+		}
+	</style>
 </body>
 
 </html>
