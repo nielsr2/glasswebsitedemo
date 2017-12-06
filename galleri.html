@@ -170,7 +170,7 @@
         async function loadGallery() {
             let template = document.querySelector("#galleriTemplate");
             let parent = document.querySelector("#itemContainer");
-            let galleriObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/galleri");
+            let galleriObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/galleri?per_page=100");
             galleri = await galleriObj.json();
             console.log(galleri);
             galleri.forEach(function(billede, index) {
@@ -181,6 +181,7 @@
                 clone.querySelector(".itemImg").onclick = modalLoad;
                 clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
                 let kat = billede.acf.kategori;
+				console.log("kategories", kat);
                 clone.querySelector(".borderWrapper").classList.add(kat);
                 if (filterList.includes(kat) == !true) {
                     filterList.push(billede.acf.kategori);
