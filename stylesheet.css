@@ -11,45 +11,10 @@ html{
     height: 100%;
 }
 
- /************BAGGRUND VIDEO OVERLAY*****************/
-            #bgVideoOverlay {
-                background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
-                background: -webkit-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
-                background: linear-gradient(to right, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
-                filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cf3100', endColorstr='#007db9e8', GradientType=1);
-                width: 100vw;
-                height: 100vh;
-                background-size: contain;
-                position: absolute;
-                z-index: 1;
-            }
-            .overlay {
-                animation-name: overlayKF;
-                animation-duration: 2000ms;
-                animation-iteration-count: 1;
-                animation-direction: normal;
-                animation-timing-function: linear;
-            }
+#videoContainer {
+            display: none;
+        }
 
-            @keyframes overlayKF {
-                from {
-                    /* left: -80vw;*/
-                    opacity: 0;
-                }
-                to {
-                    /* left: 0;*/
-                    opacity: 1;
-                }
-            }
-
-            #videoContainer {
-                overflow:hidden;
-                height: 100vh;
-                position: absolute;
-                z-index: 1;
-                width: 100vw;
-                display: block;
-            }
 
 
 /* !!!!!!!FIXME!: this needs to be more specific. remove if not used for anything */
@@ -432,6 +397,47 @@ nav.show {
         background-size: contain;
         cursor: pointer;
     }
+
+    /************BAGGRUND VIDEO OVERLAY*****************/
+            #bgVideoOverlay {
+                background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
+                background: -webkit-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
+                background: linear-gradient(to right, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
+                filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cf3100', endColorstr='#007db9e8', GradientType=1);
+                width: 100vw;
+                height: 100vh;
+                background-size: contain;
+                position: absolute;
+                z-index: 1;
+            }
+            .overlay {
+                animation-name: overlayKF;
+                animation-duration: 2000ms;
+                animation-iteration-count: 1;
+                animation-direction: normal;
+                animation-timing-function: linear;
+            }
+
+            @keyframes overlayKF {
+                from {
+                    /* left: -80vw;*/
+                    opacity: 0;
+                }
+                to {
+                    /* left: 0;*/
+                    opacity: 1;
+                }
+            }
+
+            #videoContainer {
+                overflow:hidden;
+                height: 100vh;
+                position: absolute;
+                z-index: 1;
+                width: 100vw;
+                display: block;
+            }
+
 }
 
 /*> > > > > > > origin/master*/
