@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylesheet.css">
@@ -8,206 +9,173 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>KONTAKT</title>
-    <!--		*************************************************************************************************************** OPLEVELSE-TEMPLATE-->
-    <template id="someTemplate">
-        <div id="someLinkContainer">
-            <a class="someLink"> <img class="someImg"> </a>
-        </div>
-        <div id="someHeadlineContainer"> <a class="someLink2"><h2 class="someHeadline"></h2></a> </div>
-    </template>
-</head>
-    <body>
-        <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
-        <nav>
-            <button class="burger">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </button>
-            <ul id="menuContainer">
-                <div id="logo"></div>
-                <a href="galleri.html">
-                    <li class="menuItems">Galleri</li>
-                </a>
-                <a href="oplevelser.html">
-                    <li class="menuItems">Oplevelser</li>
-                </a>
-                <a href="produktudvikling.html">
-                    <li class="menuItems">Produktudvikling</li>
-                </a>
-                <a href="om.html">
-                    <li class="menuItems">Om</li>
-                </a>
-                <a href="kontakt.html">
-                    <li class="menuItems">Kontakt</li>
-                </a>
-                <div id="instagram"></div>
-            </ul>
-        </nav>
-        <!--		*************************************************************************************************************** BG VIDEO-->
-        <div id="bgVideo"></div>
-        <div id="contentContainer"></div>
-        <article id="kontaktOplysninger">
-            <h2 id="kontaktHeadline"></h2>
-            <p id="kontaktBody"></p>
-        </article>
-        <div id="maps">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.2877929397214!2d12.583092015930532!3d55.7535026805536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46524d9c2c98955b%3A0x5ba059842eb0b6e1!2sGlas+%2F+Anders+Raad!5e0!3m2!1sda!2sdk!4v1511966810524" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-            <!--            <p id="adress">Traverbanevej 12, 2920 Charlottenlund</p>-->
-        </div>
-        <div class="line"></div>
-        <h2 id="kontaktOverskrift"> Kontakt mig på.....</h2>
-        <div id="kontaktLogo">
-            <div class="logoerne">
-                <div class="logo1"> <img src="imgs/phone_pic.png" alt="phone">Telefon </div>
-                <div class="logo2"><img src="imgs/instagram_pic.png" alt="instagram"> Instagram </div>
-                <div class="logo3"> <img src="imgs/mail_pic.png" alt="mail">Mail </div>
-            </div>
-        </div>
-        <div class="line"></div>
-        <div id="kontaktFormular">
-            <h2 class="kontaktformularOverskrift">Nyhedsbrev
+    <!--		*************************************************************************************************************** OPLEVELSE-TEMPLATE--><template id="someTemplate">        <div id="someLinkContainer">            <a class="someLink"><img class="someImg"></a>        </div>        <div id="someHeadlineContainer"><a class="someLink2"><h2 class="someHeadline"></h2></a> </div>    </template> </head>
 
-           </h2>
-            <label for="fname"></label>
-            <input type="text" id="fname" name="firstname" placeholder="email-adresse"> </div>
-        <!--		*************************************************************************************************************** OPLEVELSE-JS-->
-        <script>
-            async function loadKontakt() {
-                let kontaktObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt");
-                let kontakt = await kontaktObj.json();
-                console.log(kontakt);
-                console.log(kontakt[3].content.rendered);
-                document.querySelector("#kontaktBody").textContent = kontakt[3].content.rendered.replace(/<(?:.|\n)*?>/gm, '');
-                document.querySelector("#kontaktHeadline").textContent = kontakt[3].title.rendered.replace(/<(?:.|\n)*?>/gm, '');
-            }
-            async function loadSoMe() {
-                let template = document.querySelector("#someTemplate");
-                let parent = document.querySelector("#someContainer");
-                let someObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt?categories=3");
-                let some = await someObj.json();
-                console.log(some);
-                some.forEach(function (so) {
-                    let clone = template.cloneNode(true).content;
-                    clone.querySelector(".someImg").setAttribute("src", so.acf.ikon);
-                    //                    the_clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);
-                    console.log(so.acf.tekst);
-                    clone.querySelector(".someHeadline").textContent = so.acf.tekst;
-                    clone.querySelector(".someLink").setAttribute("href", so.acf.link);
-                    clone.querySelector(".someLink2").setAttribute("href", so.acf.link);
-                    parent.appendChild(clone);
-                });
-            }
-            loadKontakt();
-            loadSoMe();
-        </script>
-        <script src="burger.js"></script>
-        <style>
-			#bgVideo{
-				background-image: url(imgs/contact1.JPG);
-				height: 100vh;
-				width: 100vw;
-				background-size: contain;
-				position: fixed;
-				z-index: 0;
-			}
+<body>
+    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+    <nav> <button class="burger">                <div class="menu">                 <div class="bar1"></div>                 <div class="bar2"></div>                 <div class="bar3"></div>                 </div>                 <div class="navn"><h2>anders raad glas</h2></div>             </button>
+        <ul id="menuContainer">
+            <div id="logo"></div>
+            <a href="galleri.html">
+                <li class="menuItems">Galleri</li>
+            </a>
+            <a href="oplevelser.html">
+                <li class="menuItems">Oplevelser</li>
+            </a>
+            <a href="produktudvikling.html">
+                <li class="menuItems">Produktudvikling</li>
+            </a>
+            <a href="om.html">
+                <li class="menuItems">Om</li>
+            </a>
+            <a href="kontakt.html">
+                <li class="menuItems">Kontakt</li>
+            </a>
+            <div id="instagram"></div>
+        </ul>
+    </nav>
+    <!--		*************************************************************************************************************** BG VIDEO-->
+    <div id="bgVideoOverlay" class="overlay"></div>
+    <div id="bgVideo"></div>
+    <div id="contentContainer"></div>
+    <article id="kontaktOplysninger">
+        <h2 id="kontaktHeadline"></h2>
+        <p id="kontaktBody"></p>
+    </article> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.2877929397214!2d12.583092015930532!3d55.7535026805536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46524d9c2c98955b%3A0x5ba059842eb0b6e1!2sGlas+%2F+Anders+Raad!5e0!3m2!1sda!2sdk!4v1511966810524" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <p id="adress">Traverbanevej 12, 2920 Charlottenlund</p>
+    <div id="someContainer"></div>
+    <!--		*************************************************************************************************************** OPLEVELSE-JS-->
+    <script>
+        async function loadKontakt() {
+            let kontaktObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt");
+            let kontakt = await kontaktObj.json();
+            console.log(kontakt);
+            console.log(kontakt[3].content.rendered);
+            document.querySelector("#kontaktBody").textContent = kontakt[3].content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+            document.querySelector("#kontaktHeadline").textContent = kontakt[3].title.rendered.replace(/<(?:.|\n)*?>/gm, '');
+        }
+        async function loadSoMe() {
+            let template = document.querySelector("#someTemplate");
+            let parent = document.querySelector("#someContainer");
+            let someObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt?categories=3");
+            let some = await someObj.json();
+            console.log(some);
+            some.forEach(function(so) {
+                        let clone = template.cloneNode(true).content;
+                        clone.querySelector(".someImg").setAttribute("src", so.acf.ikon); //                    the_clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);                 console.log(so.acf.tekst);                 clone.querySelector(".someHeadline").textContent = so.acf.tekst;                 clone.querySelector(".someLink").setAttribute("href", so.acf.link);                 clone.querySelector(".someLink2").setAttribute("href", so.acf.link);                 parent.appendChild(clone);             });         }         loadKontakt();         loadSoMe();
 
-        .someImg {
-            max-width: 20vw;
-            filter: invert();
-            display: flex;
+    </script>
+    <script src="burger.js"></script>
+    <style>
+        #kontaktOplysninger {
+            line-height: 1.5;
+            width: 30vw;
+            margin-left: 35%;
         }
 
+        #kontaktHeadline {
+            margin: 0;
+        }
 
-            h2 {
-                font-size: 25px;
-            }
+        .someImg {
+            width: 50px;
+            filter: invert();
+        }
 
-            #kontaktLogo {
-                margin-left: 30vw;
-            }
-
-            h2 #kontaktoverskrift {
-                margin-left: 100vw;
-            }
-
-            .kontaktformularOverskrift {
-                margin-left: 30vw;
-            }+
-        .someLink,
-        .someLink2 {
-            margin-left: 30vw;
-            text-decoration: none;
-            color: white;
-            font-size: 7pt;
+        #adress {
+            text-align: center;
         }
 
         #someContainer {
-            display: flex;
-            margin-left: 7vw;
-            margin-top: 15vw;
-            width: 90vw;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .line {
-            border: 1px solid #FF7621;
-        }
-
-        .someHeadline {
-            align-items: center;
-            font-size: 20px;
-        }
-
-        #someHeadlineContainer {
-            display: flex;
-        }
-
-        #someLinkContainer {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        #mapsHeadline {
-            margin-left: 30vw;
-        }
-
-        #mapsHeadline,
-        #adress {
-            margin-left: 15vw;
+            width: 100vw;
+            text-align: center;
         }
 
         iframe {
-            max-width: 80vw;
-            max-height: 60vw;
-            margin-left: 10vw;
+            width: 100vw;
         }
 
-        #kontaktOplysninger {
-            width: 30vw;
-            height: auto;
-            margin-top: 20vw;
-            margin-left: 30vw;
-            margin-bottom: 10vw;
-            align-items: center;
-        }
-        /*		ROD? */
-        /*
-            #kontaktOverskrift {
-                margin-left: 30vw;
+        /* .someImg { max-width: 20vw; filter: invert(); display: flex; } #kontaktHeadline { margin: 0; } #kontaktLogo { margin-left: 30vw; } .kontaktformularOverskrift { margin-left: 30vw; } .someLink, .someLink2 { margin-left: 30vw; text-decoration: none; color: white; font-size: 7pt; } #someContainer { width: 100vw; margin-left: 35%; } .someHeadline { font-size: 20px; } #adress { margin-left: 15vw; } iframe { max-width: 80vw; max-height: 60vw; margin-left: 10vw; } #kontaktOplysninger { width: 30vw; height: auto; margin-left: 30vw; margin-bottom: 10vw; align-items: center; }*/
+
+        @media (min-width: 1025px) {
+            #bgVideoOverlay {
+                background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
+                background: -webkit-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
+                background: linear-gradient(to right, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
+                filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cf3100', endColorstr='#007db9e8', GradientType=1);
+                height: 100vh;
+                width: 100vw;
+                background-size: contain;
+                position: absolute;
             }
-
+            .overlay {
+                animation-name: overlayKF;
+                animation-duration: 2000ms;
+                animation-iteration-count: 1;
+                animation-direction: normal;
+                animation-timing-function: linear;
+            }
+            @keyframes overlayKF {
+                from {
+                    /* left: -80vw;*/
+                    opacity: 0;
+                }
+                to {
+                    /* left: 0;*/
+                    opacity: 1;
+                }
+            }
+            #bgVideo {
+                background-image: url(video/glassblow.mp4);
+                height: 100vh;
+                width: 100vw;
+                background-repeat: no-repeat;
+                z-index: 11000;
+                position: absolute;
+            }
             #kontaktOplysninger {
-                width: 30vw;
-                height: auto;
-                margin-top: 20vw;
-                margin-left: 30vw;
-                margin-bottom: 10vw;
-                display: flex;
-                flex-wrap: wrap;
+                position: relative;
+                right: 25vw;
+                top: 5vh;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 3vw;
+                height: 50vh;
             }
-*/
+            #kontaktBody {
+                width: 30%;
+            }
+            .someImg {
+                position: relative;
+            }
+            #adress {
+                position: relative;
+                top: -41vw;
+                right: 27vw;
+                font-weight: bold;
+            }
+            #someLinkContainer {
+                position: relative;
+                top: -82vh;
+                left: 15vw;
+                float: left;
+                transform: scale(0.8);
+            }
+            #someHeadlineContainer {
+                position: relative;
+                left: 10vw;
+                font-size: 8pt;
+                float: left;
+                top: -37vw;
+            }
+            iframe {
+                position: relative;
+                width: 40%;
+                left: 55vw;
+                top: -57.5vh;
+            }
+            /*  #kontaktOplysninger { background: rgba(0, 0, 0, 0.5); padding: 3vw; left: 10vw; top: 5vh; width: 60vh; height: 60vh; line-height: 1.5; margin: 0; position: relative; } iframe { bottom: 57vh; left: 55vw; height: 50vh; width: 40vw; margin: 0; position: relative; } #kontaktLogo { bottom: 20vw; left: 20vw; margin: 0; position: relative; } #kontaktFormular { margin: 0; position: relative; } #someContainer { display: flex; margin: 0; position: relative; } #someLinkContainer { margin: 0; position: relative; bottom: 95vh; } .someHeadline { position: relative; bottom: 90vh; right: 7vw; } .someLink { margin: 0; background-color: blue; height: 10px; width: 10px; } .someImg { transform: scale(0.2); margin: 0; } #adress { position: relative; bottom: 90vh; font-weight: bold; left: 13vw; margin: 0; } */
+        }
+
     </style>
 </body>
 
