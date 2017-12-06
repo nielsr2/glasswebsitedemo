@@ -13,7 +13,7 @@
 	<!--		*************************************************************************************************************** GALLERI-TEMPLATE-->
 	<template id="galleriTemplate">
 		<div class="borderWrapper">
-			<div class="itemContainer">
+			<div class="itemSection">
 				<!--				<a href="" class="linkSingle">-->
 				<div class="itemWrapper"><img class="itemImg "></div>
 				<!--				</a>-->
@@ -94,7 +94,7 @@
 	<!--		*************************************************************************************************************** FILTER-->
 	<section id="filterContainer"></section>
 	<!--		*************************************************************************************************************** ITEM-CONTAINER-->
-	<section id="itemContainer"></section>
+	<section id="itemSection"></section>
 	<!--		*************************************************************************************************************** VIEWVINDOW-->
 	<section id="modalWindow">
 		<div id="modalClose"></div> <img id="modalImage">
@@ -130,25 +130,37 @@
 		}
 
 		.itemWrapper {
-			height: 90vw;
-			width: 90vw;
-			/*			overflow: hidden;*/
-			border: 20px red solid;
-			outline: 5vw rgba(0, 0, 0, .5) solid;
-			outline-offset: -5vw;
-			padding: 5vw;
+
+			height: 20vw;
+			width: 20vw;
+			overflow: hidden;
+			border: 1PX rgba(0, 0, 0, .5) solid;
+/*			border: 50px pink solid;*/
+			/*			outline: 3vw rgba(0, 0, 0, .5) solid;*/
+			/*			outline-offset: -5vw;*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
 		}
 
-		itemContainer {
+		#itemSection {
+			top: -200vh;
 			border: 4px pink solid;
 			height: 90vw;
 			width: 90vw;
+			border: 3vw rgba(0, 0, 0, .5) solid;
+			display: grid;
+			     grid-template-rows: repeat(3);
+        grid-template-columns: repeat(4, 1fr);
+
 		}
 
 		.itemImg {
-			max-height: 90vw;
-			max-width: 90vw;
-			padding: 10px;
+			max-height: 85vw;
+			/*max-width: 80vw;*/
+			/*max-width: 90vw;*/
+			/*padding: 10px;*/
 		}
 		/*MODAL 			****************************************************************************************************************/
 
@@ -161,9 +173,7 @@
 	</style>
 	<!--		*************************************************************************************************************** VIEWVINDOW-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
-	<script>
-
-	</script>
+	<script src="galleri.js"></script>
 	<style>
 		#modalClose {
 			background-color: aqua;

@@ -5,7 +5,7 @@ let filterList = new Array();
 var galleri;
 async function loadGallery() {
 	let template = document.querySelector("#galleriTemplate");
-	let parent = document.querySelector("#itemContainer");
+	let parent = document.querySelector("#itemSection");
 	let galleriObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/galleri?per_page=100");
 	galleri = await galleriObj.json();
 	console.log(galleri);
@@ -19,7 +19,9 @@ async function loadGallery() {
 		clone.querySelector(".itemImg").dataset.item_id = billede.id;
 		clone.querySelector(".itemImg").setAttribute("data-src", billede.acf.billede);
 		clone.querySelector(".itemImg").onclick = modalClick;
-		clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+		let descrip = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+		clone.querySelector(".itemDescription").textContent = cap(descrip);
+		console.log("niiiiib", descrip);
 		let kat = billede.acf.kategori;
 		console.log("kategories", kat);
 		clone.querySelector(".borderWrapper").classList.add(kat);
@@ -43,7 +45,7 @@ async function loadGallery() {
 		modalURL(show);
 	}
 	else {
-		console.log("something failed..");
+		console.log("no show");
 	}
 	loadFilter(filterList);
 	var myLazyLoad = new LazyLoad;
@@ -90,3 +92,8 @@ function loadFilter() {
 	});
 }
 loadGallery();
+
+function cap(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+
+}
