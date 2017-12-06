@@ -52,8 +52,11 @@
 
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
-    <div id="bgVideoOverlay" class="overlay"></div>
-    <div id="bgVideo"></div>
+    <div id="videoContainer">
+        <div id="bgVideoOverlay" class="overlay"></div>
+        <video id="video_stor" autoplay loop muted>
+        <source src="video/bgvideo2medium.mp4" type="video/mp4">
+        </video></div>
     <div id="contentContainer"></div>
     <article id="kontaktOplysninger">
         <h2 id="kontaktHeadline"></h2>
@@ -63,6 +66,7 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.2877929397214!2d12.583092015930532!3d55.7535026805536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46524d9c2c98955b%3A0x5ba059842eb0b6e1!2sGlas+%2F+Anders+Raad!5e0!3m2!1sda!2sdk!4v1511966810524" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     <p id="adress">Traverbanevej 12, 2920 Charlottenlund</p>
     <div id="someContainer"></div>
+
     <!--		*************************************************************************************************************** OPLEVELSE-JS-->
     <script>
         async function loadKontakt() {
@@ -92,10 +96,13 @@
         }
         loadKontakt();
         loadSoMe();
-
     </script>
     <script src="burger.js"></script>
     <style>
+        #videoContainer {
+            display: none;
+        }
+
         #kontaktOplysninger {
             line-height: 1.5;
             width: 30vw;
@@ -126,15 +133,17 @@
 
         @media (min-width: 1025px) {
 
+            /************TILFØJ TIL STYLESHEET!!!!!*****************/
             #bgVideoOverlay {
                 background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
                 background: -webkit-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
                 background: linear-gradient(to right, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
                 filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cf3100', endColorstr='#007db9e8', GradientType=1);
-                height: 100vh;
                 width: 100vw;
+                height: 100vh;
                 background-size: contain;
                 position: absolute;
+                z-index: 1;
             }
             .overlay {
                 animation-name: overlayKF;
@@ -143,6 +152,7 @@
                 animation-direction: normal;
                 animation-timing-function: linear;
             }
+
             @keyframes overlayKF {
                 from {
                     /* left: -80vw;*/
@@ -154,15 +164,23 @@
                 }
             }
 
-            #bgVideo {
-                background-image: url(video/glassblow.mp4);
+            #videoContainer {
+                overflow:hidden;
                 height: 100vh;
-                width: 100vw;
-                background-repeat: no-repeat;
-                z-index: 11000;
                 position: absolute;
+                z-index: 1;
+                width: 100vw;
+                display: block;
             }
 
+/*
+            #video_stor {
+                height: auto;
+                width: 100vw;
+                z-index: ;
+                position: absolute;
+            }
+*/
             #kontaktOplysninger {
                 position: relative;
                 right: 25vw;
@@ -170,29 +188,34 @@
                 background: rgba(0, 0, 0, 0.5);
                 padding: 3vw;
                 height: 50vh;
+                z-index: 2;
             }
 
             #kontaktBody {
                 width: 30%;
+                z-index: 2;
             }
 
             .someImg {
                 position: relative;
+                z-index: 2;
             }
 
             #adress {
                 position: relative;
-                top: -41vw;
+                bottom: 10vw;
                 right: 27vw;
                 font-weight: bold;
+                z-index: 2;
             }
 
             #someLinkContainer {
                 position: relative;
-                top: -82vh;
+                bottom: 15vh;
                 left: 15vw;
                 float: left;
                 transform: scale(0.8);
+                z-index: 2;
             }
 
             #someHeadlineContainer {
@@ -200,19 +223,20 @@
                 left: 10vw;
                 font-size: 8pt;
                 float: left;
-                top: -37vw;
+                bottom: 4.5vw;
+                z-index: 2;
             }
 
             iframe {
-                position: relative;
-                width: 40%;
+                position: absolute;
+                width: 35%;
                 left: 55vw;
-                top: -57.5vh;
+                top: 20vh;
+                z-index: 2;
             }
 
         }
-
     </style>
-</body>
 
+</body>
 </html>
