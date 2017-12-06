@@ -51,20 +51,15 @@
         </ul>
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
-<<<<<<< HEAD
-     <div id="videoContainer">
-        <div id="bgVideoOverlay" class="overlay"></div>
-        <video id="video_stor" autoplay loop muted>
-        <source src="video/bgvideo2medium.mp4" type="video/mp4">
-        </video></div>
 
-=======
-    <div id="bgVideoOverlay" class="overlay"></div>
-    <div id="bgVideo">
-        <video id="video_stor" autoplay loop muted>
+    <div id="videoContainer">
+        <div id="bgVideoOverlay" class="overlay"></div>
+        <div id="bgVideo">
+            <video id="video_stor" autoplay loop muted>
             <source src="video/bgvideo2medium.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
+        </div>
     </div>
->>>>>>> origin/master
+
     <!--		*************************************************************************************************************** ARTICLES-->
     <!--        <div id="articleContainer"> </div>-->
     <div id="contentContainer">
@@ -78,7 +73,7 @@
             let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
             let oplevelser = await oplevelserObj.json();
             console.log(oplevelser);
-            oplevelser.forEach(function (oplevelse) {
+            oplevelser.forEach(function(oplevelse) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
                 clone.querySelector(".oplevelseHeadline").textContent = oplevelse.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
@@ -87,6 +82,7 @@
             });
         }
         loadOplevelser();
+
     </script>
     <script src="burger.js"></script>
     <Style>
@@ -182,6 +178,7 @@
                 padding: 20px;
             }
         }
+
     </Style>
 </body>
 
