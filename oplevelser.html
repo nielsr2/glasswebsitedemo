@@ -4,30 +4,32 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylesheet.css">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>OPLEVELSER</title>
     <template id="oplevelseTemplate">
+        <section class="oplevelserWrapper">
             <article class="oplevelseArticle">
+                <div class="line"> </div>
                 <h2 class="oplevelseHeadline"></h2>
                 <p class="oplevelseBody"></p> <img class="oplevelseImg"> </article>
-        </template>
+        </section>
+    </template>
 </head>
 
 <body>
     <nav>
         <button class="burger">
-               <div class="menu">
+            <div class="menu">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
-                </div>
-                <div class="navn"><h2>anders raad glas</h2></div>
-            </button>
-
+            </div>
+            <div class="navn">
+                <h2>anders raad glas</h2></div>
+        </button>
         <ul id="menuContainer">
             <div id="logo"></div>
             <a href="galleri.html">
@@ -47,15 +49,22 @@
             </a>
             <div id="instagram"></div>
         </ul>
-
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
+<<<<<<< HEAD
      <div id="videoContainer">
         <div id="bgVideoOverlay" class="overlay"></div>
         <video id="video_stor" autoplay loop muted>
         <source src="video/bgvideo2medium.mp4" type="video/mp4">
         </video></div>
 
+=======
+    <div id="bgVideoOverlay" class="overlay"></div>
+    <div id="bgVideo">
+        <video id="video_stor" autoplay loop muted>
+            <source src="video/bgvideo2medium.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
+    </div>
+>>>>>>> origin/master
     <!--		*************************************************************************************************************** ARTICLES-->
     <!--        <div id="articleContainer"> </div>-->
     <div id="contentContainer">
@@ -69,7 +78,7 @@
             let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
             let oplevelser = await oplevelserObj.json();
             console.log(oplevelser);
-            oplevelser.forEach(function(oplevelse) {
+            oplevelser.forEach(function (oplevelse) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
                 clone.querySelector(".oplevelseHeadline").textContent = oplevelse.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
@@ -79,10 +88,7 @@
         }
         loadOplevelser();
     </script>
-
     <script src="burger.js"></script>
-
-
     <Style>
         #video_stor {
             width: 100%;
@@ -121,6 +127,60 @@
             border: solid 2px orange;
             width: 100%;
             grid-area: linje;
+        }
+
+        @media (min-width: 1025px) {
+            #video_stor {
+                width: 100%;
+                z-index: 1;
+            }
+            .oplevelserWrapper:nth-child(odd) img.oplevelseImg {
+                border: 1px red solid;
+                width: 30vw;
+                left: -1vw;
+            }
+            .oplevelserWrapper:nth-child(odd) p.oplevelseBody {
+                border: 1px red solid;
+                width: 30vw;
+                height: auto;
+                left: 50vw;
+            }
+            .oplevelserWrapper:nth-child(even) img.oplevelseImg {
+                border: 1px red solid;
+            }
+            .oplevelserWrapper:nth-child(even) p.oplevelseBody {
+                border: 1px red solid;
+                width: 30vw;
+                top: -10vh;
+                left: 3vw;
+            }
+            .line {
+                border: 2px solid #FF7621;
+            }
+            .oplevelseArticle {
+                width: 100%;
+                margin: 0;
+            }
+            img.oplevelseImg {
+                width: 40%;
+                margin-right: 40vw;
+                height: auto;
+                border: solid 5px rgba(255, 255, 255, 0.25);
+                position: relative;
+                left: 40vw;
+                top: -13vh;
+            }
+            h2.oplevelseHeadline {
+                text-align: center;
+                height: 30vh;
+                text-align: center;
+            }
+            p.oplevelseBody {
+                width: 40vh;
+                margin-top: -30vw;
+                position: relative;
+                padding: 20px;
+            }
         }
     </Style>
 </body>
