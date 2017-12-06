@@ -9,11 +9,27 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>KONTAKT</title>
-    <!--		*************************************************************************************************************** OPLEVELSE-TEMPLATE--><template id="someTemplate">        <div id="someLinkContainer">            <a class="someLink"><img class="someImg"></a>        </div>        <div id="someHeadlineContainer"><a class="someLink2"><h2 class="someHeadline"></h2></a> </div>    </template> </head>
+    <!--		*************************************************************************************************************** OPLEVELSE-TEMPLATE-->
+    <template id="someTemplate">
+       <div id="someLinkContainer">
+           <a class="someLink"><img class="someImg"></a>
+       </div>
+       <div id="someHeadlineContainer"><a class="someLink2"><h2 class="someHeadline"></h2></a> </div>
+   </template>
+</head>
 
 <body>
     <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
-    <nav> <button class="burger">                <div class="menu">                 <div class="bar1"></div>                 <div class="bar2"></div>                 <div class="bar3"></div>                 </div>                 <div class="navn"><h2>anders raad glas</h2></div>             </button>
+    <nav>
+        <button class="burger">
+               <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                </div>
+                <div class="navn"><h2>anders raad glas</h2></div>
+            </button>
+
         <ul id="menuContainer">
             <div id="logo"></div>
             <a href="galleri.html">
@@ -33,6 +49,7 @@
             </a>
             <div id="instagram"></div>
         </ul>
+
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
     <div id="bgVideoOverlay" class="overlay"></div>
@@ -41,7 +58,9 @@
     <article id="kontaktOplysninger">
         <h2 id="kontaktHeadline"></h2>
         <p id="kontaktBody"></p>
-    </article> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.2877929397214!2d12.583092015930532!3d55.7535026805536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46524d9c2c98955b%3A0x5ba059842eb0b6e1!2sGlas+%2F+Anders+Raad!5e0!3m2!1sda!2sdk!4v1511966810524" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </article>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.2877929397214!2d12.583092015930532!3d55.7535026805536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46524d9c2c98955b%3A0x5ba059842eb0b6e1!2sGlas+%2F+Anders+Raad!5e0!3m2!1sda!2sdk!4v1511966810524" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     <p id="adress">Traverbanevej 12, 2920 Charlottenlund</p>
     <div id="someContainer"></div>
     <!--		*************************************************************************************************************** OPLEVELSE-JS-->
@@ -61,8 +80,18 @@
             let some = await someObj.json();
             console.log(some);
             some.forEach(function(so) {
-                        let clone = template.cloneNode(true).content;
-                        clone.querySelector(".someImg").setAttribute("src", so.acf.ikon); //                    the_clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);                 console.log(so.acf.tekst);                 clone.querySelector(".someHeadline").textContent = so.acf.tekst;                 clone.querySelector(".someLink").setAttribute("href", so.acf.link);                 clone.querySelector(".someLink2").setAttribute("href", so.acf.link);                 parent.appendChild(clone);             });         }         loadKontakt();         loadSoMe();
+                let clone = template.cloneNode(true).content;
+                clone.querySelector(".someImg").setAttribute("src", so.acf.ikon);
+                //                    the_clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);
+                console.log(so.acf.tekst);
+                clone.querySelector(".someHeadline").textContent = so.acf.tekst;
+                clone.querySelector(".someLink").setAttribute("href", so.acf.link);
+                clone.querySelector(".someLink2").setAttribute("href", so.acf.link);
+                parent.appendChild(clone);
+            });
+        }
+        loadKontakt();
+        loadSoMe();
 
     </script>
     <script src="burger.js"></script>
@@ -95,9 +124,8 @@
             width: 100vw;
         }
 
-        /* .someImg { max-width: 20vw; filter: invert(); display: flex; } #kontaktHeadline { margin: 0; } #kontaktLogo { margin-left: 30vw; } .kontaktformularOverskrift { margin-left: 30vw; } .someLink, .someLink2 { margin-left: 30vw; text-decoration: none; color: white; font-size: 7pt; } #someContainer { width: 100vw; margin-left: 35%; } .someHeadline { font-size: 20px; } #adress { margin-left: 15vw; } iframe { max-width: 80vw; max-height: 60vw; margin-left: 10vw; } #kontaktOplysninger { width: 30vw; height: auto; margin-left: 30vw; margin-bottom: 10vw; align-items: center; }*/
-
         @media (min-width: 1025px) {
+
             #bgVideoOverlay {
                 background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
                 background: -webkit-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
@@ -125,6 +153,7 @@
                     opacity: 1;
                 }
             }
+
             #bgVideo {
                 background-image: url(video/glassblow.mp4);
                 height: 100vh;
@@ -133,6 +162,7 @@
                 z-index: 11000;
                 position: absolute;
             }
+
             #kontaktOplysninger {
                 position: relative;
                 right: 25vw;
@@ -141,18 +171,22 @@
                 padding: 3vw;
                 height: 50vh;
             }
+
             #kontaktBody {
                 width: 30%;
             }
+
             .someImg {
                 position: relative;
             }
+
             #adress {
                 position: relative;
                 top: -41vw;
                 right: 27vw;
                 font-weight: bold;
             }
+
             #someLinkContainer {
                 position: relative;
                 top: -82vh;
@@ -160,6 +194,7 @@
                 float: left;
                 transform: scale(0.8);
             }
+
             #someHeadlineContainer {
                 position: relative;
                 left: 10vw;
@@ -167,13 +202,14 @@
                 float: left;
                 top: -37vw;
             }
+
             iframe {
                 position: relative;
                 width: 40%;
                 left: 55vw;
                 top: -57.5vh;
             }
-            /*  #kontaktOplysninger { background: rgba(0, 0, 0, 0.5); padding: 3vw; left: 10vw; top: 5vh; width: 60vh; height: 60vh; line-height: 1.5; margin: 0; position: relative; } iframe { bottom: 57vh; left: 55vw; height: 50vh; width: 40vw; margin: 0; position: relative; } #kontaktLogo { bottom: 20vw; left: 20vw; margin: 0; position: relative; } #kontaktFormular { margin: 0; position: relative; } #someContainer { display: flex; margin: 0; position: relative; } #someLinkContainer { margin: 0; position: relative; bottom: 95vh; } .someHeadline { position: relative; bottom: 90vh; right: 7vw; } .someLink { margin: 0; background-color: blue; height: 10px; width: 10px; } .someImg { transform: scale(0.2); margin: 0; } #adress { position: relative; bottom: 90vh; font-weight: bold; left: 13vw; margin: 0; } */
+
         }
 
     </style>
