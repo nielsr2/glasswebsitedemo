@@ -1,5 +1,7 @@
         // NOTE: vi bør overveje nedenstående
-        //		document.addEventListener("DOMContentLoaded", lazyload());
+        document.addEventListener("DOMContentLoaded",  loadGallery());
+
+
         let filterList = new Array();
         // *************************************************************************************************************** LOAD GALLERY-->
         var galleri;
@@ -25,7 +27,7 @@
                 clone.querySelector(".itemImg").setAttribute("data-src", billede.acf.billede);
                 clone.querySelector(".itemImg").onclick = modalClick;
                 let descrip = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
-                                clone.querySelector(".itemDescription").textContent = cap(descrip);
+//                clone.querySelector(".itemDescription").textContent = cap(descrip);
                 //                console.log("niiiiib", descrip);
                 kat = billede.acf.kategori;
                 //                console.log("kategories", kat);
@@ -98,7 +100,7 @@
 
 
                 clone.querySelector(".filterItem").textContent = filter;
-                clone.querySelector(".filterLink").setAttribute("href", "galleri3.html" + "?sort=" + filter);
+                clone.querySelector(".filterLink").setAttribute("href", "galleriNy.html" + "?sort=" + filter);
                 parent.appendChild(clone);
             });
             if (sort !== null && desktop == false) {
@@ -106,7 +108,6 @@
                 document.querySelector("#" + sort).appendChild(document.getElementById("itemSection"));
             }
         }
-        loadGallery();
 
         // takes string as input, capitalize character at index 0, first letter, and concatenates with the slice of string, starting at index 1.
         function cap(string) {
