@@ -26,6 +26,57 @@ h2 {
 }
 
 
+/********* FOOTER **********/
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 17vw;
+    padding: 2vw;
+    display: grid;
+    grid-template-areas: "adresse instagram findvej" "telefon instagram findvej";
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+p.adresseText {
+    font-size: 0.5em;
+    grid-area: adresse;
+    margin: 0;
+}
+
+p.telefonText {
+    font-size: 0.5em;
+    grid-area: telefon;
+    margin: 0;
+}
+
+img.instagramLink {
+    width: 10vw;
+    height: auto;
+    grid-area: instagram;
+}
+
+img.mapsLink {
+    width: 10vw;
+    height: auto;
+    grid-area: findvej;
+}
+
+p.mapsText {
+    font-size: 0.9em;
+    grid-area: findvej;
+}
+
+button.tilmeld {
+    display: none;
+    width: 15vw;
+    height: 5vw;
+}
+
+.nyhedsbrev {
+    display: none;
+}
+
+
 /* !!!!!!!FIXME!: this needs to be more specific. remove if not used for anything */
 
 
