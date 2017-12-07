@@ -18,13 +18,17 @@
 				<a href="" class="linkSingle">
 					<div class="itemWrapper"><img class="itemImg lazyload"></div>
 				</a>
-<!--				<p class="itemDescription"></p>-->
+				<p class="itemDescription"></p>
 			</div>
 		</div>
 	</template>
     <!--		*************************************************************************************************************** FILTER-TEMPLATE-->
     <template id="filterTemplate">
-		<h3 class="filterItem"></h3> </template>
+		<div id="filterRow">
+            <a class="filterLink">
+			<h3 class="filterItem"></h3>
+            </a>
+        </div> </template>
 </head>
 
 <body>
@@ -56,17 +60,21 @@
         <div id="instagram"></div>
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
+<!--
     <div id="bgVideo">
 
     <video id="video_stor" width="100%" height="" autoplay loop muted>
         <source src="video/glassblow.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
 
     </div>
+-->
 
 
+<!--
     <header>
         <h1>GALLERI</h1>
     </header>
+-->
 
     <!--		*************************************************************************************************************** GALLERI-->
     <!--
@@ -114,7 +122,7 @@
             galleri.forEach(function(billede) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".itemImg").setAttribute("src", billede.acf.billede);
-                //				clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+                				clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
                 let kat = billede.acf.kategori;
                 clone.querySelector(".borderWrapper").classList.add(kat);
                 if (filterList.includes(kat) == !true) {
@@ -134,11 +142,8 @@
             filterList.forEach(function(filter) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".filterItem").textContent = filter;
-                clone.querySelector(".filterItem").onclick = function something() {
-                    // !!!!! NOTE!!!!!: reverse thinking
-                    console.log(filter);
-                    for (let e of document.getElementsByClassName(filter)) e.style.display = "none";
-                };
+               	clone.querySelector(".filterLink").setAttribute("href", "galleri4.html" + "?sort=" + filter);
+
                 parent.appendChild(clone);
             });
         }
@@ -208,10 +213,10 @@
         }
 
         .itemWrapper {
-            height: 45vw;
-            width: 45vw;
+            height: 40vw;
+            width: 40vw;
             overflow: hidden;
-            border: 2vw rgba(0, 0, 0, .5) solid;
+            border: 1vw rgba(214, 176, 144, 0.54) solid;
             /*			outline: 3vw rgba(0, 0, 0, .5) solid;*/
             /*			outline-offset: -5vw;*/
             display: flex;
@@ -237,14 +242,42 @@
             text-align: center;
         }
 
+        #filterRow {
+            display: inline-block;
+            margin-left: 3vw;
+            margin-top: 5vw;
+        }
+
+        .filterItem {
+            border: 0.6vw solid rgba(212, 197, 183, 0.85);
+            width: 23vw;
+            padding: 2vw 2vw 2vw 2vw;
+            background-color: rgba(214, 91, 37, 0.68);
+            display: flex;
+            justify-content: center;
+        }
+
+        h3 {
+            font-size: 12.4pt;
+            text-transform: uppercase;
+
+
+        }
+
+        .itemDescription {
+            margin-left: 2vw;
+            overflow: inherit;
+        }
+
+
 
         /*******************SWIPE EFFECT**********************/
 
         #itemContainer {
             height: 125vw;
-            background-color: #b7b1ad;
+            background-color: rgba(0, 0, 0, 0.47);
             overflow-y: scroll;
-            overflow-x: scroll;
+            overflow-x:hidden;
             white-space: nowrap;
         }
 
@@ -293,6 +326,9 @@
         padding-left: 1.5vw;
         padding-right: 1.5vw;
     }
+
+
+
 
 /*
 
