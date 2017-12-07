@@ -130,12 +130,11 @@
 		}
 
 		.itemWrapper {
-
 			height: 20vw;
 			width: 20vw;
 			overflow: hidden;
 			border: 1PX rgba(0, 0, 0, .5) solid;
-/*			border: 50px pink solid;*/
+			/*			border: 50px pink solid;*/
 			/*			outline: 3vw rgba(0, 0, 0, .5) solid;*/
 			/*			outline-offset: -5vw;*/
 			display: flex;
@@ -145,37 +144,57 @@
 		}
 
 		#itemSection {
-			top: -200vh;
+			/*			top: -200vh;*/
 			border: 4px pink solid;
 			height: 90vw;
 			width: 90vw;
 			border: 3vw rgba(0, 0, 0, .5) solid;
 			display: grid;
-			     grid-template-rows: repeat(3);
-        grid-template-columns: repeat(4, 1fr);
-
+			grid-template-rows: repeat(3);
+			grid-template-columns: repeat(4, 1fr);
 		}
 
 		.itemImg {
-			max-height: 85vw;
-			/*max-width: 80vw;*/
+			max-height: 40vw;
+			max-width: 40vw;
+			background-size: cover;
+			/*			max-width: 20vw;*/
 			/*max-width: 90vw;*/
 			/*padding: 10px;*/
-		}
-		/*MODAL 			****************************************************************************************************************/
-
-		#modalWindow {
-			width: 50vw;
-			height: 50vh;
-			border: red 20px dotted;
-			position: sticky;
 		}
 	</style>
 	<!--		*************************************************************************************************************** VIEWVINDOW-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
 	<script src="galleri.js"></script>
 	<style>
+		/*MODAL 			****************************************************************************************************************/
+
+		#modalWindow {
+			width: 50vw;
+			height: 100vh;
+			/*			border: red 20px dotted;*/
+			position: absolute;
+			top: 0vw;
+			z-index: 12034123948129374081234;
+			display: grid;
+			visibility: hidden;
+			grid-template-columns: (80% 20%);
+			        grid-template-areas: "modalImg modalDescription";
+		}
+
+		#modalImage {
+			grid-area: modalImg;
+			max-width: 80vw;
+			max-height: 100vh;
+		}
+		#modalDescription {
+			grid-area: modalDescription;
+		}
+
 		#modalClose {
+			visibility: hidden;
+			position: absolute;
+			top: 0vw;
 			background-color: aqua;
 			width: 10vw;
 			width: 10vw;

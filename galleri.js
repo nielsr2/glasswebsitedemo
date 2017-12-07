@@ -72,12 +72,14 @@ function modalClick(index) {
 	document.querySelector("#modalDescription").textContent = obj.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
 	document.querySelector("#modalImage").setAttribute("src", obj.acf.billede);
 	document.querySelector("#modalWindow").style.visibility = "visible";
+	document.querySelector("#modalClose").style.visibility = "visible";
 	console.log(index);
 }
 //       *************************************************************************************************************** CLOSE EVENT HANDLER
 document.querySelector("#modalClose").addEventListener("click", function closeModal() {
 	console.log("closed modal..");
-	document.querySelector("#modalWindow").style.visibility = "hidden";
+	document.querySelector("#modalWindow").style.visibility = "hidden"
+	document.querySelector("#modalClose").style.visibility = "hidden";
 });
 //       *************************************************************************************************************** LOAD FILTER
 function loadFilter() {
@@ -93,7 +95,7 @@ function loadFilter() {
 }
 loadGallery();
 
+// takes string as input, capitalize character at index 0, first letter, and concatenates with the slice of string, starting at index 1.
 function cap(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-
 }
