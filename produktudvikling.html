@@ -84,13 +84,27 @@
         }
 
         #articleContainer {
-            80%;
+            display: grid;
+            width: 90%;
+            margin: 0 4.5%;
+            grid-template-areas: "overskrift" "billede" "tekst";
         }
 
         img.produktImg {
-            width: 80%;
+            width: 100%;
             height: auto;
-            margin: 0 10%
+            grid-area: billede;
+            border: solid 3px rgba(255, 255, 255, 0.3);
+        }
+
+        h2.produktHeadline {
+            grid-area: overskrift;
+            font-family: special elite;
+            margin-top: 16vw;
+        }
+
+        p.produktBody {
+            grid-area: tekst;
         }
     </style>
 </body>
