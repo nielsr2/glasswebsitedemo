@@ -20,9 +20,8 @@
 </section>
     </template>
 
-
     <template id="awardTemplate">
-            <img class="awardImg">
+           <a href="awards/Haandfuglen_2011_Bedste_unika_Anders_Raad.pdf" target="_blank"><img class="awardImg"></a>
             <h2 class="aarsTal"></h2>
     </template>
 
@@ -83,21 +82,29 @@
         </a>
     </div>
     <section id="glaspusterenContainer">
-        <article id="omGlaspusteren">
-            <h2 id="Gheadline"></h2>
-            <img id="Gportrait">
-            <p id="Gquote"></p>
-        </article>
-        <h2 class="samarbejdeOverskrift">Kurser for</h2>
-        <section id=samarbejdeContainer></section>
-        <section id=awardContainer>
-            <h2 class="awardOverskrift">Awards</h2>
-        </section>
-        <article class=omVaerkstedet>
-            <p class="Quote"></p>
-            <h2 class="vHeadline">Om værkstedet</h2>
-        </article>
-        <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe>
+
+        <!--       SLET HVIS NØDVENDIGT!-->
+        <div class="omGlasContainer">
+            <!--           -->
+            <article id="omGlaspusteren">
+                <h2 id="Gheadline"></h2>
+                <img id="Gportrait">
+                <p id="Gquote"></p>
+            </article>
+            <h2 class="samarbejdeOverskrift">Kurser for</h2>
+            <section id=samarbejdeContainer></section>
+            <section id=awardContainer>
+                <h2 class="awardOverskrift">Awards</h2>
+            </section>
+        </div>
+        <!--       SLET HVIS NØDVENDIGT!-->
+        <div class="omVaerkstedContainer">
+            <!--           -->
+            <article id=omVaerkstedet>
+                <p class="vQuote"></p>
+                <h2 class="vHeadline">Om værkstedet</h2>
+            </article>
+            <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe></div>
     </section>
     <!--		*************************************************************************************************************** OM-JS-->
     <!--!TODO: asdfasdf
@@ -170,6 +177,24 @@
             margin: 0;
         }
 
+        /******************* OVERORDNEDE CONTAINERE TIL BG BILLEDER  ****************/
+
+        .omGlasContainer {
+            border: 2px solid yellow;
+            /*            background-image: url(imgs/contact1.JPG);*/
+            height: auto;
+            width: auto;
+            background-size: contain;
+        }
+
+        .omVaerkstedContainer {
+            border: 2px solid yellow;
+            /*            background-image: url(imgs/contact2.JPG);*/
+            height: auto;
+            width: auto;
+            background-size: cover;
+        }
+
         /******************* GLASPUSTER LINK + VÆRKSTED LINK BILLEDER ****************/
 
         .omGlasImg {
@@ -240,6 +265,7 @@
         }
 
         .awardImg {
+            cursor: pointer;
             margin-left: 5%;
             width: 40vw;
             height: 40vw;
@@ -259,7 +285,7 @@
 
         /******************* OM VÆRKSTEDET ****************/
 
-        .omVaerkstedet {
+        #omVaerkstedet {
             width: 100%;
             height: 50vh;
             border: 4px solid red;
@@ -269,10 +295,9 @@
             text-align: center;
         }
 
-        /**********   DESKTOP MQ *************/
+        /*************************************   DESKTOP MQ ***********************************/
 
         @media (min-width: 1024px) {
-
 
             /*******************  100VH SPLASH IMAGE CONTAINER  ****************/
             #omContainer {
@@ -307,7 +332,6 @@
             .oms {
                 width: 30vw;
             }
-
 
             /******************* OM GLASPUSTEREN ****************/
             #omGlaspusteren {
