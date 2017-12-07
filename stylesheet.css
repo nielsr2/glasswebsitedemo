@@ -33,37 +33,44 @@ footer {
     height: 17vw;
     padding: 2vw;
     display: grid;
-    grid-template-areas: "adresse instagram findvej" "telefon instagram findvej";
+    grid-template-areas: "adresse instanews findvej";
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-p.adresseText {
-    font-size: 0.5em;
+#footerInfo {
     grid-area: adresse;
+    margin-left: 2vw;
+}
+
+#footerMap {
+    grid-area: findvej;
+    display: flex;
+}
+
+p.adresseText {
+    font-size: 0.55em;
     margin: 0;
 }
 
 p.telefonText {
-    font-size: 0.5em;
-    grid-area: telefon;
+    font-size: 0.55em;
     margin: 0;
 }
 
 img.instagramLink {
-    width: 10vw;
+    width: 15vw;
     height: auto;
-    grid-area: instagram;
+    grid-area: instanews;
+    margin: 1vw 8vw;
 }
 
 img.mapsLink {
     width: 10vw;
     height: auto;
-    grid-area: findvej;
 }
 
 p.mapsText {
     font-size: 0.9em;
-    grid-area: findvej;
 }
 
 button.tilmeld {
