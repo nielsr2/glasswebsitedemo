@@ -51,15 +51,13 @@
         </ul>
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
-
     <div id="videoContainer">
         <div id="bgVideoOverlay" class="overlay"></div>
         <div id="bgVideo">
             <video id="video_stor" autoplay loop muted>
-            <source src="video/bgvideo2medium.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
+                <source src="video/bgvideo2medium.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
         </div>
     </div>
-
     <!--		*************************************************************************************************************** ARTICLES-->
     <!--        <div id="articleContainer"> </div>-->
     <div id="contentContainer">
@@ -73,7 +71,7 @@
             let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
             let oplevelser = await oplevelserObj.json();
             console.log(oplevelser);
-            oplevelser.forEach(function(oplevelse) {
+            oplevelser.forEach(function (oplevelse) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
                 clone.querySelector(".oplevelseHeadline").textContent = oplevelse.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
@@ -82,7 +80,6 @@
             });
         }
         loadOplevelser();
-
     </script>
     <script src="burger.js"></script>
     <Style>
@@ -111,19 +108,13 @@
             grid-area: overskrift;
             font-family: special elite;
         }
-
-        p.oplevelseBody {
-            font-size: 10pt;
-            line-height: 1.5;
-            grid-area: indhold;
-            font-family: helvetica neue;
-        }
-
+        /*
         #teambuildingBorder {
             border: solid 2px orange;
             width: 100%;
             grid-area: linje;
         }
+*/
 
         @media (min-width: 1025px) {
             #video_stor {
@@ -131,21 +122,21 @@
                 z-index: 1;
             }
             .oplevelserWrapper:nth-child(odd) img.oplevelseImg {
-                border: 1px red solid;
+                /*                border: 1px red solid;*/
                 width: 30vw;
                 left: -1vw;
             }
             .oplevelserWrapper:nth-child(odd) p.oplevelseBody {
-                border: 1px red solid;
+                /*                border: 1px red solid;*/
                 width: 30vw;
-                height: auto;
+                height: 30vh;
                 left: 50vw;
             }
             .oplevelserWrapper:nth-child(even) img.oplevelseImg {
-                border: 1px red solid;
+                /*                border: 1px red solid;*/
             }
             .oplevelserWrapper:nth-child(even) p.oplevelseBody {
-                border: 1px red solid;
+                /*                border: 1px red solid;*/
                 width: 30vw;
                 top: -10vh;
                 left: 3vw;
@@ -168,17 +159,22 @@
             }
             h2.oplevelseHeadline {
                 text-align: center;
-                height: 30vh;
+                height: 20vh;
                 text-align: center;
             }
             p.oplevelseBody {
                 width: 40vh;
+                height: 45vh;
                 margin-top: -30vw;
                 position: relative;
-                padding: 20px;
+                padding: 30px;
+                background-color: rgba(41, 40, 40, 0.15);
+            }
+            #bgVideoOverlay {}
+            #videoContainer {
+                display: none;
             }
         }
-
     </Style>
 </body>
 
