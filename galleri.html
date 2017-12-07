@@ -2,18 +2,18 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="stylesheet.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>GALLERi</title>
-    <!--		!NOTE: vi skal tænke over -->
-    <!--		*************************************************************************************************************** GALLERI-TEMPLATE-->
-    <template id="galleriTemplate">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="stylesheet.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>GALLERi</title>
+	<!--		!NOTE: vi skal tænke over -->
+	<!--		*************************************************************************************************************** GALLERI-TEMPLATE-->
+	<template id="galleriTemplate">
 		<div class="borderWrapper">
-			<div class="itemContainer">
+			<div class="itemSection">
 				<!--				<a href="" class="linkSingle">-->
 				<div class="itemWrapper"><img class="itemImg "></div>
 				<!--				</a>-->
@@ -21,17 +21,17 @@
 			</div>
 		</div>
 	</template>
-    <!--		*************************************************************************************************************** FILTER-TEMPLATE-->
-    <template id="filterTemplate">
+	<!--		*************************************************************************************************************** FILTER-TEMPLATE-->
+	<template id="filterTemplate">
 		<a class="filterLink">
 			<h3 class="filterItem"></h3></a>
 	</template>
 </head>
 
 <body>
-    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
-    <nav>
-        <button class="burger">
+	<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+	<nav>
+		<button class="burger">
 			<div class="menu">
 				<div class="bar1"></div>
 				<div class="bar2"></div>
@@ -40,42 +40,42 @@
 			<div class="navn">
 				<h2>anders raad glas</h2></div>
 		</button>
-        <!--				*************************************************************************************************************** NAVIGATION TIL WEB-->
-        <!--  ************************************************************************************* slet? Der bør ikke være to
+		<!--				*************************************************************************************************************** NAVIGATION TIL WEB-->
+		<!--  ************************************************************************************* slet? Der bør ikke være to
 		<button class="burger">
 			<div class="bar1"></div>
 			<div class="bar2"></div>
 			<div class="bar3"></div>
 		</button>
 -->
-        <div id="logo"></div>
-        <ul id="menuContainer">
-            <a href="galleri.html">
-                <li class="menuItems">Galleri</li>
-            </a>
-            <a href="oplevelser.html">
-                <li class="menuItems">Oplevelser</li>
-            </a>
-            <a href="produktudvikling.html">
-                <li class="menuItems">Produktudvikling</li>
-            </a>
-            <a href="om.html">
-                <li class="menuItems">Om</li>
-            </a>
-            <a href="kontakt.html">
-                <li class="menuItems">Kontakt</li>
-            </a>
-        </ul>
-        <div id="instagram"></div>
-    </nav>
-    <!--		*************************************************************************************************************** BG VIDEO-->
-     <div id="videoContainer">
-        <div id="bgVideoOverlay" class="overlay"></div>
-        <video id="video_stor" autoplay loop muted>
-        <source src="video/bgvideo2medium.mp4" type="video/mp4">
-        </video></div>
-    <!--		*************************************************************************************************************** GALLERI-->
-    <!--
+		<div id="logo"></div>
+		<ul id="menuContainer">
+			<a href="galleri.html">
+				<li class="menuItems">Galleri</li>
+			</a>
+			<a href="oplevelser.html">
+				<li class="menuItems">Oplevelser</li>
+			</a>
+			<a href="produktudvikling.html">
+				<li class="menuItems">Produktudvikling</li>
+			</a>
+			<a href="om.html">
+				<li class="menuItems">Om</li>
+			</a>
+			<a href="kontakt.html">
+				<li class="menuItems">Kontakt</li>
+			</a>
+		</ul>
+		<div id="instagram"></div>
+	</nav>
+	<!--		*************************************************************************************************************** BG VIDEO-->
+	<div id="videoContainer">
+		<div id="bgVideoOverlay" class="overlay"></div>
+		<video id="video_stor" autoplay loop muted>
+			<source src="video/bgvideo2medium.mp4" type="video/mp4"> </video>
+	</div>
+	<!--		*************************************************************************************************************** GALLERI-->
+	<!--
 	<div id="galleryContainer">
 		<a href="galleri.html?gallery=interior">
 			<div id="galleryInterior" class="galleries">
@@ -91,31 +91,29 @@
 		</a>
 	</div>
 -->
-    <!--		*************************************************************************************************************** FILTER-->
-    <section id="filterContainer"></section>
-    <!--		*************************************************************************************************************** ITEM-CONTAINER-->
-    <section id="itemContainer"></section>
-    <!--		*************************************************************************************************************** VIEWVINDOW-->
-    <section id="modalWindow">
-        <div id="modalClose"></div> <img id="modalImage">
-        <h3 id="modalDescription"></h3>
-    </section>
-    <!--		*************************************************************************************************************** OPLEVELSE-JS-->
-    <style>
-        body {
-            margin: 0vw;
-        }
+	<!--		*************************************************************************************************************** FILTER-->
+	<section id="filterContainer"></section>
+	<!--		*************************************************************************************************************** ITEM-CONTAINER-->
+	<section id="itemSection"></section>
+	<!--		*************************************************************************************************************** VIEWVINDOW-->
+	<section id="modalWindow">
+		<div id="modalClose"></div> <img id="modalImage">
+		<h3 id="modalDescription"></h3> </section>
+	<!--		*************************************************************************************************************** OPLEVELSE-JS-->
+	<style>
+		body {
+			margin: 0vw;
+		}
 
-        #galleryContainer {
-            background-color: red;
-            border: blue 4px solid;
-        }
+		#galleryContainer {
+			background-color: red;
+			border: blue 4px solid;
+		}
 
-        .filterItem {
-            margin: 0;
-        }
-
-        /*
+		.filterItem {
+			margin: 0;
+		}
+		/*
 
 			#galleryContainer:nth-child(2n) {
 				background: blue;
@@ -123,132 +121,86 @@
 			}
 */
 
-        .borderWrapper {
-            /*			display: none;*/
-        }
+		.borderWrapper {
+			/*			display: none;*/
+		}
 
-        .galleries {
-            height: 10vh;
-        }
+		.galleries {
+			height: 10vh;
+		}
 
-        .itemWrapper {
-            height: 90vw;
-            width: 90vw;
-            /*			overflow: hidden;*/
-            border: 20px red solid;
-            outline: 5vw rgba(0, 0, 0, .5) solid;
-            outline-offset: -5vw;
-            padding: 5vw;
-        }
+		.itemWrapper {
+			height: 20vw;
+			width: 20vw;
+			overflow: hidden;
+			border: 1PX rgba(0, 0, 0, .5) solid;
+			/*			border: 50px pink solid;*/
+			/*			outline: 3vw rgba(0, 0, 0, .5) solid;*/
+			/*			outline-offset: -5vw;*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+		}
 
-        itemContainer {
-            border: 4px pink solid;
-            height: 90vw;
-            width: 90vw;
-        }
+		#itemSection {
+			/*			top: -200vh;*/
+			border: 4px pink solid;
+			height: 90vw;
+			width: 90vw;
+			border: 3vw rgba(0, 0, 0, .5) solid;
+			display: grid;
+			grid-template-rows: repeat(3);
+			grid-template-columns: repeat(4, 1fr);
+		}
 
-        .itemImg {
-            max-height: 90vw;
-            max-width: 90vw;
-            padding: 10px;
-        }
+		.itemImg {
+			max-height: 40vw;
+			max-width: 40vw;
+			background-size: cover;
+			/*			max-width: 20vw;*/
+			/*max-width: 90vw;*/
+			/*padding: 10px;*/
+		}
+	</style>
+	<!--		*************************************************************************************************************** VIEWVINDOW-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
+	<script src="galleri.js"></script>
+	<style>
+		/*MODAL 			****************************************************************************************************************/
 
-        /*			itemWrapper itemContainer*/
+		#modalWindow {
+			width: 50vw;
+			height: 100vh;
+			/*			border: red 20px dotted;*/
+			position: absolute;
+			top: 0vw;
+			z-index: 12034123948129374081234;
+			display: grid;
+			visibility: hidden;
+			grid-template-columns: (80% 20%);
+			        grid-template-areas: "modalImg modalDescription";
+		}
 
-        /*MODAL 			****************************************************************************************************************/
+		#modalImage {
+			grid-area: modalImg;
+			max-width: 80vw;
+			max-height: 100vh;
+		}
+		#modalDescription {
+			grid-area: modalDescription;
+		}
 
-        #modalWindow {
-            width: 50vw;
-            height: 50vh;
-            border: red 20px dotted;
-        }
-
-    </style>
-    <!--		*************************************************************************************************************** VIEWVINDOW-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
-    <script>
-        //		document.addEventListener("DOMContentLoaded", lazyload());
-        let filterList = new Array();
-        // *************************************************************************************************************** LOAD GALLERY-->
-        var galleri;
-        async function loadGallery() {
-            let template = document.querySelector("#galleriTemplate");
-            let parent = document.querySelector("#itemContainer");
-            let galleriObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/galleri?per_page=100");
-            galleri = await galleriObj.json();
-            console.log(galleri);
-            galleri.forEach(function(billede, index) {
-                let clone = template.cloneNode(true).content;
-                //					modalLoad(index);
-                clone.querySelector(".itemImg").dataset.item_id = billede.id;
-                clone.querySelector(".itemImg").setAttribute("data-src", billede.acf.billede);
-                clone.querySelector(".itemImg").onclick = modalLoad;
-                clone.querySelector(".itemDescription").textContent = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
-                let kat = billede.acf.kategori;
-				console.log("kategories", kat);
-                clone.querySelector(".borderWrapper").classList.add(kat);
-                if (filterList.includes(kat) == !true) {
-                    filterList.push(billede.acf.kategori);
-                }
-                let url = new URL(window.location.href);
-                let vars = new URLSearchParams(url.search);
-                let show = vars.get("sort");
-                if (show == "all" || show == null) {
-                    console.log(" all or null");
-                    parent.appendChild(clone);
-                } else if (kat == show) {
-                    parent.appendChild(clone);
-                    console.log("showing: " + kat + show);
-                }
-            });
-            loadFilter(filterList);
-            var myLazyLoad = new LazyLoad;
-        }
-        //       *************************************************************************************************************** LOAD MODAL
-        function modalLoad(index) {
-            let item_id = index.currentTarget.dataset.item_id;
-            let obj = galleri.find(function(element) {
-                return element.id == item_id
-            });
-            console.log(obj);
-            document.querySelector("#modalDescription").textContent = obj.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
-            document.querySelector("#modalImage").setAttribute("src", obj.acf.billede);
-            document.querySelector("#modalWindow").style.visibility = "visible";
-            let template = document.querySelector("#galleriTemplate");
-            let parent = document.querySelector("#itemContainer");
-            console.log(index);
-        }
-        //       *************************************************************************************************************** CLOSE EVENT HANDLER
-        document.querySelector("#modalClose").addEventListener("click", function closeModal() {
-            console.log("closed modal..");
-            document.querySelector("#modalWindow").style.visibility = "hidden";
-        });
-        //       *************************************************************************************************************** LOAD FILTER
-        function loadFilter() {
-            let template = document.querySelector("#filterTemplate");
-            let parent = document.querySelector("#filterContainer");
-            console.log(filterList);
-            filterList.forEach(function(filter) {
-                let clone = template.cloneNode(true).content;
-                clone.querySelector(".filterItem").textContent = filter;
-                clone.querySelector(".filterLink").setAttribute("href", "galleri.html" + "?sort=" + filter);
-                //				clone.querySelector(".filterItem").onclick = function something() {};
-                parent.appendChild(clone);
-            });
-        }
-        loadGallery();
-        //		console.log(getVar());
-
-    </script>
-    <style>
-        #modalClose {
-            background-color: aqua;
-            width: 10vw;
-            width: 10vw;
-            border: yellow 20px solid;
-        }
-
-    </style>
+		#modalClose {
+			visibility: hidden;
+			position: absolute;
+			top: 0vw;
+			background-color: aqua;
+			width: 10vw;
+			width: 10vw;
+			border: yellow 20px solid;
+		}
+	</style>
 </body>
 
 </html>

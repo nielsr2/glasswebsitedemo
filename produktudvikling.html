@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylesheet.css">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -12,24 +11,24 @@
     <title>produktudvikling</title>
     <!--		*************************************************************************************************************** produkt-TEMPLATE-->
     <template id="produktTemplate">
-		<article id="articleContainer">
-			<h2 class="produktHeadline"></h2>
-			<p class="produktBody"></p> <img class="produktImg"> </article>
-	</template>
+        <article id="articleContainer">
+            <h2 class="produktHeadline"></h2>
+            <p class="produktBody"></p> <img class="produktImg"> </article>
+    </template>
 </head>
 
 <body>
     <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
     <nav>
         <button class="burger">
-               <div class="menu">
+            <div class="menu">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
-                </div>
-                <div class="navn"><h2>anders raad glas</h2></div>
-            </button>
-
+            </div>
+            <div class="navn">
+                <h2>anders raad glas</h2></div>
+        </button>
         <ul id="menuContainer">
             <div id="logo"></div>
             <a href="galleri.html">
@@ -47,17 +46,15 @@
             <a href="kontakt.html">
                 <li class="menuItems">Kontakt</li>
             </a>
-
             <div id="instagram"></div>
         </ul>
-
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
-     <div id="videoContainer">
+    <div id="videoContainer">
         <div id="bgVideoOverlay" class="overlay"></div>
         <video id="video_stor" autoplay loop muted>
-        <source src="video/bgvideo2medium.mp4" type="video/mp4">
-        </video></div>
+            <source src="video/bgvideo2medium.mp4" type="video/mp4"> </video>
+    </div>
     <div id="contentContainer">
         <div id="articleContainer"></div>
     </div>
@@ -70,7 +67,7 @@
             let produkterObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
             let produkter = await produkterObj.json();
             console.log(produkter);
-            produkter.forEach(function(produkt) {
+            produkter.forEach(function (produkt) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".produktImg").setAttribute("src", produkt.acf.billede);
                 clone.querySelector(".produktHeadline").textContent = produkt.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
@@ -84,6 +81,30 @@
     <style>
         .produktHeadline {
             margin-top: 0;
+        }
+
+        #articleContainer {
+            display: grid;
+            width: 90%;
+            margin: 0 4.5%;
+            grid-template-areas: "overskrift" "billede" "tekst";
+        }
+
+        img.produktImg {
+            width: 100%;
+            height: auto;
+            grid-area: billede;
+            border: solid 3px rgba(255, 255, 255, 0.3);
+        }
+
+        h2.produktHeadline {
+            grid-area: overskrift;
+            font-family: special elite;
+            margin-top: 16vw;
+        }
+
+        p.produktBody {
+            grid-area: tekst;
         }
     </style>
 </body>
