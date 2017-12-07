@@ -88,103 +88,10 @@
 	<script src="galleri.js"></script>
 </body>
 <style>
-	body {
-		margin: 0vw;
-	}
 
-	#galleryContainer {
-		background-color: red;
-		border: blue 4px solid;
-	}
-
-	.filterItem {
-		margin: 0;
-	}
-	/*
-
-			#galleryContainer:nth-child(2n) {
-				background: blue;
-				border: pink 4px solid;
-			}
-*/
-
-	.borderWrapper {
-		/*			display: none;*/
-	}
-
-	.galleries {
-		height: 10vh;
-	}
-
-	.itemWrapper {
-		height: 20vw;
-		width: 20vw;
-		overflow: hidden;
-		border: 1PX rgba(0, 0, 0, .5) solid;
-		/*			border: 50px pink solid;*/
-		/*			outline: 3vw rgba(0, 0, 0, .5) solid;*/
-		/*			outline-offset: -5vw;*/
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		overflow: hidden;
-	}
-
-	#itemSection {
-		/*			top: -200vh;*/
-		border: 4px pink solid;
-		height: 90vw;
-		width: 90vw;
-		border: 3vw rgba(0, 0, 0, .5) solid;
-		display: grid;
-		grid-template-rows: repeat(3);
-		grid-template-columns: repeat(4, 1fr);
-	}
-
-	.itemImg {
-		max-height: 40vw;
-		max-width: 40vw;
-		background-size: cover;
-		/*			max-width: 20vw;*/
-		/*max-width: 90vw;*/
-		/*padding: 10px;*/
-	}
 </style>
 <style>
-	/*MODAL 			****************************************************************************************************************/
 
-	#modalWindow {
-		width: 50vw;
-		height: 100vh;
-		/*			border: red 20px dotted;*/
-		position: absolute;
-		top: 0vw;
-		z-index: 12034123948129374081234;
-		display: grid;
-		visibility: hidden;
-		grid-template-columns: (80% 20%);
-		grid-template-areas: "modalImg modalDescription";
-	}
-
-	#modalImage {
-		grid-area: modalImg;
-		max-width: 80vw;
-		max-height: 100vh;
-	}
-
-	#modalDescription {
-		grid-area: modalDescription;
-	}
-
-	#modalClose {
-		visibility: hidden;
-		position: absolute;
-		top: 0vw;
-		background-color: aqua;
-		width: 10vw;
-		width: 10vw;
-		border: yellow 20px solid;
-	}
 </style>
 
 </html>
