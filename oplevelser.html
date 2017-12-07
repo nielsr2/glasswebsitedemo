@@ -94,6 +94,11 @@
             display: grid;
             grid-template-areas: "overskrift" "billede" "indhold" "linje";
         }
+        /*
+        .line {
+            border: 2px solid #FF7621;
+        }
+*/
 
         img.oplevelseImg {
             width: 80%;
@@ -107,6 +112,12 @@
             text-align: center;
             grid-area: overskrift;
             font-family: special elite;
+        }
+
+        .oplevelseBody {
+            background-color: rgba(255, 255, 255, 0.25);
+            padding: 5vw;
+            margin: 2vh;
         }
         /*
         #teambuildingBorder {
@@ -131,6 +142,7 @@
                 width: 30vw;
                 height: 30vh;
                 left: 50vw;
+                padding: 2vw;
             }
             .oplevelserWrapper:nth-child(even) img.oplevelseImg {
                 /*                border: 1px red solid;*/
@@ -140,6 +152,7 @@
                 width: 30vw;
                 top: -10vh;
                 left: 3vw;
+                padding: 2vw;
             }
             .line {
                 border: 2px solid #FF7621;
