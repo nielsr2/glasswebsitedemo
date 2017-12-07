@@ -2,16 +2,17 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="stylesheet.css">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>GALLERi</title>
-	<!--		!NOTE: vi skal tænke over -->
-	<!--		*************************************************************************************************************** GALLERI-TEMPLATE-->
-	<template id="galleriTemplate">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>GALLERi</title>
+    <!--		!NOTE: vi skal tænke over -->
+    <!--		*************************************************************************************************************** GALLERI-TEMPLATE-->
+    <template id="galleriTemplate">
 		<div class="borderWrapper">
 			<div class="itemSection">
 				<!--				<a href="" class="linkSingle">-->
@@ -21,61 +22,44 @@
 			</div>
 		</div>
 	</template>
-	<!--		*************************************************************************************************************** FILTER-TEMPLATE-->
-	<template id="filterTemplate">
+    <!--		*************************************************************************************************************** FILTER-TEMPLATE-->
+    <template id="filterTemplate">
 		<a class="filterLink">
 			<h3 class="filterItem"></h3></a>
 	</template>
 </head>
 
 <body>
-	<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
-	<nav>
-		<button class="burger">
+    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+    <nav>
+        <button class="burger">
 			<div class="menu">
 				<div class="bar1"></div>
 				<div class="bar2"></div>
 				<div class="bar3"></div>
 			</div>
-			<div class="navn">
-				<h2>anders raad glas</h2></div>
-		</button>
-		<!--				*************************************************************************************************************** NAVIGATION TIL WEB-->
-		<!--  ************************************************************************************* slet? Der bør ikke være to
-		<button class="burger">
-			<div class="bar1"></div>
-			<div class="bar2"></div>
-			<div class="bar3"></div>
-		</button>
--->
-		<div id="logo"></div>
-		<ul id="menuContainer">
-			<a href="galleri.html">
-				<li class="menuItems">Galleri</li>
-			</a>
-			<a href="oplevelser.html">
-				<li class="menuItems">Oplevelser</li>
-			</a>
-			<a href="produktudvikling.html">
-				<li class="menuItems">Produktudvikling</li>
-			</a>
-			<a href="om.html">
-				<li class="menuItems">Om</li>
-			</a>
-			<a href="kontakt.html">
-				<li class="menuItems">Kontakt</li>
-			</a>
-		</ul>
-		<div id="instagram"></div>
-	</nav>
-	<!--		*************************************************************************************************************** BG VIDEO-->
-	<div id="videoContainer">
-		<div id="bgVideoOverlay" class="overlay"></div>
-		<video id="video_stor" autoplay loop muted>
+			<h2 id="navn">anders raad glas</h2>
+       </button>
+        <a href="index.html">
+            <div id="logo"></div>
+        </a>
+        <ul id="menuContainer">
+            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
+            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+            <li class="menuItems"><a href="om.html">Om</a></li>
+            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <div id="instagram"></div>
+    </nav>
+    <!--		*************************************************************************************************************** BG VIDEO-->
+    <div id="videoContainer">
+        <div id="bgVideoOverlay" class="overlay"></div>
+        <video id="video_stor" autoplay loop muted>
 			<source src="video/bgvideo2medium.mp4" type="video/mp4"> </video>
-	</div>
-	<!--		*************************************************************************************************************** GALLERI-->
-	<!--
+    </div>
+    <!--		*************************************************************************************************************** GALLERI-->
+    <!--
 	<div id="galleryContainer">
 		<a href="galleri.html?gallery=interior">
 			<div id="galleryInterior" class="galleries">
@@ -91,29 +75,31 @@
 		</a>
 	</div>
 -->
-	<!--		*************************************************************************************************************** FILTER-->
-	<section id="filterContainer"></section>
-	<!--		*************************************************************************************************************** ITEM-CONTAINER-->
-	<section id="itemSection"></section>
-	<!--		*************************************************************************************************************** VIEWVINDOW-->
-	<section id="modalWindow">
-		<div id="modalClose"></div> <img id="modalImage">
-		<h3 id="modalDescription"></h3> </section>
-	<!--		*************************************************************************************************************** OPLEVELSE-JS-->
-	<style>
-		body {
-			margin: 0vw;
-		}
+    <!--		*************************************************************************************************************** FILTER-->
+    <section id="filterContainer"></section>
+    <!--		*************************************************************************************************************** ITEM-CONTAINER-->
+    <section id="itemSection"></section>
+    <!--		*************************************************************************************************************** VIEWVINDOW-->
+    <section id="modalWindow">
+        <div id="modalClose"></div> <img id="modalImage">
+        <h3 id="modalDescription"></h3>
+    </section>
+    <!--		*************************************************************************************************************** OPLEVELSE-JS-->
+    <style>
+        body {
+            margin: 0vw;
+        }
 
-		#galleryContainer {
-			background-color: red;
-			border: blue 4px solid;
-		}
+        #galleryContainer {
+            background-color: red;
+            border: blue 4px solid;
+        }
 
-		.filterItem {
-			margin: 0;
-		}
-		/*
+        .filterItem {
+            margin: 0;
+        }
+
+        /*
 
 			#galleryContainer:nth-child(2n) {
 				background: blue;
@@ -121,93 +107,89 @@
 			}
 */
 
-		.borderWrapper {
-			/*			display: none;*/
-		}
+        .borderWrapper {
+            /*			display: none;*/
+        }
 
-		.galleries {
-			height: 10vh;
-		}
+        .galleries {
+            height: 10vh;
+        }
 
-		.itemWrapper {
-			height: 20vw;
-			width: 20vw;
-			overflow: hidden;
-			border: 1PX rgba(0, 0, 0, .5) solid;
-			/*			border: 50px pink solid;*/
-			/*			outline: 3vw rgba(0, 0, 0, .5) solid;*/
-			/*			outline-offset: -5vw;*/
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			overflow: hidden;
-		}
+        .itemWrapper {
+            height: 20vw;
+            width: 20vw;
+            overflow: hidden;
+            border: 1PX rgba(0, 0, 0, .5) solid;
+            /*			border: 50px pink solid;*/
+            /*			outline: 3vw rgba(0, 0, 0, .5) solid;*/
+            /*			outline-offset: -5vw;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-		#itemSection {
-			/*			top: -200vh;*/
-			border: 4px pink solid;
-			height: 90vw;
-			width: 90vw;
-			border: 3vw rgba(0, 0, 0, .5) solid;
-			display: grid;
-			grid-template-rows: repeat(3);
-			grid-template-columns: repeat(4, 1fr);
-		}
+        #itemSection {
+            /*			top: -200vh;*/
+            border: 4px pink solid;
+            height: 90vw;
+            width: 90vw;
+            border: 3vw rgba(0, 0, 0, .5) solid;
+            display: grid;
+            grid-template-rows: repeat(3);
+            grid-template-columns: repeat(4, 1fr);
+        }
 
-		.itemImg {
-			max-height: 40vw;
-			max-width: 40vw;
-			background-size: cover;
-			/*			max-width: 20vw;*/
-			/*max-width: 90vw;*/
-			/*padding: 10px;*/
-		}
+        .itemImg {
+            max-height: 40vw;
+            max-width: 40vw;
+            background-size: cover;
+            /*			max-width: 20vw;*/
+            /*max-width: 90vw;*/
+            /*padding: 10px;*/
+        }
 
+    </style>
+    <!--		*************************************************************************************************************** VIEWVINDOW-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
+    <script src="galleri.js"></script>
+    <style>
+        /*MODAL 			****************************************************************************************************************/
 
+        #modalWindow {
+            width: 50vw;
+            height: 100vh;
+            /*			border: red 20px dotted;*/
+            position: absolute;
+            top: 0vw;
+            z-index: 12034123948129374081234;
+            display: grid;
+            visibility: hidden;
+            grid-template-columns: (80% 20%);
+            grid-template-areas: "modalImg modalDescription";
+        }
 
+        #modalImage {
+            grid-area: modalImg;
+            max-width: 80vw;
+            max-height: 100vh;
+        }
 
+        #modalDescription {
+            grid-area: modalDescription;
+        }
 
+        #modalClose {
+            visibility: hidden;
+            position: absolute;
+            top: 0vw;
+            background-color: aqua;
+            width: 10vw;
+            width: 10vw;
+            border: yellow 20px solid;
+        }
 
-
-	</style>
-	<!--		*************************************************************************************************************** VIEWVINDOW-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
-	<script src="galleri.js"></script>
-	<style>
-		/*MODAL 			****************************************************************************************************************/
-
-		#modalWindow {
-			width: 50vw;
-			height: 100vh;
-			/*			border: red 20px dotted;*/
-			position: absolute;
-			top: 0vw;
-			z-index: 12034123948129374081234;
-			display: grid;
-			visibility: hidden;
-			grid-template-columns: (80% 20%);
-			        grid-template-areas: "modalImg modalDescription";
-		}
-
-		#modalImage {
-			grid-area: modalImg;
-			max-width: 80vw;
-			max-height: 100vh;
-		}
-		#modalDescription {
-			grid-area: modalDescription;
-		}
-
-		#modalClose {
-			visibility: hidden;
-			position: absolute;
-			top: 0vw;
-			background-color: aqua;
-			width: 10vw;
-			width: 10vw;
-			border: yellow 20px solid;
-		}
-	</style>
+    </style>
 </body>
 
 </html>

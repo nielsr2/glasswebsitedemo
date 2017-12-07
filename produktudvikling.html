@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="stylesheet.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,33 +23,24 @@
     <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
     <nav>
         <button class="burger">
-            <div class="menu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-            <div class="navn">
-                <h2>anders raad glas</h2></div>
-        </button>
-        <ul id="menuContainer">
+			<div class="menu">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+			<h2 id="navn">anders raad glas</h2>
+       </button>
+        <a href="index.html">
             <div id="logo"></div>
-            <a href="galleri.html">
-                <li class="menuItems">Galleri</li>
-            </a>
-            <a href="oplevelser.html">
-                <li class="menuItems">Oplevelser</li>
-            </a>
-            <a href="produktudvikling.html">
-                <li class="menuItems">Produktudvikling</li>
-            </a>
-            <a href="om.html">
-                <li class="menuItems">Om</li>
-            </a>
-            <a href="kontakt.html">
-                <li class="menuItems">Kontakt</li>
-            </a>
-            <div id="instagram"></div>
+        </a>
+        <ul id="menuContainer">
+            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
+            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+            <li class="menuItems"><a href="om.html">Om</a></li>
+            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
         </ul>
+        <div id="instagram"></div>
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
     <div id="videoContainer">
@@ -67,7 +59,7 @@
             let produkterObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
             let produkter = await produkterObj.json();
             console.log(produkter);
-            produkter.forEach(function (produkt) {
+            produkter.forEach(function(produkt) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".produktImg").setAttribute("src", produkt.acf.billede);
                 clone.querySelector(".produktHeadline").textContent = produkt.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
@@ -76,6 +68,7 @@
             });
         }
         loadProdukt();
+
     </script>
     <script src="burger.js"></script>
     <style>
@@ -208,6 +201,7 @@
                 margin: -1% 10% 2% -10%;
             }
         }
+
     </style>
     <!--	FOOTER--------------->
     <footer>
