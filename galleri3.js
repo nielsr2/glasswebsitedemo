@@ -25,7 +25,7 @@
                 clone.querySelector(".itemImg").setAttribute("data-src", billede.acf.billede);
                 clone.querySelector(".itemImg").onclick = modalClick;
                 let descrip = billede.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
-                //                clone.querySelector(".itemDescription").textContent = cap(descrip);
+                                clone.querySelector(".itemDescription").textContent = cap(descrip);
                 //                console.log("niiiiib", descrip);
                 kat = billede.acf.kategori;
                 //                console.log("kategories", kat);
