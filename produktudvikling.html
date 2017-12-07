@@ -12,8 +12,9 @@
     <!--		*************************************************************************************************************** produkt-TEMPLATE-->
     <template id="produktTemplate">
         <article id="articleContainer">
-            <h2 class="produktHeadline"></h2>
-            <p class="produktBody"></p> <img class="produktImg"> </article>
+            <h2 class="produktHeadline"></h2> <img class="produktImg">
+            <p class="produktBody"></p>
+        </article>
     </template>
 </head>
 
@@ -55,15 +56,14 @@
         <video id="video_stor" autoplay loop muted>
             <source src="video/bgvideo2medium.mp4" type="video/mp4"> </video>
     </div>
-    <div id="contentContainer">
-        <div id="articleContainer"></div>
-    </div>
+    <div id="articles">
+        <!--        <div id="articleContainer"></div>--></div>
     <!--		*************************************************************************************************************** ARTICLES-->
     <!--		*************************************************************************************************************** produkt-JS-->
     <script>
         async function loadProdukt() {
             let template = document.querySelector("#produktTemplate");
-            let parent = document.querySelector("#articleContainer");
+            let parent = document.querySelector("#articles");
             let produkterObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
             let produkter = await produkterObj.json();
             console.log(produkter);
@@ -79,32 +79,130 @@
     </script>
     <script src="burger.js"></script>
     <style>
-        .produktHeadline {
-            margin-top: 0;
+        body {
+            background-image: url(imgs/contact3.JPG);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-image: linear-gradient(#ff6200);
+            background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
+            background: -webkit-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
+            background: linear-gradient(to right, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cf3100', endColorstr='#007db9e8', GradientType=1);
+            width: 100vw;
+            height: 100vh;
+            background-size: contain;
+            position: absolute;
+            z-index: 1;
+        }
+
+        nav {
+            top: 0vw;
         }
 
         #articleContainer {
-            display: grid;
+            /*            display: grid;*/
             width: 90%;
             margin: 0 4.5%;
-            grid-template-areas: "overskrift" "billede" "tekst";
+            /*            grid-template-areas: "overskrift" "billede" "tekst";*/
         }
 
         img.produktImg {
             width: 100%;
             height: auto;
-            grid-area: billede;
-            border: solid 3px rgba(255, 255, 255, 0.3);
+            /*            grid-area: billede;*/
+            /*            border: solid 3px rgba(38, 38, 38, 0.33);*/
         }
 
         h2.produktHeadline {
-            grid-area: overskrift;
+            /*            grid-area: overskrift;*/
             font-family: special elite;
             margin-top: 16vw;
         }
 
         p.produktBody {
-            grid-area: tekst;
+            /*            grid-area: tekst;*/
+            margin-bottom: -4vw;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5vw;
+        }
+
+        @media screen and (min-width: 667px) {
+            #articleContainer {
+                width: 85%;
+                margin: 0 7% 2%;
+            }
+            p.produktBody {
+                margin-top: 3%;
+                margin-bottom: 2%;
+                padding: 3vw;
+            }
+            h2.produktHeadline {
+                margin-top: 10vw;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            #articleContainer {
+                width: 75%;
+                margin: 0 12% 5%;
+            }
+            p.produktBody {
+                margin-top: 7%;
+                margin-bottom: 5%;
+            }
+            h2.produktHeadline {
+                margin-top: 8vw;
+            }
+            img.produktImg {}
+        }
+
+        @media screen and (min-width: 1025px) {
+            #articles {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "venstre hojre"
+            }
+            #videoContainer {
+                display: none;
+            }
+            #articleContainer {
+                margin-top: 12%;
+                width: 80%;
+                /*                margin: 5% 10%;*/
+                /*
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+*/
+            }
+            #articleContainer:nth-child(odd) .produktImg {
+                margin-top: 12%;
+                grid-area: venstre;
+                margin: 5% 15% 0 5%;
+            }
+            #articleContainer:nth-child(even) .produktImg {
+                margin-top: 12%;
+                grid-area: hojre;
+                margin: 5% 5% 0 -10%;
+            }
+            #articleContainer:nth-child(odd) h2.produktHeadline {
+                margin: 10% 15% -2% 5%;
+            }
+            #articleContainer:nth-child(even) h2.produktHeadline {
+                /*
+                margin-top: 10vw;
+                margin-bottom: -2vw;
+*/
+                margin: 10% 5% -2% -10%;
+            }
+            #articleContainer:nth-child(odd) p.produktBody {
+                padding: 2vw;
+                margin: -1% -5% 2% 5%;
+            }
+            #articleContainer:nth-child(even) p.produktBody {
+                padding: 2vw;
+                margin: -1% 10% 2% -10%;
+            }
         }
     </style>
 </body>
