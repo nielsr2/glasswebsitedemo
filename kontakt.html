@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="stylesheet.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,34 +23,24 @@
     <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
     <nav>
         <button class="burger">
-               <div class="menu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-                </div>
-                <div class="navn"><h2>anders raad glas</h2></div>
-            </button>
-
-        <ul id="menuContainer">
+			<div class="menu">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+			<h2 id="navn">anders raad glas</h2>
+       </button>
+        <a href="index.html">
             <div id="logo"></div>
-            <a href="galleri.html">
-                <li class="menuItems">Galleri</li>
-            </a>
-            <a href="oplevelser.html">
-                <li class="menuItems">Oplevelser</li>
-            </a>
-            <a href="produktudvikling.html">
-                <li class="menuItems">Produktudvikling</li>
-            </a>
-            <a href="om.html">
-                <li class="menuItems">Om</li>
-            </a>
-            <a href="kontakt.html">
-                <li class="menuItems">Kontakt</li>
-            </a>
-            <div id="instagram"></div>
+        </a>
+        <ul id="menuContainer">
+            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
+            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+            <li class="menuItems"><a href="om.html">Om</a></li>
+            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
         </ul>
-
+        <div id="instagram"></div>
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
     <div id="videoContainer">
@@ -99,6 +90,8 @@
     </script>
     <script src="burger.js"></script>
     <style>
+        /******************    KONTAKT    ***********************/
+
         #kontaktOplysninger {
             width: 30vw;
             margin-left: 35%;
@@ -108,66 +101,31 @@
             margin: 0;
         }
 
-        .someImg {
-            width: 50px;
-            filter: invert();
-        }
-
-        #adress {
-            text-align: center;
-        }
+        /******************   SOCIALE MEDIER   ***********************/
 
         #someContainer {
             width: 100vw;
             text-align: center;
         }
 
+        .someImg {
+            width: 50px;
+            filter: invert();
+        }
+
+        /******************   ADRESSE   ***********************/
+
+        #adress {
+            text-align: center;
+        }
+
+        /******************   KORT   ***********************/
+
         iframe {
             width: 100vw;
         }
 
-        @media (min-width: 1025px) {
-
-            /************TILFØJ TIL STYLESHEET!!!!!*****************/
-            #bgVideoOverlay {
-                background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
-                background: -webkit-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
-                background: linear-gradient(to right, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
-                filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cf3100', endColorstr='#007db9e8', GradientType=1);
-                width: 100vw;
-                height: 100vh;
-                background-size: contain;
-                position: absolute;
-                z-index: 1;
-            }
-            .overlay {
-                animation-name: overlayKF;
-                animation-duration: 2000ms;
-                animation-iteration-count: 1;
-                animation-direction: normal;
-                animation-timing-function: linear;
-            }
-
-            @keyframes overlayKF {
-                from {
-                    /* left: -80vw;*/
-                    opacity: 0;
-                }
-                to {
-                    /* left: 0;*/
-                    opacity: 1;
-                }
-            }
-
-            #videoContainer {
-                overflow: hidden;
-                height: 100vh;
-                position: absolute;
-                z-index: 1;
-                width: 100vw;
-                display: block;
-            }
-
+        @media (min-width: 1024px) {
             /*
             #video_stor {
                 height: auto;
@@ -176,10 +134,11 @@
                 position: absolute;
             }
 */
+            /******************    KONTAKT    ***********************/
             #kontaktOplysninger {
                 position: relative;
                 right: 25vw;
-                top: 5vh;
+                top: 18vh;
                 background: rgba(0, 0, 0, 0.5);
                 padding: 3vw;
                 height: 50vh;
@@ -191,22 +150,19 @@
                 z-index: 2;
             }
 
-            .someImg {
-                position: relative;
-                z-index: 2;
-            }
-
+            /******************   ADRESSE   ***********************/
             #adress {
                 position: relative;
-                bottom: 10vw;
+                bottom: 3vw;
                 right: 27vw;
                 font-weight: bold;
                 z-index: 2;
             }
 
+            /******************   SOCIALE MEDIER   ***********************/
             #someLinkContainer {
                 position: relative;
-                bottom: 15vh;
+                bottom: 5vh;
                 left: 15vw;
                 float: left;
                 transform: scale(0.8);
@@ -214,13 +170,22 @@
             }
 
             #someHeadlineContainer {
+                border: 2px solid yellow;
+                width: 15vw;
                 position: relative;
-                left: 10vw;
+                left: 5vw;
                 float: left;
-                bottom: 4.5vw;
+                bottom: 2vw;
+                z-index: 2;
+                transform: scale(0.5);
+            }
+
+            .someImg {
+                position: relative;
                 z-index: 2;
             }
 
+            /******************   KORT   ***********************/
             iframe {
                 position: absolute;
                 width: 35%;
@@ -233,4 +198,5 @@
     </style>
 
 </body>
+
 </html>

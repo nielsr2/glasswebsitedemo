@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="stylesheet.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,9 +21,8 @@
 </section>
     </template>
 
-
     <template id="awardTemplate">
-            <img class="awardImg">
+           <a href="awards/Haandfuglen_2011_Bedste_unika_Anders_Raad.pdf" target="_blank"><img class="awardImg"></a>
             <h2 class="aarsTal"></h2>
     </template>
 
@@ -32,34 +32,24 @@
     <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
     <nav>
         <button class="burger">
-               <div class="menu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-                </div>
-                <div class="navn"><h2>anders raad glas</h2></div>
-            </button>
-
-        <ul id="menuContainer">
+			<div class="menu">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+			<h2 id="navn">anders raad glas</h2>
+       </button>
+        <a href="index.html">
             <div id="logo"></div>
-            <a href="galleri.html">
-                <li class="menuItems">Galleri</li>
-            </a>
-            <a href="oplevelser.html">
-                <li class="menuItems">Oplevelser</li>
-            </a>
-            <a href="produktudvikling.html">
-                <li class="menuItems">Produktudvikling</li>
-            </a>
-            <a href="om.html">
-                <li class="menuItems">Om</li>
-            </a>
-            <a href="kontakt.html">
-                <li class="menuItems">Kontakt</li>
-            </a>
-            <div id="instagram"></div>
+        </a>
+        <ul id="menuContainer">
+            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
+            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+            <li class="menuItems"><a href="om.html">Om</a></li>
+            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
         </ul>
-
+        <div id="instagram"></div>
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
     <div id="videoContainer">
@@ -83,27 +73,37 @@
         </a>
     </div>
     <section id="glaspusterenContainer">
-        <article id="omGlaspusteren">
-            <h2 id="Gheadline"></h2>
-            <img id="Gportrait">
-            <p id="Gquote"></p>
-        </article>
-        <h2 class="samarbejdeOverskrift">Kurser for</h2>
-        <section id=samarbejdeContainer></section>
-        <section id=awardContainer>
-            <h2 class="awardOverskrift">Awards</h2>
-        </section>
-        <article class=omVaerkstedet>
-            <p class="Quote"></p>
-            <h2 class="vHeadline">Om værkstedet</h2>
-        </article>
-        <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe>
+
+        <!--       SLET .omGlasContainer HVIS NØDVENDIGT!-->
+        <div class="omGlasContainer">
+            <!--           -->
+            <article id="omGlaspusteren">
+                <h2 id="Gheadline"></h2>
+                <img id="Gportrait">
+                <p id="Gquote"></p>
+            </article>
+            <h2 class="samarbejdeOverskrift">Kurser for</h2>
+            <section id=samarbejdeContainer></section>
+            <section id=awardContainer>
+                <h2 class="awardOverskrift">Awards</h2>
+            </section>
+        </div>
+        <!--       SLET .omVaerkstedContainer HVIS NØDVENDIGT!-->
+        <div class="omVaerkstedContainer">
+            <!--           -->
+            <article id=omVaerkstedet>
+                <h2 class="vHeadline">Om værkstedet</h2>
+                <p class="vQuote"></p>
+            </article>
+            <h2 class="iOverskrift">360 graders i værkstedet</h2>
+            <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe></div>
     </section>
     <!--		*************************************************************************************************************** OM-JS-->
     <!--!TODO: asdfasdf
 -->
     <script src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
     <script>
+        ///////////////// OM GLASPUSTEREN BLIVER LOADET IND PÅ SIDEN
         async function loadGlaspusteren() {
             let glaspusterenObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om/42");
             let glaspusteren = await glaspusterenObj.json();
@@ -113,6 +113,7 @@
             document.querySelector("#Gquote").textContent = glaspusteren.acf.citat;
         }
 
+        ///////////////// SAMARBEJDER BLIVER LOADET IND PÅ SIDEN
         async function loadSamarbejde() {
             let template = document.querySelector("#samarbejdeTemplate");
             let parent = document.querySelector("#samarbejdeContainer");
@@ -132,6 +133,7 @@
             });
         }
 
+        ///////////////// AWARDS BLIVER LOADET IND PÅ SIDEN
         async function loadAwards() {
             let template = document.querySelector("#awardTemplate");
             let parent = document.querySelector("#awardContainer");
@@ -149,8 +151,9 @@
             });
         }
 
+        ///////////////// OM VÆRKSTEDET BLIVER LOADET IND PÅ SIDEN
         async function loadVaerksted() {
-            let vaerkstedObj = await fetch("http://rearrangingly.com/KEA/raad/om/om-vaerkstedet/");
+            let vaerkstedObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om/40");
             let vaerksted = await vaerkstedObj.json();
 
             document.querySelector(".vQuote").textContent = vaerksted.acf.beskrivelse;
@@ -166,8 +169,26 @@
         #omContainer h2 {
             position: absolute;
             top: 25%;
-            left: 25%;
+            left: 12%;
             margin: 0;
+        }
+
+        /******************* OVERORDNEDE CONTAINERE TIL BG BILLEDER  ****************/
+
+        .omGlasContainer {
+            border: 2px solid yellow;
+            /*            background-image: url(imgs/contact1.JPG);*/
+            height: auto;
+            width: auto;
+            background-size: contain;
+        }
+
+        .omVaerkstedContainer {
+            border: 2px solid yellow;
+            /*            background-image: url(imgs/contact2.JPG);*/
+            height: auto;
+            width: auto;
+            background-size: cover;
         }
 
         /******************* GLASPUSTER LINK + VÆRKSTED LINK BILLEDER ****************/
@@ -210,6 +231,8 @@
             text-align: left;
             margin-left: 10%;
             margin-right: 10%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5vw;
         }
 
         /******************* SAMARBEJDER ****************/
@@ -240,14 +263,33 @@
         }
 
         .awardImg {
-            margin-left: 5%;
-            width: 40vw;
-            height: 40vw;
+            cursor: pointer;
+            margin-left: 25%;
+            margin-right: 25%;
+            width: 50vw;
+            height: 50vw;
             border-radius: 50vw;
         }
 
         .aarsTal {
-            margin-left: 19%
+            text-align: center;
+        }
+
+        /******************* OM VÆRKSTEDET ****************/
+
+        #omVaerkstedet {
+            width: 100vw;
+        }
+
+        .vHeadline {
+            text-align: center;
+        }
+
+        .vQuote {
+            margin-left: 10%;
+            margin-right: 10%;
+            padding: 5vw;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         /*******************360 GRADER VIDEO I VÆRKSTEDET****************/
@@ -256,28 +298,21 @@
             width: 100%;
         }
 
-
-        /******************* OM VÆRKSTEDET ****************/
-
-        .omVaerkstedet {
-            width: 100%;
-            height: 50vh;
-            border: 4px solid red;
-        }
-
-        .vHeadline {
+        .iOverskrift {
             text-align: center;
         }
 
-        /**********   DESKTOP MQ *************/
+        /*************************************   DESKTOP MQ ***********************************/
 
         @media (min-width: 1024px) {
-
 
             /*******************  100VH SPLASH IMAGE CONTAINER  ****************/
             #omContainer {
                 height: 100vh;
                 width: 100vw;
+            }
+            #omContainer h2 {
+                margin-left: 3%;
             }
 
             /******************* GLASPUSTER LINK ****************/
@@ -308,14 +343,13 @@
                 width: 30vw;
             }
 
-
             /******************* OM GLASPUSTEREN ****************/
             #omGlaspusteren {
                 height: 50vh;
                 position: relative;
             }
             #Gportrait {
-                top: 5vh;
+                top: 10vh;
                 left: 25vw;
                 position: absolute;
                 width: 20vw;
@@ -324,8 +358,8 @@
             }
 
             #Gheadline {
-                top: 5vh;
-                right: 35vw;
+                top: 4vh;
+                right: 32vw;
                 position: absolute;
             }
 
@@ -335,6 +369,7 @@
                 right: 3.5vw;
                 width: 35%;
                 position: absolute;
+                padding: 2vw;
             }
 
             /******************* SAMARBEJDER ****************/
@@ -361,15 +396,18 @@
             }
 
             .awardImg {
-                margin-left: 25%;
+                margin-left: 40%;
                 width: 20vw;
                 height: 20vw;
                 border-radius: 15vw;
             }
-
-            .aarsTal {
-                margin-left: 33%
+            /******************* OM VÆRKSTEDET ****************/
+            .vQuote {
+                margin-left: 30%;
+                margin-right: 30%;
+                padding: 2vw;
             }
+
 
             /*******************360 GRADER VIDEO I VÆRKSTEDET****************/
             iframe {
@@ -377,10 +415,6 @@
                 margin-left: 25%;
             }
 
-            /****************** RESERVE  ****************/
-            #videoContainer {
-                /*display: none;*/
-            }
         }
     </style>
 </body>

@@ -25,344 +25,7 @@ h2 {
     font-family: 'Special Elite';
 }
 
-
-/********* FOOTER **********/
-
-footer {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 17vw;
-    padding: 2vw;
-    display: grid;
-    grid-template-areas: "adresse instagram findvej" "telefon instagram findvej";
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-p.adresseText {
-    font-size: 0.5em;
-    grid-area: adresse;
-    margin: 0;
-}
-
-p.telefonText {
-    font-size: 0.5em;
-    grid-area: telefon;
-    margin: 0;
-}
-
-img.instagramLink {
-    width: 10vw;
-    height: auto;
-    grid-area: instagram;
-}
-
-img.mapsLink {
-    width: 10vw;
-    height: auto;
-    grid-area: findvej;
-}
-
-p.mapsText {
-    font-size: 0.9em;
-    grid-area: findvej;
-}
-
-button.tilmeld {
-    display: none;
-    width: 15vw;
-    height: 5vw;
-}
-
-.nyhedsbrev {
-    display: none;
-}
-
-
-/* !!!!!!!FIXME!: this needs to be more specific. remove if not used for anything */
-
-
-/*
-
-<<<<<<< HEAD
-nav a {
-    text-decoration: none;
-    list-style-type: none;
-}
-#menuContainer {
-    display: flex;
-    justify-content: space-between;
-    width: 80vw;
-    height: 15vw;
-    background-color: black;
-    margin: 0;
-    position: fixed;
-}
-.menuItems {
-    margin-right: 2vw;
-    text-decoration: none;
-    color: white;
-
-*/
-
-img {
-    /*    max-width: 80vw;*/
-}
-
-
-/****NOTE****:  */
-
-
-/* BURGER MENU */
-
-
-/**/
-
-
-/*header {*/
-
-
-/*    height: 13vw;*/
-
-
-/*    width: 100vw;*/
-
-
-/*    position: fixed;*/
-
-
-/*    z-index: 98;*/
-
-
-/*    margin: 0;*/
-
-
-/*    color: white;*/
-
-
-/*}*/
-
-
-/**/
-
-
-/*a#gallery,*/
-
-
-/*a#oplevelser,*/
-
-
-/*a#produktudvikling,*/
-
-
-/*a#om,*/
-
-
-/*a#kontakt {*/
-
-
-/*    text-decoration: none;*/
-
-
-/*    color: white;*/
-
-
-/*}*/
-
-
-/**/
-
-
-/*.burger {*/
-
-
-/*    display: inline-block;*/
-
-
-/*    cursor: pointer;*/
-
-
-/*    background: none;*/
-
-
-/*    border: none;*/
-
-
-/*    position: fixed;*/
-
-
-/*    right: 2vw;*/
-
-
-/*    z-index: 99;*/
-
-
-/*}*/
-
-
-/**/
-
-
-/*ul#menuContainer {*/
-
-
-/*    list-style: none;*/
-
-
-/*    margin: 0;*/
-
-
-/*    padding: 0;*/
-
-
-/*}*/
-
-
-/**/
-
-
-/*li.menuItems {*/
-
-
-/*        padding: 5px;*/
-
-
-/*    cursor: pointer;*/
-
-
-/*    padding-left: 15px;*/
-
-
-/*    padding-top: 15px;*/
-
-
-/*    padding-bottom: 15px;*/
-
-
-/*}*/
-
-
-/**/
-
-
-/*.bar1,*/
-
-
-/*.bar2,*/
-
-
-/*.bar3 {*/
-
-
-/*    width: 35px;*/
-
-
-/*    height: 5px;*/
-
-
-/*    background-color: #fff;*/
-
-
-/*    margin: 6px 0;*/
-
-
-/*    transition: 0.4s;*/
-
-
-/*}*/
-
-
-/**/
-
-
-/*nav {*/
-
-
-/*    max-height: 0px;*/
-
-
-/*    overflow: hidden;*/
-
-
-/*    transition: 0.6s;*/
-
-
-/*}*/
-
-
-/**/
-
-
-/*nav.show {*/
-
-
-/*    max-height: 500px;*/
-
-
-/*    background-color: rgb(0, 0, 0);*/
-
-
-/*    z-index: 1;*/
-
-
-/*}*/
-
-
-/**/
-
-
-/**/
-
-Rotate first bar
-/**/
-
-
-/*.change .bar1 {*/
-
-
-/*    transform: rotate(-45deg) translate(-9px, 6px);*/
-
-
-/*}*/
-
-
-/**/
-
-
-/**/
-
-Fade out the second bar
-/**/
-
-
-/*.change .bar2 {*/
-
-
-/*    opacity: 0;*/
-
-
-/*}*/
-
-
-/**/
-
-
-/**/
-
-Rotate last bar
-/**/
-
-
-/*.change .bar3 {*/
-
-
-/*    transform: rotate(45deg) translate(-8px, -8px);*/
-
-
-/*}*/
-
-
-/**/
-
-header {
+<<<<<<< HEAD header {
     height: 13vw;
     width: 100vw;
     /*    position: fixed;*/
@@ -398,76 +61,72 @@ a {
     color: white;
 }
 
-.navn {
-    color: white;
+
+/****NOTE****:  */
+
+
+/********* FOOTER **********/
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 17vw;
+    padding: 2vw;
+    display: grid;
+    grid-template-areas: "adresse instanews findvej";
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-ul#menuContainer {
-    list-style: none;
+#footerInfo {
+    grid-area: adresse;
+    margin-left: 3vw;
+}
+
+#footerMap {
+    grid-area: findvej;
+    display: flex;
+}
+
+p.adresseText {
+    font-size: 0.55em;
     margin: 0;
-    margin-top: 6vh;
-    padding: 0;
-    font-weight: bold;
 }
 
-li.menuItems {
-    /*    padding: 5px;*/
-    cursor: pointer;
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+p.telefonText {
+    font-size: 0.55em;
+    margin: 0;
 }
 
-.bar1,
-.bar2,
-.bar3 {
-    position: relative;
-    left: 85vw;
-    width: 35px;
-    height: 5px;
-    background: #fff;
-    margin: 6px 0;
-    transition: 0.4s;
+img.instagramLink {
+    width: 12vw;
+    height: auto;
+    grid-area: instanews;
+    margin: 2.5vw 8vw;
 }
 
-#menuContainer {}
-
-nav {
-    padding: 0;
-    z-index: 99999;
-    position: fixed;
-    width: 100%;
-    max-height: 0px;
-    overflow: hidden;
-    transition: 0.6s;
+img.mapsLink {
+    width: 8vw;
+    height: auto;
+    margin: 2.9vw 1vw;
 }
 
-nav.show {
-    max-height: 500px;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+p.mapsText {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    margin: 5.5vw 1vw;
+}
+
+button.tilmeld {
+    display: none;
+    width: 15vw;
+    height: 5vw;
+}
+
+.nyhedsbrev {
+    display: none;
 }
 
 
-/* Rotate first bar */
-
-.change .bar1 {
-    transform: rotate(-45deg) translate(-9px, 6px);
-}
-
-
-/* Fade out the second bar */
-
-.change .bar2 {
-    opacity: 0;
-}
-
-
-/* Rotate last bar */
-
-.change .bar3 {
-    transform: rotate(45deg) translate(-8px, -8px);
-}
+/******* FOOTER SLUT ********/
 
 
 /* IPAD POTRAIT */
@@ -483,62 +142,6 @@ nav.show {
 /* DESKTOP */
 
 @media (min-width: 1025px) {
-    /* MENU TIL WEB */
-    .burger {
-        display: none;
-    }
-    #contentContainer {
-        margin-top: 7vw;
-    }
-    #menuContainer {
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        width: 100vw;
-        height: 7vw;
-        margin: 0;
-        position: fixed;
-        font-weight: bold;
-        z-index: 10000;
-    }
-    ul#menuContainer {
-        margin: 0;
-    }
-    nav {
-        position: inherit;
-    }
-    nav a {
-        text-decoration: none;
-        list-style-type: none;
-        font-size: 15pt;
-        position: relative;
-        left: 42vw;
-        margin-top: 3.2vh;
-        margin-right: 2vw;
-        color: white;
-    }
-    .menuItems:hover {
-        color: red;
-    }
-    #logo {
-        background-image: url(imgs/andersRaadGlasLogo.png);
-        margin-left: 1vw;
-        margin-top: 1vw;
-        width: 7vw;
-        height: 5vw;
-        background-repeat: no-repeat;
-        background-size: contain;
-        cursor: pointer;
-    }
-    #instagram {
-        background-image: url(imgs/instagramLogo.png);
-        margin-left: 43vw;
-        margin-top: 5vh;
-        width: 2vw;
-        height: 2vw;
-        background-repeat: no-repeat;
-        background-size: contain;
-        cursor: pointer;
-    }
     /************BAGGRUND VIDEO OVERLAY*****************/
     #bgVideoOverlay {
         background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
