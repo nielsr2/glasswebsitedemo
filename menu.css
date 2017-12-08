@@ -98,10 +98,10 @@ nav.show {
 
 /********************   DESKTOP  *****************************/
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
 
     .burger {
-        display: none;
+        display: none !important;
     }
 
     nav {
@@ -109,8 +109,14 @@ nav.show {
         min-height: 10vh;
         background: rgba(0, 0, 0, 0.5);
         transition: 0s;
+        overflow: inherit;
+
     }
 
+    /*
+    nav a {
+        width: 10vw;
+    }*/
     nav.show {
         max-height: 1vh;
     }
@@ -120,7 +126,7 @@ nav.show {
     }
 
     #menuContainer {
-        width: 45vw;
+        width: 43vw;
         display: flex;
         position: relative;
         left: 49vw;
@@ -130,21 +136,22 @@ nav.show {
     .menuItems {
         margin-right: 3%;
     }
-
+    .linkLogo {
+        width: 5vw;
+    }
     #logo {
         background-image: url(imgs/andersRaadGlasLogo.png);
         height: 10vh;
         max-width: 5vw;
         background-size: contain;
         background-repeat: no-repeat;
-        /*        position: relative;*/
         cursor: pointer;
     }
 
     #instagram {
         background-image: url(imgs/instagram_pic.png);
         height: 4vh;
-        width: 4vw;
+        width: 2vw;
         position: relative;
         bottom: 21vh;
         left: 95vw;

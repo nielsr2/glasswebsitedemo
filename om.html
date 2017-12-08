@@ -53,10 +53,11 @@
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
     <div id="videoContainer">
-        <div id="bgVideoOverlay" class="overlay"></div>
-        <video id="video_stor" autoplay loop muted>
-        <source src="video/bgvideo2medium.mp4" type="video/mp4">
-        </video></div>
+        <!--        <div id="bgVideoOverlay" class="overlay"></div>-->
+        <!--        <video id="video_stor" autoplay loop muted>-->
+        <img class="bgPicture" src="imgs/hvidv%C3%A6gmaleri.JPG" type="video/mp4">
+        <!--        </video>-->
+    </div>
     <!--		*************************************************************************************************************** GALLERI-->
     <div id="omContainer">
         <a class="omGlaspusterenLink" href="#omGlaspusteren">
@@ -169,7 +170,7 @@
         #omContainer h2 {
             position: absolute;
             top: 25%;
-            left: 12%;
+            left: 10%;
             margin: 0;
         }
 
@@ -312,7 +313,13 @@
                 width: 100vw;
             }
             #omContainer h2 {
-                margin-left: 3%;
+                margin-left: 10%;
+            }
+
+            .bgPicture {
+                background-size: contain;
+                width: 100%;
+                background-repeat: no-repeat;
             }
 
             /******************* GLASPUSTER LINK ****************/

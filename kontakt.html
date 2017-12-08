@@ -44,10 +44,11 @@
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
     <div id="videoContainer">
-        <div id="bgVideoOverlay" class="overlay"></div>
-        <video id="video_stor" autoplay loop muted>
-        <source src="video/bgvideo2medium.mp4" type="video/mp4">
-        </video></div>
+        <!--        <div id="bgVideoOverlay" class="overlay"></div>-->
+        <!--        <video id="video_stor" autoplay loop muted>-->
+        <img class="bgPicture" src="imgs/workshop.JPG" alt="billede">
+        <!--        </video>-->
+    </div>
     <div id="contentContainer"></div>
     <article id="kontaktOplysninger">
         <h2 id="kontaktHeadline"></h2>
@@ -134,6 +135,12 @@
                 position: absolute;
             }
 */
+            .bgPicture {
+                background-size: contain;
+                width: 100vw;
+                height: 100vh;
+                ;
+            }
             /******************    KONTAKT    ***********************/
             #kontaktOplysninger {
                 position: relative;
@@ -190,7 +197,7 @@
                 position: absolute;
                 width: 35%;
                 left: 55vw;
-                top: 20vh;
+                top: 17.5vh;
                 z-index: 2;
             }
 
