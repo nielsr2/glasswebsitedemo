@@ -52,7 +52,7 @@
     <!--		*************************************************************************************************************** ARTICLES-->
     <!--        <div id="articleContainer"> </div>-->
     <div id="contentContainer">
-        <div id="articleContainer"></div>
+        <div id="articleContainer"><img class="bgPicture"></div>
     </div>
     <!--		*************************************************************************************************************** OPLEVELSE-JS-->
     <script>
@@ -74,30 +74,21 @@
     </script>
     <script src="burger.js"></script>
     <Style>
-        #video_stor {
+    #video_stor {
             width: 100%;
             z-index: 1;
         }
 
-        <<<<<<< HEAD .oplevelseArticle {
-            width: 100%;
-            display: grid;
-            grid-template-areas: "overskrift" "billede" "indhold" "linje";
+        h2 {
+            z-index: 2;
         }
 
-        =======.oplevelseArticle {
+        .oplevelseArticle {
             width: 80%;
             margin: 10% 10%;
             display: grid;
             grid-template-areas: "overskrift" "billede" "indhold" "linje";
         }
-
-        >>>>>>> origin/master
-        /*
-        .line {
-            border: 2px solid #FF7621;
-        }
-*/
 
         img.oplevelseImg {
             width: 80%;
@@ -115,56 +106,46 @@
 
         .oplevelseBody {
             background-color: rgba(255, 255, 255, 0.25);
-            padding: 8vw;
-            margin: 5vh;
-            /*            padding: 5vw;*/
-            /*            margin: 2vh;*/
+            padding: 5vw;
+            margin: 2vh;
         }
-        /*
-        #teambuildingBorder {
-            border: solid 2px orange;
-            width: 100%;
-            grid-area: linje;
->>>>>>> origin/master
-        }
-        /*****BROWSER-VERSION  **********/
 
         @media (min-width: 1025px) {
             #video_stor {
                 width: 100%;
                 z-index: 1;
             }
-            /*****BILLEDER OG TEKST  LIGE**********/
             .oplevelserWrapper:nth-child(odd) img.oplevelseImg {
                 width: 30vw;
-                left: -3vw;
-                top: -147px;
+                left: -1vw;
+                top: -10vh;
             }
             .oplevelserWrapper:nth-child(odd) p.oplevelseBody {
                 width: 30vw;
                 height: 30vh;
-                left: 55vw;
+                left: 61vw;
                 padding: 2vw;
             }
-            /*****BILLEDER OG TEKST ULIGE  **********/
             .oplevelserWrapper:nth-child(even) img.oplevelseImg {
-                width: 40vw;
-                top: -12vh;
-                height: 50vh;
+                width: 30%;
+                height: auto;
             }
             .oplevelserWrapper:nth-child(even) p.oplevelseBody {
                 width: 30vw;
-                top: -11vh;
-                left: 0;
+                top: -2vh;
+                left: 3vw;
                 padding: 2vw;
             }
-            /*****LINE  **********/
+            .oplevelserWrapper {
+                background: rgba(0, 0, 0, 0.5);
+            }
             .line {
                 border: 2px solid #FF7621;
             }
             .oplevelseArticle {
                 width: 100%;
                 margin: 0;
+                height: auto;
             }
             img.oplevelseImg {
                 width: 40%;
@@ -172,13 +153,14 @@
                 height: auto;
                 border: solid 5px rgba(255, 255, 255, 0.25);
                 position: relative;
-                left: 40vw;
-                top: -13vh;
+                left: 48vw;
+                top: -15vh;
             }
             h2.oplevelseHeadline {
                 text-align: center;
                 height: 20vh;
                 text-align: center;
+                margin: 10vh;
             }
             p.oplevelseBody {
                 width: 40vh;
@@ -192,7 +174,19 @@
             #videoContainer {
                 display: none;
             }
+            #articleContainer {
+                width: 100%;
+            }
+            .bgPicture {
+                z-index: -1;
+                width: 100%;
+                background-size: 100%;
+                position: fixed;
+                height: 100vh;
+                background-image: url(imgs/glasstykker.JPG);
+            }
         }
+    }
     </Style>
 </body>
 
