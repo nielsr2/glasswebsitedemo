@@ -25,6 +25,7 @@ h2 {
     font-family: 'Special Elite';
 }
 
+<<<<<<< HEAD
 header {
     height: 13vw;
     width: 100vw;
@@ -59,79 +60,79 @@ a#kontakt {
 a {
     text-decoration: none;
     color: white;
+=======
+
+/********* FOOTER **********/
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 17vw;
+    padding: 2vw;
+    display: grid;
+    grid-template-areas: "adresse instanews findvej";
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-.navn {
-    color: white;
+#footerInfo {
+    grid-area: adresse;
+    margin-left: 2vw;
 }
 
-ul#menuContainer {
-    list-style: none;
+#footerMap {
+    grid-area: findvej;
+    display: flex;
+}
+
+p.adresseText {
+    font-size: 0.55em;
     margin: 0;
-    margin-top: 6vh;
-    padding: 0;
-    font-weight: bold;
 }
 
-li.menuItems {
-    /*    padding: 5px;*/
-    cursor: pointer;
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+p.telefonText {
+    font-size: 0.55em;
+    margin: 0;
 }
 
-.bar1,
-.bar2,
-.bar3 {
-    position: relative;
-    left: 85vw;
-    width: 35px;
-    height: 5px;
-    background: #fff;
-    margin: 6px 0;
-    transition: 0.4s;
+img.instagramLink {
+    width: 15vw;
+    height: auto;
+    grid-area: instanews;
+    margin: 1vw 8vw;
 }
 
-#menuContainer {}
-
-nav {
-    padding: 0;
-    z-index: 99999;
-    position: fixed;
-    width: 100%;
-    max-height: 0px;
-    overflow: hidden;
-    transition: 0.6s;
+img.mapsLink {
+    width: 10vw;
+    height: auto;
 }
 
-nav.show {
-    max-height: 500px;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+p.mapsText {
+    font-size: 0.9em;
+}
+
+button.tilmeld {
+    display: none;
+    width: 15vw;
+    height: 5vw;
+}
+
+.nyhedsbrev {
+    display: none;
 }
 
 
-/* Rotate first bar */
+/* !!!!!!!FIXME!: this needs to be more specific. remove if not used for anything */
 
-.change .bar1 {
-    transform: rotate(-45deg) translate(-9px, 6px);
+/*
+
+
+img {
+    /*    max-width: 80vw;*/
+
+>>>>>>> origin/master
 }
 
 
-/* Fade out the second bar */
-
-.change .bar2 {
-    opacity: 0;
-}
-
-
-/* Rotate last bar */
-
-.change .bar3 {
-    transform: rotate(45deg) translate(-8px, -8px);
-}
-
+/****NOTE****:  */
 
 /********* FOOTER **********/
 
@@ -210,62 +211,7 @@ button.tilmeld {
 /* DESKTOP */
 
 @media (min-width: 1025px) {
-    /* MENU TIL WEB */
-    .burger {
-        display: none;
-    }
-    #contentContainer {
-        margin-top: 7vw;
-    }
-    #menuContainer {
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        width: 100vw;
-        height: 7vw;
-        margin: 0;
-        position: fixed;
-        font-weight: bold;
-        z-index: 10000;
-    }
-    ul#menuContainer {
-        margin: 0;
-    }
-    nav {
-        position: inherit;
-    }
-    nav a {
-        text-decoration: none;
-        list-style-type: none;
-        font-size: 15pt;
-        position: relative;
-        left: 42vw;
-        margin-top: 3.2vh;
-        margin-right: 2vw;
-        color: white;
-    }
-    .menuItems:hover {
-        color: red;
-    }
-    #logo {
-        background-image: url(imgs/andersRaadGlasLogo.png);
-        margin-left: 1vw;
-        margin-top: 1vw;
-        width: 7vw;
-        height: 5vw;
-        background-repeat: no-repeat;
-        background-size: contain;
-        cursor: pointer;
-    }
-    #instagram {
-        background-image: url(imgs/instagramLogo.png);
-        margin-left: 43vw;
-        margin-top: 5vh;
-        width: 2vw;
-        height: 2vw;
-        background-repeat: no-repeat;
-        background-size: contain;
-        cursor: pointer;
-    }
+
     /************BAGGRUND VIDEO OVERLAY*****************/
     #bgVideoOverlay {
         background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);

@@ -4,6 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="stylesheet.css">
+
+	<link rel="stylesheet" href="menu.css">
+
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
@@ -18,7 +21,7 @@
 				<a href="" class="linkSingle">
 					<div class="itemWrapper"><img class="itemImg lazyload"></div>
 				</a>
-				<p class="itemDescription"></p>
+				<!--				<p class="itemDescription"></p>-->
 			</div>
 		</div>
 	</template>
@@ -27,7 +30,7 @@
 		<div class="filterRow">
 			<a class="filterLink">
 				<button id="filterKnap">
-					<h3 class="filterItem"></h3> <img src="imgs/white-down-arrow-png-2.png" width="40"> </button>
+					<h3 class="filterItem"></h3> <img class="arrowImg" src="imgs/white-down-arrow-png-2.png" width="30"> </button>
 			</a>
 			<div class="filterView"></div>
 		</div>
@@ -36,51 +39,52 @@
 
 <body>
 	<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+
 	<nav>
 		<button class="burger">
-			<div class="bar1"></div>
-			<div class="bar2"></div>
-			<div class="bar3"></div>
-		</button>
-		<div id="logo"></div>
+			<div class="menu">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</div>
+
+			<h2 id="navn">anders raad glas</h2> </button>
+		<a href="index.html">
+			<div id="logo"></div>
+		</a>
 		<ul id="menuContainer">
-			<a href="galleri.html">
-				<li class="menuItems">Galleri</li>
-			</a>
-			<a href="oplevelser.html">
-				<li class="menuItems">Oplevelser</li>
-			</a>
-			<a href="produktudvikling.html">
-				<li class="menuItems">Produktudvikling</li>
-			</a>
-			<a href="om.html">
-				<li class="menuItems">Om</li>
-			</a>
-			<a href="kontakt.html">
-				<li class="menuItems">Kontakt</li>
-			</a>
+			<li class="menuItems"><a href="galleri.html">Galleri</a></li>
+			<li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+			<li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+			<li class="menuItems"><a href="om.html">Om</a></li>
+			<li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
 		</ul>
 		<div id="instagram"></div>
 	</nav>
-	<!--		*************************************************************************************************************** BG VIDEO-->
-	<div id="bgImg"> </div>
-	<header>
-		<h1>GALLERI</h1> </header>
-	<!--        <h2>ALLE PRODUKTER</h2>-->
-	<!--		*************************************************************************************************************** FILTER-->
-	<section id="filterContainer"></section>
-	<!--   ***************************** SWIPE **********-->
-	<section id="itemSection"></section>
-	<!--		*************************************************************************************************************** ITEM-CONTAINER-->
-	<!--	<section id="itemSection"></section>-->
-	<!--		*************************************************************************************************************** VIEWVINDOW-->
-	<section id="viewWindow"></section>
-	<!-- *************************************************************************************************************** VIEWVINDOW-->
-	<section id="modalWindow">
-		<div id="modalClose"></div> <img id="modalImage">
-		<h3 id="modalDescription"></h3> </section>
-	<!--
+	<div id="contentContainer">
+		<!--		*************************************************************************************************************** BG VIDEO-->
+		<!--    <div id="bgImg"> </div>-->
+		<h1>GALLERI</h1>
+		<!--        <h2>ALLE PRODUKTER</h2>-->
+		<!--		*************************************************************************************************************** FILTER-->
+		<section id="filterContainer"></section>
+		<!--   ***************************** SWIPE **********-->
+		<section id="itemSection"></section>
+		<!--		*************************************************************************************************************** ITEM-CONTAINER-->
+		<!--	<section id="itemSection"></section>-->
+		<!--		*************************************************************************************************************** VIEWVINDOW-->
+		<section id="viewWindow"></section>
+		<!-- *************************************************************************************************************** VIEWVINDOW-->
+		<section id="modalWindow">
+			<div id="modalClose"></div> <img id="modalImage">
+			<h3 id="modalDescription"></h3> </section>
+	</div>
+	<!--		***************************************************************************************************************´
+
+
+
     <!--		*************************************************************************************************************** OPLEVELSE-JS-->
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
 	<script src="galleri3.js"></script>
 	<script src="burger.js"></script>
@@ -118,19 +122,16 @@
     </script>
 -->
 	<style>
-		#bgImg {
-			background-image: url(https://placebear.com/200/300);
-			width: 100vw;
-			height: 100vh;
+		#contentContainer {
+			background-image: url(imgs/kobber.JPG);
 			background-size: cover;
 			background-repeat: no-repeat;
-/*			position: fixed;*/
+			/*			position: fixed;*/
 			background-attachment: fixed;
 			z-index: 0;
 		}
 
 		body {
-
 			margin: 0vw;
 		}
 
@@ -150,10 +151,21 @@
 			}
 */
 
+		#filterContainer {
+			width: 100vw;
+			height: 100%;
+		}
+
 		.filterRow {
 			/*            display: inline-block; */
 			margin-left: 3vw;
-			margin-top: 5vw;
+            padding-top: 3vw;
+		}
+
+		.arrowImg {
+			margin-left: 30vw;
+			margin-top: 3vw;
+			position: absolute;
 		}
 
 		.filterItem {}
@@ -166,19 +178,20 @@
 		button {}
 
 		#filterKnap {
-			border: 0.6vw solid rgba(212, 197, 183, 0.85);
+			border: 0.6vw solid rgba(255, 208, 163, 0.85);
 			width: 23vw;
 			padding: 1vw 40vw 1vw 40vw;
-			background-color: rgba(214, 91, 37, 0.68);
+			background-color: rgba(13, 13, 13, 0.68);
 			display: flex;
 			justify-content: center;
 			color: white;
 		}
-
+		/*
 		.itemDescription {
 			margin-left: 2vw;
 			overflow: inherit;
 		}
+*/
 
 		.galleries {
 			height: 10vh;
@@ -188,7 +201,7 @@
 			height: 40vw;
 			width: 40vw;
 			overflow: hidden;
-			border: 1vw rgba(255, 231, 203, 0.5) solid;
+			border: 1vw rgba(29, 29, 28, 0.77) solid;
 			/*			outline: 3vw rgba(0, 0, 0, .5) solid;*/
 			/*			outline-offset: -5vw;*/
 			display: flex;
@@ -213,20 +226,13 @@
 
 		#itemSection {
 			height: 42vw;
+			width: 81vw;
 			background-color: rgba(38, 34, 32, 0.89);
 			overflow-x: scroll;
 			overflow-y: hidden;
 			white-space: nowrap;
 		}
-
-		#itemSection2 {
-			height: 42vw;
-			background-color: rgba(222, 112, 57, 0.89);
-			overflow-x: scroll;
-			overflow-y: hidden;
-			white-space: nowrap;
-		}
-/*
+		/*
 
 		.cardA {
 			background-color: rebeccapurple;
@@ -257,6 +263,7 @@
 		}
 
 */
+
 		.borderWrapper {
 			display: inline-block;
 		}
@@ -266,12 +273,14 @@
 			width: 50vw;
 			height: 100vh;
 			/*			border: red 20px dotted;*/
-			position: absolute;
-			top: 0vw;
+			position: fixed;
+			width: 10vw;
+			width: 10vw;
+			transform: translate(-50%, -50%);
 			z-index: 12034123948129374081234;
 			display: grid;
 			visibility: hidden;
-			grid-template-columns: (80% 20%);
+/*			grid-template-columns: (80% 20%);*/
 			grid-template-areas: "modalImg modalDescription";
 		}
 
@@ -279,6 +288,8 @@
 			grid-area: modalImg;
 			max-width: 80vw;
 			max-height: 100vh;
+			background-size: contain;
+			position: absolute;
 		}
 
 		#modalDescription {
@@ -290,10 +301,14 @@
 			position: absolute;
 			top: 0vw;
 			background-color: aqua;
-			width: 10vw;
-			width: 10vw;
+
 			border: yellow 20px solid;
+
 		}
+
+
+
+
 
 		@media (min-width: 1025px) {
 			body {
@@ -313,6 +328,39 @@
 				border: pink 4px solid;
 			}
 */
+
+/*
+        #filterContainer {
+            width: 100vw;
+            height: 100%;
+        }
+*/
+
+		.filterRow {
+            display: inline-block;
+			margin-left: 3vw;
+			margin-top: 2vw;
+		}
+
+        .arrowImg {
+            margin-left: 3vw;
+            margin-top: 3vw;
+            position:  absolute;
+        }
+
+		#filterKnap {
+			border: 0.6vw solid rgba(255, 208, 163, 0.85);
+			width: 2vw;
+			padding: 1vw 40vw 1vw 40vw;
+			background-color: rgba(13, 13, 13, 0.68);
+			display: flex;
+			justify-content: center;
+			color: white;
+		}
+
+
+
+
 			.borderWrapper {
 				/*			display: none;*/
 			}

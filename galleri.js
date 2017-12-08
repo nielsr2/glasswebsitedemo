@@ -78,7 +78,7 @@ function modalClick(index) {
 //       *************************************************************************************************************** CLOSE EVENT HANDLER
 document.querySelector("#modalClose").addEventListener("click", function closeModal() {
 	console.log("closed modal..");
-	document.querySelector("#modalWindow").style.visibility = "hidden"
+	document.querySelector("#modalWindow").style.visibility = "hidden";
 	document.querySelector("#modalClose").style.visibility = "hidden";
 });
 //       *************************************************************************************************************** LOAD FILTER
