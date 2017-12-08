@@ -132,6 +132,9 @@ button.tilmeld {
     margin: 1vw;
     border-radius: 50px;
     font-family: Helvetica Neue;
+    background-color: #ff6200;
+    border: none;
+    color: white;
 }
 
 .nyhedsbrev {
@@ -191,7 +194,21 @@ button.tilmeld {
 
 /* IPAD LANDSCAPE */
 
-@media only screen and (min-width: 768px) and (max-width: 1024px)and (orientation: landscape) {}
+@media screen and (min-width: 1024px) {
+    /*FOOTER*/
+    p.adresseText,
+    p.telefonText {
+        font-size: 1em;
+    }
+    p.mapsText {
+        font-size: 1.5em;
+        margin: 4.1vw 0.5vw;
+    }
+    #footerInfo {
+        margin-left: 4vw;
+    }
+    /*FOOTER-SLUT*/
+}
 
 
 /* DESKTOP */
@@ -234,6 +251,47 @@ button.tilmeld {
         width: 100vw;
         display: block;
     }
+    /*FOOTER*/
+    footer {
+        height: 9.5vw;
+    }
+    p.adresseText,
+    p.telefonText {
+        font-size: 1.2em;
+    }
+    p.mapsText {
+        font-size: 1.7em;
+        margin: 4.1vw 0.5vw;
+    }
+    #footerInfo {
+        margin-left: 0vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 9.5vw;
+    }
+    .nyhedsbrev {
+        font-size: 1.5em;
+        margin: 0.7vw;
+    }
+    .nyhedsbrevBox {
+        height: 2.5vw;
+        width: 20vw;
+    }
+    button.tilmeld {
+        height: 1.7vw;
+        width: 7vw;
+    }
+    #footerNews {
+        height: 11vw;
+    }
+    #footerMap {
+        height: 9.5vw;
+    }
+    img.mapsLink {
+        width: 4vw;
+    }
+    /*FOOTER-SLUT*/
 }
 
 
