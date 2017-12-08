@@ -19,7 +19,7 @@
 				<a href="" class="linkSingle">
 					<div class="itemWrapper"><img class="itemImg lazyload"></div>
 				</a>
-<!--				<p class="itemDescription"></p>-->
+				<!--				<p class="itemDescription"></p>-->
 			</div>
 		</div>
 	</template>
@@ -28,7 +28,7 @@
 		<div class="filterRow">
 			<a class="filterLink">
 				<button id="filterKnap">
-					<h3 class="filterItem"></h3> <img class="arrowImg" src="imgs/white-down-arrow-png-2.png" width="30">  </button>
+					<h3 class="filterItem"></h3> <img class="arrowImg" src="imgs/white-down-arrow-png-2.png" width="30"> </button>
 			</a>
 			<div class="filterView"></div>
 		</div>
@@ -37,66 +37,45 @@
 
 <body>
 	<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
-    <nav>
-        <button class="burger">
+	<nav>
+		<button class="burger">
 			<div class="menu">
 				<div class="bar1"></div>
 				<div class="bar2"></div>
 				<div class="bar3"></div>
 			</div>
-			<h2 id="navn">anders raad glas</h2>
-       </button>
-        <a href="index.html">
-            <div id="logo"></div>
-        </a>
-        <ul id="menuContainer">
-            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
-            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
-            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
-            <li class="menuItems"><a href="om.html">Om</a></li>
-            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-        <div id="instagram"></div>
-    </nav>
-
-
-
-
-
-
-
-    <div id="contentContainer">
-
-    <!--		*************************************************************************************************************** BG VIDEO-->
-
-<!--    <div id="bgImg"> </div>-->
-
-
+			<h2 id="navn">anders raad glas</h2> </button>
+		<a href="index.html">
+			<div id="logo"></div>
+		</a>
+		<ul id="menuContainer">
+			<li class="menuItems"><a href="galleri.html">Galleri</a></li>
+			<li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+			<li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+			<li class="menuItems"><a href="om.html">Om</a></li>
+			<li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
+		</ul>
+		<div id="instagram"></div>
+	</nav>
+	<div id="contentContainer">
+		<!--		*************************************************************************************************************** BG VIDEO-->
+		<!--    <div id="bgImg"> </div>-->
 		<h1>GALLERI</h1>
-
-	<!--        <h2>ALLE PRODUKTER</h2>-->
-	<!--		*************************************************************************************************************** FILTER-->
-	<section id="filterContainer"></section>
-	<!--   ***************************** SWIPE **********-->
-	<section id="itemSection"></section>
-	<!--		*************************************************************************************************************** ITEM-CONTAINER-->
-	<!--	<section id="itemSection"></section>-->
-	<!--		*************************************************************************************************************** VIEWVINDOW-->
-	<section id="viewWindow"></section>
-	<!-- *************************************************************************************************************** VIEWVINDOW-->
-	<section id="modalWindow">
-		<div id="modalClose"></div> <img id="modalImage">
-		<h3 id="modalDescription"></h3> </section>
-
-
-
-        </div>
-
-
-
-
-
-    <!--		*************************************************************************************************************** OPLEVELSE-JS-->
+		<!--        <h2>ALLE PRODUKTER</h2>-->
+		<!--		*************************************************************************************************************** FILTER-->
+		<section id="filterContainer"></section>
+		<!--   ***************************** SWIPE **********-->
+		<section id="itemSection"></section>
+		<!--		*************************************************************************************************************** ITEM-CONTAINER-->
+		<!--	<section id="itemSection"></section>-->
+		<!--		*************************************************************************************************************** VIEWVINDOW-->
+		<section id="viewWindow"></section>
+		<!-- *************************************************************************************************************** VIEWVINDOW-->
+		<section id="modalWindow">
+			<div id="modalClose"></div> <img id="modalImage">
+			<h3 id="modalDescription"></h3> </section>
+	</div>
+	<!--		*************************************************************************************************************** OPLEVELSE-JS-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
 	<script src="galleri3.js"></script>
 	<script src="burger.js"></script>
@@ -138,13 +117,12 @@
 			background-image: url(imgs/kobber.JPG);
 			background-size: cover;
 			background-repeat: no-repeat;
-/*			position: fixed;*/
+			/*			position: fixed;*/
 			background-attachment: fixed;
 			z-index: 0;
 		}
 
 		body {
-
 			margin: 0vw;
 		}
 
@@ -164,10 +142,10 @@
 			}
 */
 
-        #filterContainer {
-            width: 100vw;
-            height: 100%;
-        }
+		#filterContainer {
+			width: 100vw;
+			height: 100%;
+		}
 
 		.filterRow {
 			/*            display: inline-block; */
@@ -175,11 +153,11 @@
 			margin-top: 5vw;
 		}
 
-        .arrowImg {
-            margin-left: 30vw;
-            margin-top: 3vw;
-            position:  absolute;
-        }
+		.arrowImg {
+			margin-left: 30vw;
+			margin-top: 3vw;
+			position: absolute;
+		}
 
 		.filterItem {}
 
@@ -199,8 +177,7 @@
 			justify-content: center;
 			color: white;
 		}
-
-/*
+		/*
 		.itemDescription {
 			margin-left: 2vw;
 			overflow: inherit;
@@ -240,15 +217,13 @@
 
 		#itemSection {
 			height: 42vw;
-            width: 81vw;
+			width: 81vw;
 			background-color: rgba(38, 34, 32, 0.89);
 			overflow-x: scroll;
 			overflow-y: hidden;
 			white-space: nowrap;
 		}
-
-
-/*
+		/*
 
 		.cardA {
 			background-color: rebeccapurple;
@@ -279,13 +254,10 @@
 		}
 
 */
+
 		.borderWrapper {
 			display: inline-block;
 		}
-
-
-
-
 		/*MODAL 			****************************************************************************************************************/
 
 		#modalWindow {
@@ -293,11 +265,13 @@
 			height: 100vh;
 			/*			border: red 20px dotted;*/
 			position: absolute;
-			top: 0vw;
+			width: 10vw;
+			width: 10vw;
+			transform: translate(-50%, -50%);
 			z-index: 12034123948129374081234;
 			display: grid;
 			visibility: hidden;
-			grid-template-columns: (80% 20%);
+/*			grid-template-columns: (80% 20%);*/
 			grid-template-areas: "modalImg modalDescription";
 		}
 
@@ -305,6 +279,7 @@
 			grid-area: modalImg;
 			max-width: 80vw;
 			max-height: 100vh;
+			background-size: contain;
 		}
 
 		#modalDescription {
@@ -316,9 +291,9 @@
 			position: absolute;
 			top: 0vw;
 			background-color: aqua;
-			width: 10vw;
-			width: 10vw;
+
 			border: yellow 20px solid;
+
 		}
 
 		@media (min-width: 1025px) {
