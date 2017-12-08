@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="footer-stylesheet.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -23,13 +23,12 @@
     <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
     <nav>
         <button class="burger">
-			<div class="menu">
-				<div class="bar1"></div>
-				<div class="bar2"></div>
-				<div class="bar3"></div>
-			</div>
-			<h2 id="navn">anders raad glas</h2>
-       </button>
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h2 id="navn">anders raad glas</h2> </button>
         <a href="index.html">
             <div id="logo"></div>
         </a>
@@ -59,7 +58,7 @@
             let produkterObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
             let produkter = await produkterObj.json();
             console.log(produkter);
-            produkter.forEach(function(produkt) {
+            produkter.forEach(function (produkt) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".produktImg").setAttribute("src", produkt.acf.billede);
                 clone.querySelector(".produktHeadline").textContent = produkt.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
@@ -68,7 +67,6 @@
             });
         }
         loadProdukt();
-
     </script>
     <script src="burger.js"></script>
     <style>
@@ -103,6 +101,7 @@
         img.produktImg {
             width: 100%;
             height: auto;
+            margin-top: -5vw;
             /*            grid-area: billede;*/
             /*            border: solid 3px rgba(38, 38, 38, 0.33);*/
         }
@@ -110,7 +109,7 @@
         h2.produktHeadline {
             /*            grid-area: overskrift;*/
             font-family: special elite;
-            margin-top: 16vw;
+            margin-top: 25vw;
         }
 
         p.produktBody {
@@ -135,7 +134,10 @@
                 padding: 3vw;
             }
             h2.produktHeadline {
-                margin-top: 10vw;
+                margin-top: 11vw;
+            }
+            img.produktImg {
+                margin-top: -1vw;
             }
         }
 
@@ -145,7 +147,7 @@
                 margin: 0 12% 5%;
             }
             p.produktBody {
-                margin-top: 7%;
+                margin-top: 2%;
                 margin-bottom: 5%;
             }
             h2.produktHeadline {
@@ -201,9 +203,8 @@
                 margin: -1% 10% 2% -10%;
             }
         }
-
     </style>
-    <!--	FOOTER--------------->
+    <!--	FOOTER------------------>
     <footer>
         <div id=footerInfo>
             <p class="adresseText">Anders Raad
@@ -216,14 +217,16 @@
             <h3 class="nyhedsbrev">Nyhedsbrev</h3>
             <div class="nyhedsbrevBox"></div>
             <button class="tilmeld">Tilmeld</button>
-            <a href=""><img class="instagramLink" src="imgs/instagram_pic.png" alt=""></a>
+            <a href="https://www.instagram.com/raadglas/" target="_blank"><img class="instagramLink" src="imgs/instagram_pic.png" alt=""></a>
         </div>
         <div id="footerMap">
-            <a href=""><img class="mapsLink" src="imgs/maps-icon-25.png" alt="">
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank"><img class="mapsLink" src="imgs/maps-icon-25.png" alt=""></a>
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank">
                 <p class="mapsText">Find vej</p>
             </a>
         </div>
     </footer>
+    <!--	FOOTER SLUT--------------->
 </body>
 <!--	IS ALIVEEEEE-->
 

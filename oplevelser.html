@@ -11,25 +11,24 @@
     <meta name="author" content="">
     <title>OPLEVELSER</title>
     <template id="oplevelseTemplate">
-		<section class="oplevelserWrapper">
-			<article class="oplevelseArticle">
-				<div class="line"> </div>
-				<h2 class="oplevelseHeadline"></h2>
-				<p class="oplevelseBody"></p> <img class="oplevelseImg"> </article>
-		</section>
-	</template>
+        <section class="oplevelserWrapper">
+            <article class="oplevelseArticle">
+                <div class="line"> </div>
+                <h2 class="oplevelseHeadline"></h2>
+                <p class="oplevelseBody"></p> <img class="oplevelseImg"> </article>
+        </section>
+    </template>
 </head>
 
 <body>
     <nav>
         <button class="burger">
-			<div class="menu">
-				<div class="bar1"></div>
-				<div class="bar2"></div>
-				<div class="bar3"></div>
-			</div>
-			<h2 id="navn">anders raad glas</h2>
-       </button>
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h2 id="navn">anders raad glas</h2> </button>
         <a href="index.html">
             <div id="logo"></div>
         </a>
@@ -47,7 +46,7 @@
         <div id="bgVideoOverlay" class="overlay"></div>
         <div id="bgVideo">
             <video id="video_stor" autoplay loop muted>
-				<source src="video/bgvideo2medium.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
+                <source src="video/bgvideo2medium.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
         </div>
     </div>
     <!--		*************************************************************************************************************** ARTICLES-->
@@ -63,7 +62,7 @@
             let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
             let oplevelser = await oplevelserObj.json();
             console.log(oplevelser);
-            oplevelser.forEach(function(oplevelse) {
+            oplevelser.forEach(function (oplevelse) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
                 clone.querySelector(".oplevelseHeadline").textContent = oplevelse.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
@@ -80,13 +79,20 @@
             z-index: 1;
         }
 
-        .oplevelseArticle {
+        <<<<<<< HEAD .oplevelseArticle {
+            width: 100%;
+            display: grid;
+            grid-template-areas: "overskrift" "billede" "indhold" "linje";
+        }
+
+        =======.oplevelseArticle {
             width: 80%;
             margin: 10% 10%;
             display: grid;
             grid-template-areas: "overskrift" "billede" "indhold" "linje";
         }
 
+        >>>>>>> origin/master
         /*
         .line {
             border: 2px solid #FF7621;
@@ -109,45 +115,50 @@
 
         .oplevelseBody {
             background-color: rgba(255, 255, 255, 0.25);
-            padding: 5vw;
-            margin: 2vh;
+            padding: 8vw;
+            margin: 5vh;
+            /*            padding: 5vw;*/
+            /*            margin: 2vh;*/
         }
-
         /*
         #teambuildingBorder {
             border: solid 2px orange;
             width: 100%;
             grid-area: linje;
+>>>>>>> origin/master
         }
-*/
+        /*****BROWSER-VERSION  **********/
 
         @media (min-width: 1025px) {
             #video_stor {
                 width: 100%;
                 z-index: 1;
             }
+            /*****BILLEDER OG TEKST  LIGE**********/
             .oplevelserWrapper:nth-child(odd) img.oplevelseImg {
-                /*                border: 1px red solid;*/
                 width: 30vw;
-                left: -1vw;
+                left: -3vw;
+                top: -147px;
             }
             .oplevelserWrapper:nth-child(odd) p.oplevelseBody {
-                /*                border: 1px red solid;*/
                 width: 30vw;
                 height: 30vh;
-                left: 50vw;
+                left: 55vw;
                 padding: 2vw;
             }
+            /*****BILLEDER OG TEKST ULIGE  **********/
             .oplevelserWrapper:nth-child(even) img.oplevelseImg {
-                /*                border: 1px red solid;*/
+                width: 40vw;
+                top: -12vh;
+                height: 50vh;
             }
             .oplevelserWrapper:nth-child(even) p.oplevelseBody {
-                /*                border: 1px red solid;*/
                 width: 30vw;
-                top: -10vh;
-                left: 3vw;
+                top: -11vh;
+                left: 0;
                 padding: 2vw;
             }
+            /*****LINE  **********/
             .line {
                 border: 2px solid #FF7621;
             }
