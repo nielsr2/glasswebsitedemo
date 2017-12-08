@@ -74,7 +74,7 @@
     </div>
     <section id="glaspusterenContainer">
 
-        <!--       SLET HVIS NØDVENDIGT!-->
+        <!--       SLET .omGlasContainer HVIS NØDVENDIGT!-->
         <div class="omGlasContainer">
             <!--           -->
             <article id="omGlaspusteren">
@@ -88,13 +88,14 @@
                 <h2 class="awardOverskrift">Awards</h2>
             </section>
         </div>
-        <!--       SLET HVIS NØDVENDIGT!-->
+        <!--       SLET .omVaerkstedContainer HVIS NØDVENDIGT!-->
         <div class="omVaerkstedContainer">
             <!--           -->
             <article id=omVaerkstedet>
-                <p class="vQuote"></p>
                 <h2 class="vHeadline">Om værkstedet</h2>
+                <p class="vQuote"></p>
             </article>
+            <h2 class="iOverskrift">360 graders i værkstedet</h2>
             <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe></div>
     </section>
     <!--		*************************************************************************************************************** OM-JS-->
@@ -102,6 +103,7 @@
 -->
     <script src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
     <script>
+        ///////////////// OM GLASPUSTEREN BLIVER LOADET IND PÅ SIDEN
         async function loadGlaspusteren() {
             let glaspusterenObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om/42");
             let glaspusteren = await glaspusterenObj.json();
@@ -111,6 +113,7 @@
             document.querySelector("#Gquote").textContent = glaspusteren.acf.citat;
         }
 
+        ///////////////// SAMARBEJDER BLIVER LOADET IND PÅ SIDEN
         async function loadSamarbejde() {
             let template = document.querySelector("#samarbejdeTemplate");
             let parent = document.querySelector("#samarbejdeContainer");
@@ -130,6 +133,7 @@
             });
         }
 
+        ///////////////// AWARDS BLIVER LOADET IND PÅ SIDEN
         async function loadAwards() {
             let template = document.querySelector("#awardTemplate");
             let parent = document.querySelector("#awardContainer");
@@ -147,8 +151,9 @@
             });
         }
 
+        ///////////////// OM VÆRKSTEDET BLIVER LOADET IND PÅ SIDEN
         async function loadVaerksted() {
-            let vaerkstedObj = await fetch("http://rearrangingly.com/KEA/raad/om/om-vaerkstedet/");
+            let vaerkstedObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om/40");
             let vaerksted = await vaerkstedObj.json();
 
             document.querySelector(".vQuote").textContent = vaerksted.acf.beskrivelse;
@@ -158,14 +163,13 @@
         loadAwards();
         loadGlaspusteren();
         loadSamarbejde();
-
     </script>
     <script src="burger.js"></script>
     <style>
         #omContainer h2 {
             position: absolute;
             top: 25%;
-            left: 25%;
+            left: 12%;
             margin: 0;
         }
 
@@ -227,6 +231,8 @@
             text-align: left;
             margin-left: 10%;
             margin-right: 10%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5vw;
         }
 
         /******************* SAMARBEJDER ****************/
@@ -258,14 +264,32 @@
 
         .awardImg {
             cursor: pointer;
-            margin-left: 5%;
-            width: 40vw;
-            height: 40vw;
+            margin-left: 25%;
+            margin-right: 25%;
+            width: 50vw;
+            height: 50vw;
             border-radius: 50vw;
         }
 
         .aarsTal {
-            margin-left: 19%
+            text-align: center;
+        }
+
+        /******************* OM VÆRKSTEDET ****************/
+
+        #omVaerkstedet {
+            width: 100vw;
+        }
+
+        .vHeadline {
+            text-align: center;
+        }
+
+        .vQuote {
+            margin-left: 10%;
+            margin-right: 10%;
+            padding: 5vw;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         /*******************360 GRADER VIDEO I VÆRKSTEDET****************/
@@ -274,16 +298,7 @@
             width: 100%;
         }
 
-
-        /******************* OM VÆRKSTEDET ****************/
-
-        #omVaerkstedet {
-            width: 100%;
-            height: 50vh;
-            border: 4px solid red;
-        }
-
-        .vHeadline {
+        .iOverskrift {
             text-align: center;
         }
 
@@ -295,6 +310,9 @@
             #omContainer {
                 height: 100vh;
                 width: 100vw;
+            }
+            #omContainer h2 {
+                margin-left: 3%;
             }
 
             /******************* GLASPUSTER LINK ****************/
@@ -331,7 +349,7 @@
                 position: relative;
             }
             #Gportrait {
-                top: 5vh;
+                top: 10vh;
                 left: 25vw;
                 position: absolute;
                 width: 20vw;
@@ -340,8 +358,8 @@
             }
 
             #Gheadline {
-                top: 5vh;
-                right: 35vw;
+                top: 4vh;
+                right: 32vw;
                 position: absolute;
             }
 
@@ -351,6 +369,7 @@
                 right: 3.5vw;
                 width: 35%;
                 position: absolute;
+                padding: 2vw;
             }
 
             /******************* SAMARBEJDER ****************/
@@ -377,15 +396,18 @@
             }
 
             .awardImg {
-                margin-left: 25%;
+                margin-left: 40%;
                 width: 20vw;
                 height: 20vw;
                 border-radius: 15vw;
             }
-
-            .aarsTal {
-                margin-left: 33%
+            /******************* OM VÆRKSTEDET ****************/
+            .vQuote {
+                margin-left: 30%;
+                margin-right: 30%;
+                padding: 2vw;
             }
+
 
             /*******************360 GRADER VIDEO I VÆRKSTEDET****************/
             iframe {
@@ -393,12 +415,7 @@
                 margin-left: 25%;
             }
 
-            /****************** RESERVE  ****************/
-            #videoContainer {
-                /*display: none;*/
-            }
         }
-
     </style>
 </body>
 
