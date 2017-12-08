@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="copy-stylesheet.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -23,13 +23,12 @@
     <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
     <nav>
         <button class="burger">
-			<div class="menu">
-				<div class="bar1"></div>
-				<div class="bar2"></div>
-				<div class="bar3"></div>
-			</div>
-			<h2 id="navn">anders raad glas</h2>
-       </button>
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h2 id="navn">anders raad glas</h2> </button>
         <a href="index.html">
             <div id="logo"></div>
         </a>
@@ -59,7 +58,7 @@
             let produkterObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
             let produkter = await produkterObj.json();
             console.log(produkter);
-            produkter.forEach(function(produkt) {
+            produkter.forEach(function (produkt) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".produktImg").setAttribute("src", produkt.acf.billede);
                 clone.querySelector(".produktHeadline").textContent = produkt.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
@@ -68,7 +67,6 @@
             });
         }
         loadProdukt();
-
     </script>
     <script src="burger.js"></script>
     <style>
@@ -202,7 +200,6 @@
                 margin: -1% 10% 2% -10%;
             }
         }
-
     </style>
     <!--	FOOTER------------------>
     <footer>
