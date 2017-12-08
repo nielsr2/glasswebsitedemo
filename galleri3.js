@@ -97,8 +97,6 @@
             filterList.forEach(function (filter) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".filterRow").setAttribute("id", filter);
-
-
                 clone.querySelector(".filterItem").textContent = filter;
                 clone.querySelector(".filterLink").setAttribute("href", "galleriNy.html" + "?sort=" + filter);
                 parent.appendChild(clone);
