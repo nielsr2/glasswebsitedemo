@@ -59,9 +59,9 @@
         	});
         	console.log(obj);
         	document.querySelector("#modalDescription").textContent = obj.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
-        	document.querySelector("#modalImage").setAttribute("src", obj.acf.billede);
+        	document.querySelector("#modalImage").style.backgroundImage = "url(" + obj.acf.billede + ")";
         	document.querySelector("#modalWindow").style.visibility = "visible";
-			document.querySelector("#modalClose").style.visibility = "visible";
+        	document.querySelector("#modalClose").style.visibility = "visible";
         }
         //       *************************************************************************************************************** MODAL CLICK
         function modalClick(index) {
@@ -73,7 +73,7 @@
         	});
         	console.log(obj);
         	document.querySelector("#modalDescription").textContent = obj.content.rendered.replace(/<(?:.|\n)*?>/gm, '');
-        	document.querySelector("#modalImage").setAttribute("src", obj.acf.billede);
+        	document.querySelector("#modalImage").style.backgroundImage = "url(" + obj.acf.billede + ")";
         	document.querySelector("#modalWindow").style.visibility = "visible";
         	document.querySelector("#modalClose").style.visibility = "visible";
         	console.log(index);
