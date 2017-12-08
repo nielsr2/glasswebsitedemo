@@ -11,25 +11,24 @@
     <meta name="author" content="">
     <title>OPLEVELSER</title>
     <template id="oplevelseTemplate">
-		<section class="oplevelserWrapper">
-			<article class="oplevelseArticle">
-				<div class="line"> </div>
-				<h2 class="oplevelseHeadline"></h2>
-				<p class="oplevelseBody"></p> <img class="oplevelseImg"> </article>
-		</section>
-	</template>
+        <section class="oplevelserWrapper">
+            <article class="oplevelseArticle">
+                <div class="line"> </div>
+                <h2 class="oplevelseHeadline"></h2>
+                <p class="oplevelseBody"></p> <img class="oplevelseImg"> </article>
+        </section>
+    </template>
 </head>
 
 <body>
     <nav>
         <button class="burger">
-			<div class="menu">
-				<div class="bar1"></div>
-				<div class="bar2"></div>
-				<div class="bar3"></div>
-			</div>
-			<h2 id="navn">anders raad glas</h2>
-       </button>
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h2 id="navn">anders raad glas</h2> </button>
         <a href="index.html">
             <div id="logo"></div>
         </a>
@@ -47,13 +46,13 @@
         <div id="bgVideoOverlay" class="overlay"></div>
         <div id="bgVideo">
             <video id="video_stor" autoplay loop muted>
-				<source src="video/bgvideo2medium.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
+                <source src="video/bgvideo2medium.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
         </div>
     </div>
     <!--		*************************************************************************************************************** ARTICLES-->
     <!--        <div id="articleContainer"> </div>-->
     <div id="contentContainer">
-        <div id="articleContainer"></div>
+        <div id="articleContainer"><img class="bgPicture"></div>
     </div>
     <!--		*************************************************************************************************************** OPLEVELSE-JS-->
     <script>
@@ -63,7 +62,7 @@
             let oplevelserObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/oplevelser");
             let oplevelser = await oplevelserObj.json();
             console.log(oplevelser);
-            oplevelser.forEach(function(oplevelse) {
+            oplevelser.forEach(function (oplevelse) {
                 let clone = template.cloneNode(true).content;
                 clone.querySelector(".oplevelseImg").setAttribute("src", oplevelse.acf.billede.url);
                 clone.querySelector(".oplevelseHeadline").textContent = oplevelse.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
@@ -75,9 +74,13 @@
     </script>
     <script src="burger.js"></script>
     <Style>
-        #video_stor {
+    #video_stor {
             width: 100%;
             z-index: 1;
+        }
+
+        h2 {
+            z-index: 2;
         }
 
         .oplevelseArticle {
@@ -86,12 +89,6 @@
             display: grid;
             grid-template-areas: "overskrift" "billede" "indhold" "linje";
         }
-
-        /*
-        .line {
-            border: 2px solid #FF7621;
-        }
-*/
 
         img.oplevelseImg {
             width: 80%;
@@ -113,40 +110,34 @@
             margin: 2vh;
         }
 
-        /*
-        #teambuildingBorder {
-            border: solid 2px orange;
-            width: 100%;
-            grid-area: linje;
-        }
-*/
-
         @media (min-width: 1025px) {
             #video_stor {
                 width: 100%;
                 z-index: 1;
             }
             .oplevelserWrapper:nth-child(odd) img.oplevelseImg {
-                /*                border: 1px red solid;*/
                 width: 30vw;
                 left: -1vw;
+                top: -10vh;
             }
             .oplevelserWrapper:nth-child(odd) p.oplevelseBody {
-                /*                border: 1px red solid;*/
                 width: 30vw;
                 height: 30vh;
-                left: 50vw;
+                left: 61vw;
                 padding: 2vw;
             }
             .oplevelserWrapper:nth-child(even) img.oplevelseImg {
-                /*                border: 1px red solid;*/
+                width: 30%;
+                height: auto;
             }
             .oplevelserWrapper:nth-child(even) p.oplevelseBody {
-                /*                border: 1px red solid;*/
                 width: 30vw;
-                top: -10vh;
+                top: -2vh;
                 left: 3vw;
                 padding: 2vw;
+            }
+            .oplevelserWrapper {
+                background: rgba(0, 0, 0, 0.5);
             }
             .line {
                 border: 2px solid #FF7621;
@@ -154,6 +145,7 @@
             .oplevelseArticle {
                 width: 100%;
                 margin: 0;
+                height: auto;
             }
             img.oplevelseImg {
                 width: 40%;
@@ -161,13 +153,14 @@
                 height: auto;
                 border: solid 5px rgba(255, 255, 255, 0.25);
                 position: relative;
-                left: 40vw;
-                top: -13vh;
+                left: 48vw;
+                top: -15vh;
             }
             h2.oplevelseHeadline {
                 text-align: center;
                 height: 20vh;
                 text-align: center;
+                margin: 10vh;
             }
             p.oplevelseBody {
                 width: 40vh;
@@ -181,7 +174,19 @@
             #videoContainer {
                 display: none;
             }
+            #articleContainer {
+                width: 100%;
+            }
+            .bgPicture {
+                z-index: -1;
+                width: 100%;
+                background-size: 100%;
+                position: fixed;
+                height: 100vh;
+                background-image: url(imgs/glasstykker.JPG);
+            }
         }
+    }
     </Style>
 </body>
 
