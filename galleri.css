@@ -182,6 +182,7 @@ header {
     background-repeat: no-repeat;
     transform-origin: bottom;
 /*    align-self: center;*/
+    vertical-align: middle;
 }
 
 #modalDescription {

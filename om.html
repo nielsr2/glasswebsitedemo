@@ -56,25 +56,30 @@
     <div id="videoContainer">
         <!--        <div id="bgVideoOverlay" class="overlay"></div>-->
         <!--        <video id="video_stor" autoplay loop muted>-->
-        <img class="bgPicture" src="imgs/hvidv%C3%A6gmaleri.JPG" type="video/mp4">
+        <img class="bgPicture" src="imgs/kobber.JPG">
         <!--        </video>-->
     </div>
     <!--		*************************************************************************************************************** GALLERI-->
     <div id="omContainer">
         <a class="omGlaspusterenLink" href="#omGlaspusteren">
-           <img class="omGlasImg" src="imgs/AndersRaadUnikaFruePlads2011.jpg" alt="Anders">
+           <img class="omGlasImg" src="imgs/andersportrait2.JPG" alt="Anders">
             <div id="galleryInterior" class="oms">
                 <h2>Om Glaspusteren</h2>
             </div>
         </a>
         <a class="omVaerkstedetLink" href="#omVaerkstedet">
-           <img class="omGlasImg" src="imgs/AndersRaadUnikaFruePlads2011.jpg" alt="Anders">
+           <img class="omGlasImg" src="imgs/tools.JPG" alt="Anders">
             <div id="galleryAwards" class="galleries">
                 <h2>Om Værkstedet</h2>
             </div>
         </a>
     </div>
+
+
     <section id="glaspusterenContainer">
+
+        <div id="bgbillede1"></div>
+
 
         <!--       SLET .omGlasContainer HVIS NØDVENDIGT!-->
         <div class="omGlasContainer">
@@ -84,6 +89,11 @@
                 <img id="Gportrait">
                 <p id="Gquote"></p>
             </article>
+
+            <section id="interviewVideo">
+
+            </section>
+
             <h2 class="samarbejdeOverskrift">Kurser for</h2>
             <section id=samarbejdeContainer></section>
             <section id=awardContainer>
@@ -98,7 +108,8 @@
                 <p class="vQuote"></p>
             </article>
             <h2 class="iOverskrift">360 graders i værkstedet</h2>
-            <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe></div>
+            <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe>
+        </div>
     </section>
     <!--		*************************************************************************************************************** OM-JS-->
     <!--!TODO: asdfasdf
@@ -168,6 +179,15 @@
     </script>
     <script src="burger.js"></script>
     <style>
+        #bgbillede1 {
+                background-image: url(imgs/glaskugle.JPG);
+                background-size: cover;
+/*                position: fixed;*/
+                width: 100vw;
+                height: auto;
+            }
+
+
         #omContainer h2 {
             position: absolute;
             top: 25%;
@@ -314,11 +334,14 @@
                 width: 100vw;
             }
             #omContainer h2 {
-                margin-left: 10%;
+/*                margin-left: 10%;*/
+                top: 38%;
+                left: 10%;
+                position: absolute;
             }
 
             .bgPicture {
-                background-size: contain;
+                background-size: cover;
                 width: 100%;
                 background-repeat: no-repeat;
             }
@@ -352,22 +375,25 @@
             }
 
             /******************* OM GLASPUSTEREN ****************/
+
+
             #omGlaspusteren {
                 height: 50vh;
                 position: relative;
+                margin-top: 5vw;
             }
             #Gportrait {
-                top: 10vh;
-                left: 25vw;
+                top: 14vh;
+                left: 15vw;
                 position: absolute;
-                width: 20vw;
-                height: 20vw;
+                width: 25vw;
+                height: 25vw;
                 border-radius: 15vw;
             }
 
             #Gheadline {
                 top: 4vh;
-                right: 32vw;
+                left: 47vw;
                 position: absolute;
             }
 
@@ -378,21 +404,33 @@
                 width: 35%;
                 position: absolute;
                 padding: 2vw;
+                margin-top: 5vw;
             }
+
+
+/***********  INTERVIEW VIDEO ************/
+            #interviewVideo {
+                height: 40vw;
+                width: 80vw;
+                border: 2px solid red;
+                margin-left: 10vw;
+                margin-top: 10vw;
+                margin-bottom: 10vw;
+            }
+
 
             /******************* SAMARBEJDER ****************/
             #samarbejdeContainer {
                 display: flex;
             }
             .samWrapper:nth-child(even) {
-                margin-left: 10vw;
+                margin-left: 5vw;
             }
             .samWrapper {
-                margin-left: 10vw;
+                margin-left: 5vw;
             }
 
             .samarbejdeImg {
-                height: 10px;
                 width: 200px;
                 margin: 0;
                 height: auto;
@@ -401,6 +439,7 @@
             /******************* AWARD ****************/
             .awardOverskrift {
                 text-align: center;
+                margin-top: 10vw;
             }
 
             .awardImg {
@@ -419,8 +458,9 @@
 
             /*******************360 GRADER VIDEO I VÆRKSTEDET****************/
             iframe {
-                width: 50%;
-                margin-left: 25%;
+                width: 90%;
+                height: 80vh;
+                margin-left: 5%;
             }
 
         }
