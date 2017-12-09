@@ -2,127 +2,202 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="menu.css">
-	<link rel="stylesheet" href="stylesheet.css">
-	<link rel="stylesheet" href="footer.css">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>FORSIDE</title>
+    <meta charset="utf-8">
+<!--    <link rel="stylesheet" href="menu.css">-->
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FORSIDE</title>
 </head>
 
 <body>
-	<!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
-	<nav>
-		<div id="logo"></div>
-		<ul id="menuContainer">
-			<!--				!NOTE! ORDER?-->
-			<a id="gallery" href="galleri.html">
-				<li class="menuItems">Galleri</li>
-			</a>
-			<a id="oplevelser" href="oplevelser.html">
-				<li class="menuItems">Oplevelser</li>
-			</a>
-			<a id="produktudvikling" href="produktudvikling.html">
-				<li class="menuItems">Produktudvikling</li>
-			</a>
-			<a id="om" href="om.html">
-				<li class="menuItems">Om</li>
-			</a>
-			<a id="kontakt" href="kontakt.html">
-				<li class="menuItems">Kontakt</li>
-			</a>
-		</ul>
-		<div id="instagram"></div>
-	</nav>
-	<!--		*************************************************************************************************************** BG VIDEO-->
-	<div id="videoContainer">
-		<div id="bgVideoOverlay" class="overlay"></div>
-		<video id="video_stor" autoplay loop muted>
+    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+    <nav>
+        <div id="logo"></div>
+        <ul id="menuContainer">
+            <!--				!NOTE! ORDER?-->
+            <a id="gallery" href="galleri.html">
+                <li class="menuItems">Galleri</li>
+            </a>
+            <a id="oplevelser" href="oplevelser.html">
+                <li class="menuItems">Oplevelser</li>
+            </a>
+            <a id="produktudvikling" href="produktudvikling.html">
+                <li class="menuItems">Produktudvikling</li>
+            </a>
+            <a id="om" href="om.html">
+                <li class="menuItems">Om</li>
+            </a>
+            <a id="kontakt" href="kontakt.html">
+                <li class="menuItems">Kontakt</li>
+            </a>
+        </ul>
+
+    </nav>
+    <!--		*************************************************************************************************************** BG VIDEO-->
+<!--
+    <div id="videoContainer">
+        <div id="bgVideoOverlay" class="overlay"></div>
+        <video id="video_stor" autoplay loop muted>
 			<source src="video/bgvideo2medium.mp4" type="video/mp4"> </video>
-	</div>
-	<div id="contentContainer"></div>
-	<!--MOBILE-->
-	<style>
-		body {
-			margin: 0;
-			background-color: dimgray;
-			/*This disables the browsers auto-margin*/
-		}
+    </div>
+-->
+    <div id="contentContainer"></div>
+    <!--MOBILE-->
+    <style>
 
-		#logo {
-			background-image: url(imgs/andersRaadGlasLogo.png);
-			width: 45vw;
-			height: 45vw;
-			margin-left: 28vw;
-			margin-top: 0vw;
-			background-size: contain;
-		}
+        body {
+            margin: 0;
+            background-color: dimgray;
+            /*This disables the browsers auto-margin*/
+        }
 
-		nav {
-			max-height: 100vh;
-			/*    background-color: rgb(0, 0, 0);*/
-			z-index: 1;
-			position:  relative !important;
-		}
+        #logo {
+            background-image: url(imgs/andersRaadGlasLogo.png);
+            width: 45vw;
+            height: 45vw;
+            margin-left: 28vw;
+            margin-top: 2vw;
+            background-size: contain;
+            margin-bottom: 2vw;
+        }
 
-		li.menuItems {
-			/*    padding: 5px;*/
-			cursor: pointer;
-			background-color: rgba(50, 50, 50, 0.5);
-			padding-left: 10vw;
-			margin-left: 10vw;
-			padding-right: 10vw;
-			margin-right: 10vw;
-			padding-top: 15px;
-			padding-bottom: 15px;
-			margin-top: 10vw;
-			font-family: helvetica;
-			text-align: center;
-		}
+        nav {
+            max-height: 100vh;
+            /*    background-color: rgb(0, 0, 0);*/
+            z-index: 1;
+            position: relative !important;
+            padding: 0;
+            z-index: 99999;
+            position: fixed;
+            width: 100vw;
+            /*            max-height: 0px;*/
+            overflow: hidden;
+            transition: 0.6s;
+        }
 
-		ul#menuContainer {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
+        li.menuItems {
+            /*    padding: 5px;*/
+            cursor: pointer;
+            background-color: rgba(50, 50, 50, 0.5);
+            margin-left: 10vw;
+            margin-right: 10vw;
+            margin-bottom: 5vw;
+            font-family: helvetica;
+            text-align: center;
+        }
 
-		a#gallery,
-		a#oplevelser,
-		a#produktudvikling,
-		a#om,
-		a#kontakt {
-			text-decoration: none;
-			color: white;
-		}
+        ul#menuContainer {
+            list-style: none;
+            position: relative;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
 
-		@media (min-width: 1024px) {}
-	</style>
-	<!--	FOOTER------------------>
-	<footer>
-		<div id=footerInfo>
-			<p class="adresseText">Anders Raad
-				<br>Traverbanevej 12
-				<br>2920 Charlottenlund</p>
-			<p class="telefonText">+45 20 32 48 84
-				<br>raadglas@raadglas.dk</p>
-		</div>
-		<div id="footerNews">
-			<h3 class="nyhedsbrev">Nyhedsbrev</h3>
-			<div class="nyhedsbrevBox"></div>
-			<button class="tilmeld">Tilmeld</button>
-			<a href="https://www.instagram.com/raadglas/" target="_blank"><img class="instagramLink" src="imgs/instagram_pic.png" alt=""></a>
-		</div>
-		<div id="footerMap">
-			<a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank"><img class="mapsLink" src="imgs/maps-icon-25.png" alt=""></a>
-			<a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank">
-				<p class="mapsText">Find vej</p>
-			</a>
-		</div>
-	</footer>
-	<!--	FOOTER SLUT--------------->
+        a#gallery,
+        a#oplevelser,
+        a#produktudvikling,
+        a#om,
+        a#kontakt {
+            text-decoration: none;
+            color: white;
+        }
+
+        @media (min-width: 1024px) {
+
+
+    .burger {
+        display: none !important;
+    }
+
+    nav {
+        font-size: 1.3em;
+        min-height: 10vh;
+        background: rgba(0, 0, 0, 0.5);
+        transition: 0s;
+        overflow: inherit;
+
+    }
+
+    /*
+    nav a {
+        width: 10vw;
+    }*/
+    nav.show {
+        max-height: 1vh;
+    }
+
+    nav a:hover {
+        color: red;
+    }
+
+    #menuContainer {
+        width: 43vw;
+        display: flex;
+        position: relative;
+        left: 49vw;
+        bottom: 15vh;
+    }
+
+    .menuItems {
+        margin-right: 3%;
+    }
+    .linkLogo {
+        width: 5vw;
+    }
+    #logo {
+        background-image: url(imgs/andersRaadGlasLogo.png);
+        height: 10vh;
+        max-width: 5vw;
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    #instagram {
+        background-image: url(imgs/instagram_pic.png);
+        height: 4vh;
+        width: 2vw;
+        position: relative;
+        bottom: 21vh;
+        left: 95vw;
+        background-size: contain;
+        background-repeat: no-repeat;
+        filter: invert();
+        cursor: pointer;
+    }
+
+
+        }
+
+    </style>
+    <!--	FOOTER------------------>
+    <footer>
+        <div id=footerInfo>
+            <p class="adresseText">Anders Raad
+                <br>Traverbanevej 12
+                <br>2920 Charlottenlund</p>
+            <p class="telefonText">+45 20 32 48 84
+                <br>raadglas@raadglas.dk</p>
+        </div>
+        <div id="footerNews">
+            <h3 class="nyhedsbrev">Nyhedsbrev</h3>
+            <div class="nyhedsbrevBox"></div>
+            <button class="tilmeld">Tilmeld</button>
+            <a href="https://www.instagram.com/raadglas/" target="_blank"><img class="instagramLink" src="imgs/instagram_pic.png" alt=""></a>
+        </div>
+        <div id="footerMap">
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank"><img class="mapsLink" src="imgs/maps-icon-25.png" alt=""></a>
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank">
+                <p class="mapsText">Find vej</p>
+            </a>
+        </div>
+    </footer>
+    <!--	FOOTER SLUT--------------->
 </body>
 
 </html>
