@@ -199,10 +199,16 @@ header {
     background-repeat: no-repeat;
 /*    transform-origin: bottom;*/
 /*    align-self: center;*/
+/*
+<<<<<<< HEAD
 	    margin: auto;
-/*    width: 50%;*/
+    width: 50%;
+=======
+    vertical-align: middle;
+>>>>>>> origin/master
 }
-
+*/
+}
 #modalDescription {
     /*			grid-area: modalDescription;*/
     position: absolute;
