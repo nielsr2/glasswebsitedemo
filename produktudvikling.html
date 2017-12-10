@@ -42,11 +42,8 @@
         <div id="instagram"></div>
     </nav>
     <!--		*************************************************************************************************************** BG VIDEO-->
-    <div id="videoContainer">
-        <div id="bgVideoOverlay" class="overlay"></div>
-        <video id="video_stor" autoplay loop muted>
-            <source src="video/bgvideo2medium.mp4" type="video/mp4"> </video>
-    </div>
+    <div id="billedeContainer">
+        <div id="bgBilledeOverlay" class="overlay"></div> <img id="baggrundsBillede" src="imgs/contact3.JPG"> </div>
     <div id="articles">
         <!--        <div id="articleContainer"></div>--></div>
     <!--		*************************************************************************************************************** ARTICLES-->
@@ -70,11 +67,18 @@
     </script>
     <script src="burger.js"></script>
     <style>
-        body {
-            background-image: url(imgs/contact3.JPG);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+        #billedeContainer {
+            position: fixed;
+            z-index: -1;
+            top: 0;
+        }
+
+        img#baggrundsBillede {
+            height: 100vh;
+            width: auto;
+        }
+
+        #bgBilledeOverlay {
             background-image: linear-gradient(#ff6200);
             background: -moz-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
             background: -webkit-linear-gradient(left, rgba(207, 49, 0, 1) 0%, rgba(125, 185, 232, 0) 100%);
@@ -202,74 +206,77 @@
                 padding: 2vw;
                 margin: -1% 10% 2% -10%;
             }
+            img#baggrundsBillede {
+                width: 100vw;
+                height: auto;
+            }
+        }
+        /*WHAT IS THIS COOOOODE??????????*/
+
+        body {
+            background-color: rgb(75, 75, 75);
+            color: white;
+            font-family: Helvetica neue;
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
 
-		/*WHAT IS THIS COOOOODE??????????*/
-body {
-    background-color: rgb(75, 75, 75);
-    color: white;
-    font-family: Helvetica neue;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
+        html {
+            height: 100%;
+        }
 
-html {
-    height: 100%;
-}
+        #videoContainer {
+            display: none;
+        }
 
-#videoContainer {
-    display: none;
-}
+        p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
 
-p {
-    font-size: 1em;
-    line-height: 1.5;
-}
+        h2 {
+            font-size: 2.5em;
+            font-family: 'Special Elite';
+        }
 
-h2 {
-    font-size: 2.5em;
-    font-family: 'Special Elite';
-}
+        header {
+            height: 13vw;
+            width: 100vw;
+            position: fixed;
+            z-index: 98;
+            margin: 0;
+            color: white;
+        }
 
-header {
-    height: 13vw;
-    width: 100vw;
-        position: fixed;
-    z-index: 98;
-    margin: 0;
-    color: white;
-}
+        a#gallery,
+        a#oplevelser,
+        a#produktudvikling,
+        a#om,
+        a#kontakt {
+            text-decoration: none;
+            color: white;
+        }
 
-a#gallery,
-a#oplevelser,
-a#produktudvikling,
-a#om,
-a#kontakt {
-    text-decoration: none;
-    color: white;
-}
+        .burger {
+            padding: 0;
+            /*        display: inline-block;*/
+            cursor: pointer;
+            background: none;
+            border: none;
+            position: fixed;
+            width: 100vw;
+            background: rgba(0, 0, 0, 0.5);
+            /*        z-index: 99999;*/
+            display: flex;
+        }
 
-.burger {
-    padding: 0;
-/*        display: inline-block;*/
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: fixed;
-    width: 100vw;
-    background: rgba(0, 0, 0, 0.5);
-/*        z-index: 99999;*/
-    display: flex;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
-/**/
-
-/****NOTE****:  */
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        /**/
+        /****NOTE****:  */
     </style>
     <!--	FOOTER------------------>
     <footer>
