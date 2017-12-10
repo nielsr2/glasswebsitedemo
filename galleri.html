@@ -30,7 +30,7 @@
 		<div class="filterRow">
 			<a class="filterLink">
 				<button id="filterKnap">
-					<h3 class="filterItem"></h3> <img class="arrowImg" src="imgs/white-down-arrow-png-2.png" width="30"> </button>
+					<h3 class="filterItem"></h3> <img class="arrowImg" src="imgs/white-down-arrow-png-2.png" width="0"> </button>
 			</a>
 			<div class="filterView"></div>
 		</div>
@@ -63,13 +63,16 @@
         </ul>
         <div id="instagram"></div>
     </nav>
+
     <div id="contentContainer">
-        <!--		*************************************************************************************************************** BG VIDEO-->
+
+		<!--		*************************************************************************************************************** BG VIDEO-->
         <!--    <div id="bgImg"> </div>-->
 <!--        <h1>GALLERI</h1>-->
         <!--        <h2>ALLE PRODUKTER</h2>-->
         <!--		*************************************************************************************************************** FILTER-->
-        <section id="filterContainer"></section>
+        <section id="filterContainer">
+		<h1 id="h1Galleri">Galleri</h1></section>
         <!--   ***************************** SWIPE **********-->
         <section id="itemSection"></section>
         <!--		*************************************************************************************************************** ITEM-CONTAINER-->
@@ -79,8 +82,8 @@
         <!-- *************************************************************************************************************** VIEWVINDOW-->
         <section id="modalWindow">
             <div id="modalWrapper">
-                <div id="modalClose">Luk</div>
-                <div id="modalImage"></div>
+                <div id="modalClose">LUK</div>
+                <img id="modalImage"></img>
                 <h3 id="modalDescription"></h3>
         </section>
         </div>
