@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css">
+    <title>OM</title>
+    <!--		*************************************************************************************************************** SAMARBEJDE-TEMPLATE-->
+    <template id="samarbejdeTemplate">
+        <section class="samWrapper">
+            <a class="samarbejdeLink">
+                <h2 class="samarbejdeHeadline">KURSER FOR</h2> <img class="samarbejdeImg"></a>
+            <a class="samarbejdeLink2"></a>
+        </section>
+    </template>
+    <template id="awardTemplate">
+        <a href="awards/Haandfuglen_2011_Bedste_unika_Anders_Raad.pdf" target="_blank"><img class="awardImg"></a>
+        <h2 class="aarsTal"></h2> </template>
+</head>
+
+<body>
+    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+    <nav>
+        <button class="burger">
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h2 id="navn">anders raad glas</h2> </button>
+        <a href="index.html">
+            <div id="logo"></div>
+        </a>
+        <ul id="menuContainer">
+            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
+            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+            <li class="menuItems"><a href="om.html">Om</a></li>
+            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <div id="instagram"></div>
+    </nav>
+    <!--		*************************************************************************************************************** BG VIDEO-->
+    <div id="videoContainer">
+        <!--        <div id="bgVideoOverlay" class="overlay"></div>-->
+        <!--        <video id="video_stor" autoplay loop muted>--><img class="bgPicture" src="imgs/kobber.JPG">
+        <!--        </video>-->
+    </div>
+    <!--		*************************************************************************************************************** GALLERI-->
+    <div id="omContainer">
+        <a class="omGlaspusterenLink" href="#omGlaspusteren">
+            <div id="omBilledeBox"><img class="omGlasImg" src="imgs/andersportrait2.JPG" alt="Anders"></div>
+            <div id="galleryInterior" class="oms">
+                <h2>Om Glaspusteren</h2> </div>
+        </a>
+        <a class="omVaerkstedetLink" href="#omVaerkstedet">
+            <div id="omBilledeBox"> <img class="omGlasImg" src="imgs/tools.JPG" alt="Anders"></div>
+            <div id="galleryAwards" class="galleries">
+                <h2>Om Værkstedet</h2> </div>
+        </a>
+    </div>
+    <section id="glaspusterenContainer">
+        <div id="bgbillede1"></div>
+        <!--       SLET .omGlasContainer HVIS NØDVENDIGT!-->
+        <div class="omGlasContainer">
+            <!--           -->
+            <article id="omGlaspusteren">
+                <h2 id="Gheadline"></h2>
+                <div id="andersPortrait"><img id="Gportrait"></div>
+                <p id="Gquote"></p>
+            </article>
+            <section id="interviewVideo"> </section>
+            <h2 class="samarbejdeOverskrift">Kurser for</h2>
+            <section id=samarbejdeContainer></section>
+            <section id=awardContainer>
+                <h2 class="awardOverskrift">Awards</h2> </section>
+        </div>
+        <!--       SLET .omVaerkstedContainer HVIS NØDVENDIGT!-->
+        <div class="omVaerkstedContainer">
+            <!--           -->
+            <article id=omVaerkstedet>
+                <h2 class="vHeadline">Om værkstedet</h2>
+                <p class="vQuote"></p>
+            </article>
+            <h2 class="iOverskrift">360 graders i værkstedet</h2>
+            <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.3/pannellum.htm#panorama=https%3A//i.imgur.com/MRdoAVP.jpg&autoLoad=true"></iframe>
+        </div>
+    </section>
+    <!--		*************************************************************************************************************** OM-JS-->
+    <!--!TODO: asdfasdf
+-->
+    <script src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
+    <script>
+        ///////////////// OM GLASPUSTEREN BLIVER LOADET IND PÅ SIDEN
+        async function loadGlaspusteren() {
+            let glaspusterenObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om/42");
+            let glaspusteren = await glaspusterenObj.json();
+            console.log(glaspusteren);
+            document.querySelector("#Gheadline").textContent = glaspusteren.title.rendered;
+            document.querySelector("#Gportrait").setAttribute("src", glaspusteren.acf.omBillede);
+            document.querySelector("#Gquote").textContent = glaspusteren.acf.citat;
+        }
+        ///////////////// SAMARBEJDER BLIVER LOADET IND PÅ SIDEN
+        async function loadSamarbejde() {
+            let template = document.querySelector("#samarbejdeTemplate");
+            let parent = document.querySelector("#samarbejdeContainer");
+            let samarbejdeObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om?categories=6");
+            let samarbejde = await samarbejdeObj.json();
+            console.log('sam');
+            console.log(samarbejde);
+            samarbejde.forEach(function (sam) {
+                let clone = template.cloneNode(true).content;
+                clone.querySelector(".samarbejdeImg").setAttribute("src", sam.acf.logo);
+                console.log(sam.acf.tekst);
+                clone.querySelector(".samarbejdeHeadline").textContent = sam.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
+                clone.querySelector(".samarbejdeLink").setAttribute("href", sam.acf.pageLink);
+                clone.querySelector(".samarbejdeLink2").setAttribute("href", sam.acf.pageLink);
+                parent.appendChild(clone);
+            });
+        }
+        ///////////////// AWARDS BLIVER LOADET IND PÅ SIDEN
+        async function loadAwards() {
+            let template = document.querySelector("#awardTemplate");
+            let parent = document.querySelector("#awardContainer");
+            let awardsObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om?categories=7");
+            let awards = await awardsObj.json();
+            console.log("awards", awards);
+            awards.forEach(function (awa) {
+                console.log("test", awa)
+                let clone = template.cloneNode(true).content;
+                console.log("test", document.querySelector(".awardImg"))
+                clone.querySelector(".awardImg").setAttribute("src", awa.acf.billede);
+                clone.querySelector(".aarsTal").textContent = awa.acf.aarstal;
+                parent.appendChild(clone);
+            });
+        }
+        ///////////////// OM VÆRKSTEDET BLIVER LOADET IND PÅ SIDEN
+        async function loadVaerksted() {
+            let vaerkstedObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/om/40");
+            let vaerksted = await vaerkstedObj.json();
+            document.querySelector(".vQuote").textContent = vaerksted.acf.beskrivelse;
+        }
+        loadVaerksted();
+        loadAwards();
+        loadGlaspusteren();
+        loadSamarbejde();
+    </script>
+    <script src="burger.js"></script>
+    <style>
+        body {
+            width: 100vw;
+        }
+
+        #bgbillede1 {
+            background-image: url(imgs/glaskugle.JPG);
+            background-size: cover;
+            /*                position: fixed;*/
+            width: 100vw;
+            height: auto;
+        }
+
+        #omContainer h2 {
+            position: absolute;
+            top: 25%;
+            left: 10%;
+            margin: 0;
+        }
+        /******************* OVERORDNEDE CONTAINERE TIL BG BILLEDER  ****************/
+
+        .omGlasContainer {
+            /*            background-image: url(imgs/contact1.JPG);*/
+            height: auto;
+            width: auto;
+            background-size: contain;
+        }
+
+        .omVaerkstedContainer {
+            /*            background-image: url(imgs/contact2.JPG);*/
+            height: auto;
+            width: auto;
+            background-size: cover;
+        }
+        /******************* GLASPUSTER LINK + VÆRKSTED LINK BILLEDER ****************/
+
+        .omGlasImg {
+            width: auto;
+            height: 50vh;
+        }
+
+        #omBilledeBox {
+            width: 100%;
+            height: 50vh;
+            position: relative;
+            overflow: hidden;
+        }
+        /******************* GLASPUSTER LINK ****************/
+
+        .oms {
+            position: absolute;
+            width: 98vw;
+            top: 65vw;
+            left: 2vw;
+            font-size: 0.9em;
+        }
+
+        .galleries {
+            position: absolute;
+            width: 94vw;
+            top: 150vw;
+            left: 6vw;
+            font-size: 0.9em;
+        }
+        /******************* OM GLASPUSTEREN ****************/
+
+        #Gportrait {
+            position: absolute;
+            left: 10vw;
+            width: 80vw;
+            height: auto;
+        }
+
+        #andersPortrait {
+            position: relative;
+            border-radius: 100px;
+            width: 70vw;
+            height: 50vw;
+        }
+
+        #Gheadline {
+            text-align: center;
+        }
+
+        #Gquote {
+            text-align: left;
+            margin-left: 10%;
+            margin-right: 10%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5vw;
+            width: 70vw;
+        }
+        /******************* SAMARBEJDER ****************/
+
+        .samarbejdeImg {
+            margin-left: 4vw;
+            height: auto;
+            width: 40vw;
+        }
+
+        .samarbejdeOverskrift {
+            text-align: center;
+            margin-top: 15vw;
+        }
+
+        #samarbejdeContainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        /******************* AWARD ****************/
+
+        #awardContainer {
+            width: 100vw;
+            margin-top: 15vw;
+        }
+
+        .awardOverskrift {
+            text-align: center;
+        }
+
+        .awardImg {
+            cursor: pointer;
+            margin-left: 10%;
+            margin-right: 10%;
+            width: 80vw;
+            height: auto;
+        }
+
+        .aarsTal {
+            text-align: center;
+        }
+        /******************* OM VÆRKSTEDET ****************/
+
+        #omVaerkstedet {
+            width: 100vw;
+            margin-top: 20vw;
+        }
+
+        .vHeadline {
+            text-align: center;
+        }
+
+        .vQuote {
+            margin-left: 10%;
+            margin-right: 10%;
+            padding: 5vw;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        /*******************360 GRADER VIDEO I VÆRKSTEDET****************/
+
+        iframe {
+            width: 100%;
+        }
+
+        .iOverskrift {
+            text-align: center;
+        }
+        /*************************************   DESKTOP MQ ***********************************/
+
+        @media screen and (min-width: 767px) {
+            .omGlasImg {
+                width: 100vw;
+                height: auto;
+            }
+            .oms {
+                top: 50vw;
+                font-size: 1em;
+            }
+            .galleries {
+                top: 115vw;
+                font-size: 1em;
+            }
+            .samarbejdeImg {
+                margin-left: 9vw;
+                height: auto;
+                width: 30vw;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            /*******************  100VH SPLASH IMAGE CONTAINER  ****************/
+            #omContainer {
+                height: 60vh;
+                width: 100vw;
+            }
+            #omContainer h2 {
+                /*                margin-left: 10%;*/
+                left: 10%;
+                position: absolute;
+            }
+            .bgPicture {
+                background-size: cover;
+                width: 100%;
+                background-repeat: no-repeat;
+            }
+            /******************* GLASPUSTER LINK ****************/
+            .omGlasImg {
+                width: 40vw;
+                margin: 0;
+            }
+            .omBilledeBox {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            .omGlaspusterenLink {
+                top: 25vh;
+                position: absolute;
+                z-index: 1;
+            }
+            /******************* VÆRKSTED LINK ****************/
+            .omVaerkstedetLink {
+                top: 25vh;
+                left: 60vw;
+                position: absolute;
+                z-index: 1;
+            }
+            .galleries {
+                width: 40vw;
+                top: 20vw;
+            }
+            .oms {
+                width: 40vw;
+                top: 20vw;
+            }
+            /******************* OM GLASPUSTEREN ****************/
+            #omGlaspusteren {
+                height: 50vh;
+                position: relative;
+                margin-top: 5vw;
+            }
+            #Gportrait {
+                top: 14vh;
+                left: 5vw;
+                position: absolute;
+                width: auto;
+                height: 25vw;
+            }
+            #Gheadline {
+                top: 4vh;
+                left: 47vw;
+                position: absolute;
+            }
+            #Gquote {
+                text-align: left;
+                top: 13vh;
+                right: 3.5vw;
+                width: 35%;
+                position: absolute;
+                padding: 2vw;
+                margin-top: 5vw;
+            }
+            /***********  INTERVIEW VIDEO ************/
+            #interviewVideo {
+                height: 40vw;
+                width: 80vw;
+                border: 2px solid red;
+                margin-left: 10vw;
+                margin-top: 10vw;
+                margin-bottom: 10vw;
+            }
+            /******************* SAMARBEJDER ****************/
+            #samarbejdeContainer {
+                display: flex;
+            }
+            .samWrapper:nth-child(even) {
+                margin-left: 5vw;
+            }
+            .samWrapper {
+                margin-left: 5vw;
+            }
+            .samarbejdeImg {
+                width: 200px;
+                margin: 0;
+                height: auto;
+            }
+            /******************* AWARD ****************/
+            .awardOverskrift {
+                text-align: center;
+                margin-top: 10vw;
+            }
+            .awardImg {
+                margin-left: 28%;
+                width: auto;
+                height: 30vw;
+            }
+            /******************* OM VÆRKSTEDET ****************/
+            .vQuote {
+                margin-left: 30%;
+                margin-right: 30%;
+                padding: 2vw;
+            }
+            /*******************360 GRADER VIDEO I VÆRKSTEDET****************/
+            iframe {
+                width: 90%;
+                height: 80vh;
+                margin-left: 5%;
+            }
+        }
+    </style>
+    <!--	FOOTER------------------>
+    <footer>
+        <div id=footerInfo>
+            <p class="adresseText">Anders Raad
+                <br>Traverbanevej 12
+                <br>2920 Charlottenlund</p>
+            <p class="telefonText">+45 20 32 48 84
+                <br>raadglas@raadglas.dk</p>
+        </div>
+        <div id="footerNews">
+            <h3 class="nyhedsbrev">Nyhedsbrev</h3>
+            <div class="nyhedsbrevBox"></div>
+            <button class="tilmeld">Tilmeld</button>
+            <a href="https://www.instagram.com/raadglas/" target="_blank"><img class="instagramLink" src="imgs/instagram_pic.png" alt=""></a>
+        </div>
+        <div id="footerMap">
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank"><img class="mapsLink" src="imgs/maps-icon-25.png" alt=""></a>
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank">
+                <p class="mapsText">Find vej</p>
+            </a>
+        </div>
+    </footer>
+    <!--	FOOTER SLUT--------------->
+</body>
+
+</html>
