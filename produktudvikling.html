@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>produktudvikling</title>
+    <!--		*************************************************************************************************************** produkt-TEMPLATE-->
+    <template id="produktTemplate">
+        <article id="articleContainer">
+            <h2 class="produktHeadline"></h2> <img class="produktImg">
+            <p class="produktBody"></p>
+        </article>
+    </template>
+</head>
+
+<body>
+    <nav>
+        <button class="burger">
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h2 id="navn">anders raad glas</h2> </button>
+        <div id="logoWrapper">
+            <a href="index.html" id="logoLink"> <img id="logo" src="imgs/andersRaadGlasLogo.png"> </a>
+        </div>
+        <ul id="menuContainer">
+            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
+            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+            <li class="menuItems"><a href="om.html">Om</a></li>
+            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
+            <li id="instaItem">
+                <a href="https://www.instagram.com/raadglas/" id="instaLink"> <img id="instagram" src="imgs/instagramLogo.png"> </a>
+            </li>
+        </ul>
+    </nav>
+    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+    <!--		*************************************************************************************************************** BG VIDEO-->
+    <div id="billedeContainer">
+        <div id="bgBilledeOverlay" class="overlay"></div> <img id="baggrundsBillede" src="imgs/contact3.JPG"> </div>
+    <div id="articles">
+        <!--        <div id="articleContainer"></div>--></div>
+    <!--		*************************************************************************************************************** ARTICLES-->
+    <!--		*************************************************************************************************************** produkt-JS-->
+    <script>
+        async function loadProdukt() {
+            let template = document.querySelector("#produktTemplate");
+            let parent = document.querySelector("#articles");
+            let produkterObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/produktudvikling");
+            let produkter = await produkterObj.json();
+            console.log(produkter);
+            produkter.forEach(function (produkt) {
+                let clone = template.cloneNode(true).content;
+                clone.querySelector(".produktImg").setAttribute("src", produkt.acf.billede);
+                clone.querySelector(".produktHeadline").textContent = produkt.title.rendered.replace(/<(?:.|\n)*?>/gm, '');
+                clone.querySelector(".produktBody").textContent = produkt.content.rendered.replace(/<(?:.|\n)*?>/gm, '');;
+                parent.appendChild(clone);
+            });
+        }
+        loadProdukt();
+    </script>
+    <script src="burger.js"></script>
+    <style>
+        #billedeContainer {
+            position: fixed;
+            z-index: -1;
+            top: 0;
+        }
+
+        img#baggrundsBillede {
+            height: 100vh;
+            width: auto;
+        }
+
+        #bgBilledeOverlay {
+            background-image: linear-gradient(#ff6200);
+            background: -moz-linear-gradient(left, rgba(207, 49, 0, 0.5) 0%, rgba(125, 185, 232, 0) 100%);
+            background: -webkit-linear-gradient(left, rgba(207, 49, 0, 0.5) 0%, rgba(125, 185, 232, 0) 100%);
+            background: linear-gradient(to right, rgba(207, 49, 0, 0.5) 0%, rgba(125, 185, 232, 0) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#cf3100', endColorstr='#007db9e8', GradientType=1);
+            width: 100vw;
+            height: 100vh;
+            background-size: contain;
+            position: absolute;
+            z-index: 1;
+        }
+
+        nav {
+            top: 0vw;
+        }
+
+        #articleContainer {
+            /*            display: grid;*/
+            width: 90%;
+            margin: 0 4.5%;
+            /*            grid-template-areas: "overskrift" "billede" "tekst";*/
+        }
+
+        img.produktImg {
+            width: 100%;
+            height: auto;
+            margin-top: -5vw;
+            /*            grid-area: billede;*/
+            /*            border: solid 3px rgba(38, 38, 38, 0.33);*/
+        }
+
+        h2.produktHeadline {
+            /*            grid-area: overskrift;*/
+            font-family: special elite;
+            margin-top: 25vw;
+        }
+
+        p.produktBody {
+            /*            grid-area: tekst;*/
+            margin-bottom: -4vw;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5vw;
+        }
+
+        #articleContainer:nth-child(even) p.produktBody {
+            margin-bottom: 6vw;
+        }
+
+        @media screen and (min-width: 667px) {
+            #articleContainer {
+                width: 85%;
+                margin: 0 7% 2%;
+            }
+            p.produktBody {
+                margin-top: 3%;
+                margin-bottom: 2%;
+                padding: 3vw;
+            }
+            h2.produktHeadline {
+                margin-top: 11vw;
+            }
+            img.produktImg {
+                margin-top: -1vw;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            #articleContainer {
+                width: 75%;
+                margin: 0 12% 5%;
+            }
+            p.produktBody {
+                margin-top: 2%;
+                margin-bottom: 5%;
+            }
+            h2.produktHeadline {
+                margin-top: 8vw;
+            }
+            img.produktImg {}
+        }
+
+        @media screen and (min-width: 1025px) {
+            #articles {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "venstre hojre"
+            }
+            #videoContainer {
+                display: none;
+            }
+            #articleContainer {
+                margin-top: 12%;
+                width: 80%;
+                /*                margin: 5% 10%;*/
+                /*
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+*/
+            }
+            #articleContainer:nth-child(odd) .produktImg {
+                margin-top: 12%;
+                grid-area: venstre;
+                margin: 5% 15% 0 5%;
+            }
+            #articleContainer:nth-child(even) .produktImg {
+                margin-top: 12%;
+                grid-area: hojre;
+                margin: 5% 5% 0 -10%;
+            }
+            #articleContainer:nth-child(odd) h2.produktHeadline {
+                margin: 10% 15% -2% 5%;
+            }
+            #articleContainer:nth-child(even) h2.produktHeadline {
+                /*
+                margin-top: 10vw;
+                margin-bottom: -2vw;
+*/
+                margin: 10% 5% -2% -10%;
+            }
+            #articleContainer:nth-child(odd) p.produktBody {
+                padding: 2vw;
+                margin: -1% -5% 2% 5%;
+            }
+            #articleContainer:nth-child(even) p.produktBody {
+                padding: 2vw;
+                margin: -1% 10% 2% -10%;
+            }
+            img#baggrundsBillede {
+                width: 100vw;
+                height: auto;
+            }
+        }
+        /*WHAT IS THIS COOOOODE??????????*/
+
+        body {
+            background-color: rgb(75, 75, 75);
+            color: white;
+            font-family: Helvetica neue;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        #videoContainer {
+            display: none;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            font-family: 'Special Elite';
+        }
+
+        header {
+            height: 13vw;
+            width: 100vw;
+            position: fixed;
+            z-index: 98;
+            margin: 0;
+            color: white;
+        }
+
+        a#gallery,
+        a#oplevelser,
+        a#produktudvikling,
+        a#om,
+        a#kontakt {
+            text-decoration: none;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        @media screen and (min-width: 1024px) {
+            footer {
+                position: relative !important;
+            }
+        }
+        /**/
+        /****NOTE****:  */
+    </style>
+    <footer>
+        <div id=footerInfo>
+            <p id="adresseText">Anders Raad
+                <br>Traverbanevej 12
+                <br>2920 Charlottenlund</p>
+            <p id="telefonText">+45 20 32 48 84
+                <br>raadglas@raadglas.dk</p>
+        </div>
+        <div id="footerNews">
+            <h3 id="nyhedsbrev">Nyhedsbrev</h3>
+            <div id="nyhedsbrevBox"></div>
+            <button id="tilmeld">Tilmeld</button>
+            <a href="https://www.instagram.com/raadglas/" target="_blank"><img id="instagramLink" src="imgs/instagram_pic.png" alt=""></a>
+        </div>
+        <div id="footerMap">
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank"><img id="mapsLink" src="imgs/maps-icon-25.png" alt=""></a>
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank">
+                <p id="mapsText">Find vej</p>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+nav {
+    top: 0;
+}
+
+body {
+    margin: 0;
+}
+
+#omContainer {
+    display: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.7em;
+}
+
+#Gheadline {
+    margin-top: 20vw;
+    text-align: center;
+}
+
+#Gportrait {
+    width: 80vw;
+    margin: 0 10vw;
+}
+
+#Gquote,
+.vQuote {
+    width: 70vw;
+    margin: 0 10vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5vw;
+}
+
+#samarbejdeContainer {
+    display: flex;
+}
+
+.samWrapper {
+    flex: 1 1 10%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2vw 2vw 3vw;
+}
+
+.awardImg {
+    width: 80vw;
+    margin-left: 10vw;
+}
+
+iframe {
+    width: 100%;
+}
+
+.vHeadline {
+    margin-top: 15vw;
+}
+
+@media screen and (min-width: 767px) {
+    #omContainer {
+        display: none;
+    }
+    nav {
+        top: 0;
+    }
+    #Gheadline {
+        margin-top: 11vw;
+    }
+    .vHeadline {
+        margin-top: 10vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #Gportrait {
+        width: 40vw;
+        margin: 0;
+        margin-left: 7vw;
+        grid-area: venstre;
+    }
+    #Gquote {
+        width: 36vw;
+        padding: 2vw;
+        margin: 0;
+        margin-left: 3vw;
+        grid-area: hojre;
+        overflow: scroll;
+    }
+    #Gheadline {
+        grid-area: overskrift;
+        margin-top: 12vw;
+    }
+    #omGlaspusteren {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "overskrift overskrift" "venstre hojre";
+    }
+    .samWrapper {
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 2vw;
+    }
+    .samarbejdeImg {
+        width: 15vw;
+        margin-left: 1vw;
+        margin-top: -1vw;
+    }
+    .awardImg {
+        width: 70vw;
+        margin-left: 15vw;
+    }
+    .vHeadline {
+        margin-top: 6vw;
+    }
+}
+
+@media screen and (min-width: 1030px) {
+    #Gheadline {
+        margin-top: 10vw;
+        margin-bottom: 2vw;
+    }
+    .samWrapper {
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 1vw;
+    }
+    .samarbejdeImg {
+        width: 10vw;
+    }
+    .awardImg {
+        width: 60vw;
+        margin-left: 20vw;
+    }
+    .vQuote {
+        width: 50vw;
+        margin: 0 20vw;
+        line-height: 1.5;
+    }
+    iframe {
+        width: 60vw;
+        height: 60vh;
+        margin-left: 20vw;
+        margin-bottom: 5vw;
+    }
+    .samarbejdeOverskrift {
+        margin-top: 5vw;
+    }
+    .awardOverskrift {
+        margin-top: 5vw;
+    }
+    #samarbejdeContainer {
+        width: 60vw;
+        margin-left: 20vw;
+    }
+    .iOverskrift {
+        margin-top: 5vw;
+    }
+}
+
+@media screen and (min-width: 1335px) {
+    .bgPicture {
+        width: 100vw !important;
+        height: auto !important;
+    }
+    #Gportrait {}
+    #Gquote {
+        padding: 5vw;
+        width: 30vw;
+    }
+}

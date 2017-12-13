@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="galleri.css">
+    <link rel="stylesheet" href="footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>GALLERi</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--		!NOTE: vi skal tænke over -->
+    <!--		*************************************************************************************************************** GALLERI-TEMPLATE-->
+    <template id="galleriTemplate">
+        <div class="borderWrapper">
+            <div class="itemSection">
+                <a href="" class="linkSingle">
+                    <div class="itemWrapper"><img class="itemImg lazyload"></div>
+                </a>
+                <!--				<p class="itemDescription"></p>-->
+            </div>
+        </div>
+    </template>
+    <!--		*************************************************************************************************************** FILTER-TEMPLATE-->
+    <template id="filterTemplate">
+        <div class="filterRow">
+            <a class="filterLink">
+                <h3 class="filterItem"></h3> <img class="arrowImg" src="imgs/white-down-arrow-png-2.png" width="0"> </a>
+            <div class="filterView"></div>
+        </div>
+    </template>
+    <!--		*************************************************************************************************************** separator-TEMPLATE-->
+    <template>
+        <div class="separator">|</div>
+    </template>
+    <style>
+        @media screen and (min-width: 1024px) {
+            footer {
+                position: relative !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <button class="burger">
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h2 id="navn">anders raad glas</h2> </button>
+        <div id="logoWrapper">
+            <a href="index.html" id="logoLink"> <img id="logo" src="imgs/andersRaadGlasLogo.png"> </a>
+        </div>
+        <ul id="menuContainer">
+            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
+            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+            <li class="menuItems"><a href="om.html">Om</a></li>
+            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
+            <li id="instaItem">
+                <a href="https://www.instagram.com/raadglas/" id="instaLink"> <img id="instagram" src="imgs/instagramLogo.png"> </a>
+            </li>
+        </ul>
+    </nav>
+    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+    <div id="contentContainer">
+        <h1 id="h1Galleri">Galleri</h1>
+        <section id="filterContainer"> </section>
+        <!--		*************************************************************************************************************** BG VIDEO-->
+        <!--    <div id="bgImg"> </div>-->
+        <!--        <h1>GALLERI</h1>-->
+        <!--        <h2>ALLE PRODUKTER</h2>-->
+        <section id="itemSection"></section>
+        <section id="viewWindow"></section>
+        <section id="modalWindow">
+            <div id="modalWrapper">
+                <div id="modalClose">LUK</div> <img id="modalImage">
+                <h3 id="modalDescription"></h3> </div>
+        </section>
+    </div>
+    <!--		*************************************************************************************************************** OPLEVELSE-JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
+    <script src="galleri.js"></script>
+    <script src="burger.js"></script>
+    <!--	<script src="jquery.scrollify.min.js"></script>-->
+    <footer>
+        <div id=footerInfo>
+            <p id="adresseText">Anders Raad
+                <br>Traverbanevej 12
+                <br>2920 Charlottenlund</p>
+            <p id="telefonText">+45 20 32 48 84
+                <br>raadglas@raadglas.dk</p>
+        </div>
+        <div id="footerNews">
+            <h3 id="nyhedsbrev">Nyhedsbrev</h3>
+            <div id="nyhedsbrevBox"></div>
+            <button id="tilmeld">Tilmeld</button>
+            <a href="https://www.instagram.com/raadglas/" target="_blank"><img id="instagramLink" src="imgs/instagram_pic.png" alt=""></a>
+        </div>
+        <div id="footerMap">
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank"><img id="mapsLink" src="imgs/maps-icon-25.png" alt=""></a>
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank">
+                <p id="mapsText">Find vej</p>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

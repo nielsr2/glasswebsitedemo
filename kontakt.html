@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="menu.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>KONTAKT</title>
+    <!--		*************************************************************************************************************** OPLEVELSE-TEMPLATE-->
+    <template id="someTemplate">
+        <div class="someWrapper">
+            <div id="someLinkContainer">
+                <a class="someLink"><img class="someImg"></a>
+            </div>
+            <div id="someHeadlineContainer"><a class="someLink2"><h2 class="someHeadline"></h2></a> </div>
+        </div>
+    </template>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(to right, rgba(207, 49, 0, .5) 0%, rgba(125, 185, 232, 0) 100%), url("imgs/bucketsBG.jpg") 120vw !important;
+            background-size: cover;
+        }
+
+        #container {
+            /*			display: grid;*/
+            /*			grid-template-columns: 1fr;*/
+            /*			grid-template-rows: 1fr 1fr;*/
+            /*			display: block;*/
+            /*			max-height: 100vh;*/
+            height: 100%;
+        }
+
+        .bgPicture {
+            position: absolute;
+        }
+
+        #kontaktOplysninger {
+            display: grid;
+            width: 80vw;
+            height: 100%;
+            /*			max-height: 100vh;*/
+            background-color: rgba(0, 0, 0, 0.6);
+            margin: 15vw 10vw 3vw;
+            justify-items: center;
+        }
+
+        #someContainer {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-around;
+            /*			border: solid 1px pink;*/
+            text-align: center;
+        }
+
+        .someImg {
+            width: auto;
+            height: 9vw;
+            filter: invert();
+        }
+
+        .someHeadline {
+            /*			color: green;*/
+            font-size: 1.3em;
+            /*			margin*/
+        }
+
+        #kontaktHeadline {
+            padding: 0vw 2vw;
+            margin-bottom: 0;
+            padding-top: 3vw;
+        }
+
+        #kontaktBody {
+            list-style: none;
+            font-size: 1em;
+            line-height: 1.5;
+            padding-bottom: 5vw;
+            padding-top: 1vw;
+            padding-left: 0;
+        }
+
+        iframe {
+            /*			position: */
+            margin: 2vw 10vw 5vw;
+            height: 45vh;
+            width: 80vw;
+        }
+
+        @media screen and (min-width: 767px) {
+            .someImg {
+                width: auto;
+                height: 5vw;
+            }
+            #kontaktBody {
+                font-size: 1.35em;
+            }
+            #kontaktHeadline {
+                font-size: 2em;
+            }
+            #kontaktOplysninger {}
+            #someContainer {
+                margin-top: -3vw;
+                margin-bottom: 4vw;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            button {
+                display: none !important;
+            }
+            .burger {
+                display: none !important;
+            }
+            #container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "venstre hojre";
+                /*						grid-template-rows: 1fr 1fr;*/
+                /*			display: block;*/
+                /*			max-height: 100vh;*/
+                height: 100%;
+            }
+            #kontaktOplysninger {
+                grid-area: venstre;
+                width: 45vw;
+                margin-top: 14vh;
+                margin-left: 3vw;
+                margin-right: 0vw;
+                height: 55vh;
+                display: flex;
+                flex-direction: column;
+                /*				justify-content: space-between;*/
+            }
+            iframe {
+                margin-top: 14vh;
+                margin-left: 4vw;
+                grid-area: hojre;
+                width: 45vw;
+                height: 55vh;
+            }
+            .someImg {
+                width: auto;
+                height: 2vw;
+            }
+            #kontaktBody {
+                font-size: 1.1em;
+                align-self: center;
+                margin-top: 3vw;
+            }
+            #kontaktHeadline {
+                height: 2vw;
+                align-self: center;
+                margin-top: 1.5vw;
+            }
+            nav {
+                margin-bottom: 10vw;
+            }
+            .someHeadline {
+                font-size: 1em;
+            }
+            #someContainer {
+                padding-top: 0vw;
+            }
+        }
+
+        @media screen and (min-width: 1100px) {
+            #kontaktOplysninger {
+                margin-top: 15vw;
+                height: 45vh;
+            }
+            iframe {
+                margin-top: 15vw;
+                height: 45vh;
+            }
+            #someContainer {
+                margin-top: -3vw;
+            }
+            #kontaktHeadline {
+                height: 2vw;
+                align-self: center;
+                margin-top: 0vw;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            #kontaktOplysninger {
+                margin-top: 12vw;
+                height: 45vh;
+                width: 35vw;
+                margin-left: 10vw;
+            }
+            iframe {
+                margin-top: 12vw;
+                height: 45vh;
+                width: 35vw;
+                margin-left: 5vw;
+            }
+            #kontaktBody {
+                font-size: 1.2em;
+                align-self: center;
+                margin-top: 0vw;
+            }
+            #someContainer {
+                margin-top: -5vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <button class="burger">
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h2 id="navn">anders raad glas</h2> </button>
+        <div id="logoWrapper">
+            <a href="index.html" id="logoLink"> <img id="logo" src="imgs/andersRaadGlasLogo.png"> </a>
+        </div>
+        <ul id="menuContainer">
+            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
+            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+            <li class="menuItems"><a href="om.html">Om</a></li>
+            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
+            <li id="instaItem">
+                <a href="https://www.instagram.com/raadglas/" id="instaLink"> <img id="instagram" src="imgs/instagramLogo.png"> </a>
+            </li>
+        </ul>
+    </nav>
+    <div id="bgBilledeOverlay"> <img id="bgPicture"></div> s
+    <div id="container">
+        <article id="kontaktOplysninger">
+            <h2 id="kontaktHeadline"></h2>
+            <ul id="kontaktBody"></ul>
+            <div id="someContainer"></div>
+        </article>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.2877929397214!2d12.583092015930532!3d55.7535026805536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46524d9c2c98955b%3A0x5ba059842eb0b6e1!2sGlas+%2F+Anders+Raad!5e0!3m2!1sda!2sdk!4v1511966810524" style="border:0" allowfullscreen></iframe>
+    </div>
+    <footer>
+        <div id=footerInfo>
+            <p id="adresseText">Anders Raad
+                <br>Traverbanevej 12
+                <br>2920 Charlottenlund</p>
+            <p id="telefonText">+45 20 32 48 84
+                <br>raadglas@raadglas.dk</p>
+        </div>
+        <div id="footerNews">
+            <h3 id="nyhedsbrev">Nyhedsbrev</h3>
+            <div id="nyhedsbrevBox"></div>
+            <button id="tilmeld">Tilmeld</button>
+            <a href="https://www.instagram.com/raadglas/" target="_blank"><img id="instagramLink" src="imgs/instagram_pic.png" alt=""></a>
+        </div>
+        <div id="footerMap">
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank"><img id="mapsLink" src="imgs/maps-icon-25.png" alt=""></a>
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank">
+                <p id="mapsText">Find vej</p>
+            </a>
+        </div>
+    </footer>
+</body>
+<!-- *************************************************************************************************************** OPLEVELSE-JS-->
+<script>
+    async function loadKontakt() {
+        let kontaktObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt");
+        let kontakt = await kontaktObj.json();
+        console.log(kontakt);
+        console.log(kontakt[3].content.rendered);
+        //			document.querySelector("#kontaktBody").textContent = kontakt[3].content.rendered.replace(/<(?:.|\n)*?>/gm, '');
+        document.querySelector("#kontaktBody").innerHTML = kontakt[3].content.rendered;
+        document.querySelector("#kontaktHeadline").textContent = kontakt[3].title.rendered.replace(/<(?: .|\n)*?>/gm, '');;
+    }
+    async function loadSoMe() {
+        let template = document.querySelector("#someTemplate");
+        let parent = document.querySelector("#someContainer");
+        let someObj = await fetch("http://rearrangingly.com/KEA/raad/wp-json/wp/v2/kontakt?categories=3");
+        let some = await someObj.json();
+        console.log(some);
+        some.forEach(function (so) {
+            let clone = template.cloneNode(true).content;
+            clone.querySelector(".someImg").setAttribute("src", so.acf.ikon);
+            //                    the_clone.querySelector(".someInsta").setAttribute("data-id",hverObjekt.id);
+            console.log(so.acf.tekst);
+            clone.querySelector(".someHeadline").textContent = so.acf.tekst;
+            clone.querySelector(".someLink").setAttribute("href", so.acf.link);
+            clone.querySelector(".someLink2").setAttribute("href", so.acf.link);
+            parent.appendChild(clone);
+        });
+    }
+    loadKontakt();
+    loadSoMe();
+</script>
+<script src="burger.js"></script>
+
+</html>

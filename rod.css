@@ -1,0 +1,173 @@
+	@media (min-width: 1024px) {
+		#container {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr;
+		}
+		.bgPicture {
+			background-size: cover;
+			width: auto;
+			height: 100vw;
+			-webkit-background-size: cover;
+			-moz-background-size: center cover;
+			background-position: center bottom;
+		}
+		/******************    KONTAKT    ***********************/
+		#kontaktOplysninger {
+			border: red 3px solid;
+			position: absolute;
+			left: 2vw;
+			top: 18vh;
+			width: 30vw;
+			margin-left: 35%;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 3vw;
+			height: 50vh;
+			z-index: 2;
+			/*				display: flex;*/
+			margin-left: 5vw;
+		}
+		#kontaktBody {
+			width: 100%;
+			z-index: 2;
+			border: pink 1px dotted;
+		}
+
+		#adress {
+			position: absolute;
+			/*				bottom: 3vw;*/
+			/*				right: 27vw;*/
+			font-weight: bold;
+			z-index: 2;
+		}
+		/******************   SOCIALE MEDIER   ***********************/
+		#someContainer {
+			display: flex;
+			width: 100%;
+			justify-content: space-around;
+		}
+		.someWrapper {
+			/*				width: 100%;;*/
+			border: 2px blue dotted;
+			display: inline-block;
+		}
+		#someLinkContainer {
+			border: red 3px solid;
+			position: relative;
+			/*				bottom: 5vh;*/
+			left: 0vw;
+			/*				float: left;*/
+			transform: scale(0.8);
+			z-index: 2;
+		}
+		#someHeadlineContainer {
+			border: 2px solid yellow;
+			/*				width: 100%;*/
+			position: relative;
+			left: 0vw;
+			/*                float: left;*/
+			/*				bottom: 2vw;*/
+			z-index: 2;
+			/*				transform: scale(0.5);*/
+		}
+		.someImg {
+			position: relative;
+			z-index: 2;
+		}
+		.someHeadline {
+			font-size: 1em;
+		}
+		/******************   KORT   ***********************/
+		iframe {
+			border: solid blue 3px;
+			width: 37vw;
+
+			z-index: 2;
+			height: 62vh;
+			/*				padding: 3vw;*/
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+/*KONTAKT FORVIRRING CSS*/
+
+<style>
+		/******************    KONTAKT    ***********************/
+
+		#container {
+
+			height: 100vh;
+
+			width: 100vw;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr 1fr;
+		}
+
+		#kontaktOplysninger {
+			width: 80vw;
+			margin-left: 5%;
+			margin-right: 55;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 3;
+			left: 0vw;
+			top: 0vw;
+		}
+
+		#kontaktBody {
+			width: 50vw;
+			z-index: 2;
+			border: pink 1px dotted;
+			list-style: none;
+		}
+
+		#kontaktHeadline {
+			margin: 0;
+		}
+		/******************   SOCIALE MEDIER   ***********************/
+
+		#someContainer {
+			/*			width: 100vw;*/
+			text-align: center;
+		}
+
+		.someImg {
+			width: 50px;
+			filter: invert();
+		}
+
+		.someHeadline {
+			font-size: 1em;
+		}
+
+		#adress {
+			text-align: center;
+		}
+
+		iframe {
+			/*		width: 100vw;*/
+			/*		height: 40vh;*/
+/*					position: relative;*/
+			/*		top: 0vw;*/
+			/*		left: 0vw;*/
+			border: red 2px solid;
+		}
+
+		.bgPicture {
+			background-size: cover;
+			width: auto;
+			height: 100vh;
+			-webkit-background-size: cover;
+			-moz-background-size: center cover;
+			background-position: center top;
+		}
+	</style>

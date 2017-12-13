@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FORSIDE</title>
+    <style>
+            @media (min-width: 350px) {
+            #logoPhone {
+                width: 45vw;
+                height: 45vw;
+                z-index: 5;
+                position: absolute;
+                left: 27.5vw;
+                top: 35vw;
+            }
+            #navn {
+                display: none;
+            }
+            #videoContainer {
+                height: 100vh;
+                width: 100vw;
+                position: absolute;
+                left: 0;
+                top: 0;
+                overflow: hidden;
+            }
+            #video_iphone {
+                width: auto;
+                height: 100%;
+                position: absolute;
+                left: -90vw;
+                top: 0;
+            }
+            #instagram {
+                /*                display: none;*/
+            }
+            body {
+                margin: 0;
+                /*This disables the browsers auto-margin*/
+            }
+            #bgVideoOverlay {
+                background: linear-gradient(to right, rgba(207, 49, 0, .5) 0%, rgba(125, 185, 232, 0) 100%), 100vw !important;
+                height: 100vh;
+            }
+            #videoContainer {}
+            footer {
+                position: absolute !important;
+                bottom: -12vh;
+            }
+        }
+
+        @media (min-width: 767px) {
+            #logoPhone {
+                width: 40vw;
+                height: 40vw;
+                left: 30vw;
+                top: 30vw;
+            }
+            #video_iphone {
+                display: none !important;
+                width: 2px;
+            }
+            #navn {
+                display: none;
+            }
+            #video_ipad {
+                width: auto;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: -30vw;
+            }
+            footer {
+                bottom: -12.7vh;
+            }
+        }
+        /********************   DESKTOP  *****************************/
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+            #logoPhone {
+                display: none;
+            }
+            #videoContainer {}
+            #video_ipad {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            #instagram {
+                display: block;
+            }
+            footer {
+                bottom: -22.6vh;
+            }
+        }
+
+        @media (min-width: 1400px) {}
+
+        @media (min-width: 1900px) {}
+        /* ----------- Non-Retina Screens ----------- */
+
+        @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+            #logoPhone {
+                display: none;
+            }
+        }
+        /* ----------- Retina Screens ----------- */
+
+        @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+            #logoPhone {
+                display: none;
+            }
+            footer {
+                bottom: -15.2vh;
+            }
+            #video_ipad {
+                left: 0;
+                width: 100vw;
+                height: auto;
+            }
+        }
+        /* MACBOOK PRO RETINA 15 INCH */
+
+        @media screen and (min-device-width: 1400px) and (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 2) {
+            #logoPhone {
+                display: none;
+            }
+            #video_ipad {
+                left: 0;
+                width: 100vw;
+                height: auto;
+            }
+            footer {
+                bottom: -5.2vh;
+            }
+    </style>
+</head>
+
+<body>
+    <!--		*************************************************************************************************************** NAVIGATION TIL WEB-->
+    <nav>
+        <button class="burger">
+            <div class="menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <h2 id="navn">anders raad glas</h2> </button>
+        <div id="logoWrapper">
+            <a href="index.html" id="logoLink"> <img id="logo" src="imgs/andersRaadGlasLogo.png"> </a>
+        </div>
+        <ul id="menuContainer">
+            <li class="menuItems"><a href="galleri.html">Galleri</a></li>
+            <li class="menuItems"><a href="oplevelser.html">Oplevelser</a></li>
+            <li class="menuItems"><a href="produktudvikling.html">Produktudvikling</a></li>
+            <li class="menuItems"><a href="om.html">Om</a></li>
+            <li class="menuItems"><a href="kontakt.html">Kontakt</a></li>
+            <li id="instaItem">
+                <a href="https://www.instagram.com/raadglas/" id="instaLink"> <img id="instagram" src="imgs/instagramLogo.png"> </a>
+            </li>
+        </ul>
+    </nav> <img id="logoPhone" src="imgs/andersRaadGlasLogo.png">
+    <!--		*************************************************************************************************************** BG VIDEO-->
+    <div id="videoContainer">
+        <div id="bgVideoOverlay" class="overlay"></div>
+        <video id="video_iphone" autoplay loop muted>
+            <source src="video/background-vid-iphone.mp4" type="video/mp4"> </video>
+        <video id="video_ipad" autoplay loop muted>
+            <source src="video/some-video.mp4" type="video/mp4"> </video>
+    </div>
+    <!--	FOOTER------------------>
+    <footer>
+        <div id=footerInfo>
+            <p id="adresseText">Anders Raad
+                <br>Traverbanevej 12
+                <br>2920 Charlottenlund</p>
+            <p id="telefonText">+45 20 32 48 84
+                <br>raadglas@raadglas.dk</p>
+        </div>
+        <div id="footerNews">
+            <h3 id="nyhedsbrev">Nyhedsbrev</h3>
+            <div id="nyhedsbrevBox"></div>
+            <button id="tilmeld">Tilmeld</button>
+            <a href="https://www.instagram.com/raadglas/" target="_blank"><img id="instagramLink" src="imgs/instagram_pic.png" alt=""></a>
+        </div>
+        <div id="footerMap">
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank"><img id="mapsLink" src="imgs/maps-icon-25.png" alt=""></a>
+            <a href="https://www.google.dk/maps/place/Traverbanevej+12,+2920+Charlottenlund/@55.7535324,12.5830732,17z/data=!3m1!4b1!4m5!3m4!1s0x46524d9c2cb2964f:0x4fab685e79891bfc!8m2!3d55.7535294!4d12.5852672?dcr=0" target="_blank">
+                <p id="mapsText">Find vej</p>
+            </a>
+        </div>
+    </footer>
+    <!--	FOOTER SLUT--------------->
+    <script src="burger.js"></script>
+</body>
+<!--MOBILE-->
+
+</html>

@@ -1,0 +1,202 @@
+#h1Galleri {
+    margin-left: 4vw;
+}
+
+body {}
+
+#contentContainer {
+    padding-top: 12vh;
+    position: relative;
+    background-image: url(imgs/workshop.JPG);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*			position: fixed;*/
+    /*    background-attachment: fixed;*/
+    width: 100vw;
+    overflow: hidden;
+    z-index: 0;
+    padding-bottom: 3vh;
+}
+
+#filterContainer {}
+
+.filterRow {
+    /*    border: red 2px solid;*/
+    text-align: center;
+    margin-top: 2vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    padding-top: 1vw;
+    background-color: rgba(13, 13, 13, 0.68);
+}
+
+#itemSection {
+    height: 100%;
+    width: auto;
+    background-color: rgba(28, 28, 28, 0.89);
+    /*			width: 81vw;*/
+    /*			background-color: rgba(38, 34, 32, 0.89);*/
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.borderWrapper {
+    display: inline-block;
+}
+
+.itemImg {
+    /*    max-height: 85vw;*/
+    width: auto;
+    /*max-width: 80vw;*/
+    /*max-width: 90vw;*/
+    /*padding: 10px;*/
+}
+
+.itemWrapper {
+    height: 100%;
+    width: auto;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.filterView {
+    height: 100%;
+}
+
+
+/*MODAL*/
+
+#modalWindow {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    /*      transform: translate(-50%, -50%);*/
+    z-index: 120341239481;
+    /*			border: yellow 4px dotted;*/
+    visibility: hidden;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+#modalWrapper {
+    max-width: 100vw;
+    max-height: 100vh;
+    background-size: contain;
+    position: relative;
+    /*			transform: translate(-50%, -50%);*/
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    /*			border: pink 4px dotted;*/
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    z-index: 120341239481123123;
+    /*    align-items: center;*/
+}
+
+#modalImage {
+    height: 100%;
+    width: auto;
+    /*    overflow: scroll;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    vertical-align: middle;
+}
+
+#modalDescription {
+    /*			grid-area: modalDescription;*/
+    position: absolute;
+    top: 92.5vh;
+    left: 0vw;
+    background: rgba(0, 0, 0, 0.89);
+    padding: 3vh;
+    align-self: flex-end;
+    margin-bottom: 20vh;
+    /*			border: lightblue 10px solid;*/
+}
+
+#modalClose {
+    visibility: hidden;
+    position: absolute;
+    padding: 1.5vh;
+    top: 0vw;
+    left: 0vw;
+    background-color: rgba(0, 0, 0, 0.89);
+    cursor: pointer;
+    /*			border: yellow 20px solid;*/
+    z-index: 120341239481123123;
+    /*	size: 2em;*/
+}
+
+#modalDescription {
+    margin: 0 !important;
+    position: absolute;
+    position: absolute;
+    top: 92.5vh;
+    left: 0vw;
+    background: rgba(0, 0, 0, 0.89);
+    padding: 1.5vh;
+    align-self: flex-end;
+    margin-bottom: 20vh;
+}
+
+@media (min-width: 1024px) {
+    #filterContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: rgba(13, 13, 13, 0.68);
+        margin-bottom: 2vh;
+        margin-left: 2vh;
+        margin-right: 2vh;
+    }
+    .filterRow {
+        /*        border: red 2px solid;*/
+        text-align: center;
+        margin-top: 0vw;
+        margin-left: 0vw;
+        margin-right: 0vw;
+        padding-top: 1vw;
+        height: auto;
+        background-color: rgba(13, 13, 13, 0);
+    }
+    #itemSection {
+        margin-left: 2vh;
+        margin-right: 2vh;
+        display: grid;
+        height: 100%;
+        width: auto;
+        justify-items: center;
+        background-color: rgba(28, 28, 28, 0.89);
+        /*			width: 81vw;*/
+        /*			background-color: rgba(38, 34, 32, 0.89);*/
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        grid-template-rows: repeat(3);
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+        padding: 3vw;
+        grid-row-gap: 25px;
+    }
+}
+
+@media (min-width: 1300px) {
+    #itemSection {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1615px) {
+    #itemSection {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

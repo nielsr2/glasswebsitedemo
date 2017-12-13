@@ -1,0 +1,298 @@
+   body {
+            width: 100vw;
+        }
+
+        #bgbillede1 {
+            background-image: url(imgs/glaskugle.JPG);
+            background-size: cover;
+            /*                position: fixed;*/
+            width: 100vw;
+            height: auto;
+        }
+
+        #omContainer h2 {
+            position: absolute;
+            top: 25%;
+            left: 10%;
+            margin: 0;
+        }
+        /******************* OVERORDNEDE CONTAINERE TIL BG BILLEDER  ****************/
+
+        .omGlasContainer {
+            /*            background-image: url(imgs/contact1.JPG);*/
+            height: auto;
+            width: auto;
+            background-size: contain;
+        }
+
+        .omVaerkstedContainer {
+            /*            background-image: url(imgs/contact2.JPG);*/
+            height: auto;
+            width: auto;
+            background-size: cover;
+        }
+        /******************* GLASPUSTER LINK + VÆRKSTED LINK BILLEDER ****************/
+
+        .omGlasImg {
+            width: auto;
+            height: 50vh;
+        }
+
+        #omBilledeBox {
+            width: 100%;
+            height: 50vh;
+            position: relative;
+            overflow: hidden;
+        }
+        /******************* GLASPUSTER LINK ****************/
+
+        .oms {
+            position: absolute;
+            width: 98vw;
+            top: 65vw;
+            left: 2vw;
+            font-size: 0.9em;
+        }
+
+        .galleries {
+            position: absolute;
+            width: 94vw;
+            top: 150vw;
+            left: 6vw;
+            font-size: 0.9em;
+        }
+        /******************* OM GLASPUSTEREN ****************/
+
+        #Gportrait {
+            position: absolute;
+            left: 10vw;
+            width: 80vw;
+            height: auto;
+        }
+
+        #andersPortrait {
+            position: relative;
+            border-radius: 100px;
+            width: 70vw;
+            height: 50vw;
+        }
+
+        #Gheadline {
+            text-align: center;
+        }
+
+        #Gquote {
+            text-align: left;
+            margin-left: 10%;
+            margin-right: 10%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5vw;
+            width: 70vw;
+        }
+        /******************* SAMARBEJDER ****************/
+
+        .samarbejdeImg {
+            margin-left: 4vw;
+            height: auto;
+            width: 40vw;
+        }
+
+        .samarbejdeOverskrift {
+            text-align: center;
+            margin-top: 15vw;
+        }
+
+        #samarbejdeContainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        /******************* AWARD ****************/
+
+        #awardContainer {
+            width: 100vw;
+            margin-top: 15vw;
+        }
+
+        .awardOverskrift {
+            text-align: center;
+        }
+
+        .awardImg {
+            cursor: pointer;
+            margin-left: 10%;
+            margin-right: 10%;
+            width: 80vw;
+            height: auto;
+        }
+
+        .aarsTal {
+            text-align: center;
+        }
+        /******************* OM VÆRKSTEDET ****************/
+
+        #omVaerkstedet {
+            width: 100vw;
+            margin-top: 20vw;
+        }
+
+        .vHeadline {
+            text-align: center;
+        }
+
+        .vQuote {
+            margin-left: 10%;
+            margin-right: 10%;
+            padding: 5vw;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        /*******************360 GRADER VIDEO I VÆRKSTEDET****************/
+
+        iframe {
+            width: 100%;
+        }
+
+        .iOverskrift {
+            text-align: center;
+        }
+        /*************************************   DESKTOP MQ ***********************************/
+
+        @media screen and (min-width: 767px) {
+            .omGlasImg {
+                width: 100vw;
+                height: auto;
+            }
+            .oms {
+                top: 50vw;
+                font-size: 1em;
+            }
+            .galleries {
+                top: 115vw;
+                font-size: 1em;
+            }
+            .samarbejdeImg {
+                margin-left: 9vw;
+                height: auto;
+                width: 30vw;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            /*******************  100VH SPLASH IMAGE CONTAINER  ****************/
+            #omContainer {
+                height: 60vh;
+                width: 100vw;
+            }
+            #omContainer h2 {
+                /*                margin-left: 10%;*/
+                left: 10%;
+                position: absolute;
+            }
+            .bgPicture {
+                background-size: cover;
+                width: 100%;
+                background-repeat: no-repeat;
+            }
+            /******************* GLASPUSTER LINK ****************/
+            .omGlasImg {
+                width: 40vw;
+                margin: 0;
+            }
+            .omBilledeBox {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            .omGlaspusterenLink {
+                top: 25vh;
+                position: absolute;
+                z-index: 1;
+            }
+            /******************* VÆRKSTED LINK ****************/
+            .omVaerkstedetLink {
+                top: 25vh;
+                left: 60vw;
+                position: absolute;
+                z-index: 1;
+            }
+            .galleries {
+                width: 40vw;
+                top: 20vw;
+            }
+            .oms {
+                width: 40vw;
+                top: 20vw;
+            }
+            /******************* OM GLASPUSTEREN ****************/
+            #omGlaspusteren {
+                height: 50vh;
+                position: relative;
+                margin-top: 5vw;
+            }
+            #Gportrait {
+                top: 14vh;
+                left: 5vw;
+                position: absolute;
+                width: auto;
+                height: 25vw;
+            }
+            #Gheadline {
+                top: 4vh;
+                left: 47vw;
+                position: absolute;
+            }
+            #Gquote {
+                text-align: left;
+                top: 13vh;
+                right: 3.5vw;
+                width: 35%;
+                position: absolute;
+                padding: 2vw;
+                margin-top: 5vw;
+            }
+            /***********  INTERVIEW VIDEO ************/
+            #interviewVideo {
+                height: 40vw;
+                width: 80vw;
+                border: 2px solid red;
+                margin-left: 10vw;
+                margin-top: 10vw;
+                margin-bottom: 10vw;
+            }
+            /******************* SAMARBEJDER ****************/
+            #samarbejdeContainer {
+                display: flex;
+            }
+            .samWrapper:nth-child(even) {
+                margin-left: 5vw;
+            }
+            .samWrapper {
+                margin-left: 5vw;
+            }
+            .samarbejdeImg {
+                width: 200px;
+                margin: 0;
+                height: auto;
+            }
+            /******************* AWARD ****************/
+            .awardOverskrift {
+                text-align: center;
+                margin-top: 10vw;
+            }
+            .awardImg {
+                margin-left: 28%;
+                width: auto;
+                height: 30vw;
+            }
+            /******************* OM VÆRKSTEDET ****************/
+            .vQuote {
+                margin-left: 30%;
+                margin-right: 30%;
+                padding: 2vw;
+            }
+            /*******************360 GRADER VIDEO I VÆRKSTEDET****************/
+            iframe {
+                width: 90%;
+                height: 80vh;
+                margin-left: 5%;
+            }
+        }
+    </style>
